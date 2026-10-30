@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan <priyavijai.kalyan2007@proton.me>
+# SPDX-FileCopyrightText: 2026 Outcrop Inc
+# SPDX-License-Identifier: MIT
+# Repository: instructions
+# File GUID: 499b9383-8983-4064-8a0f-def0f19699b0
+# Created: 2026
+
+[project]
+name = "repo-metrics"
+version = "1.0.0"
+description = "Standalone CLI tool to track codebase growth and quality trends."
+authors = [
+    { name = "Gemini CLI", email = "gemini-cli@google.com" }
+]
+dependencies = [
+    "pyyaml",
+    "jinja2",
+    "click",
+    "rich"
+]
+requires-python = ">=3.11"
+
+[project.scripts]
+repo-metrics = "main:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

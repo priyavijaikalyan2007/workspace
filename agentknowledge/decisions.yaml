@@ -1,0 +1,198 @@
+# SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan <priyavijai.kalyan2007@proton.me>
+# SPDX-FileCopyrightText: 2026 Outcrop Inc
+# SPDX-License-Identifier: MIT
+# Repository: instructions
+# File GUID: eed1d9a2-32ac-4b2d-bab6-dd71d7445995
+# Created: 2026
+
+# AGENT: Architectural decisions for the generic instruction library.
+
+- id: ADR-001
+  title: Scope guides by target and language while preserving shared obligations
+  date: 2026-10-21
+  status: Accepted
+  context: >-
+    The owner approved named target and language folders, descriptive filenames, and retained common requirements.
+    The profile remains authoritative. Root scope links are derived, and unselected guides remain installed.
+    General security remains common. AI security is an additional task condition, with runtime details in language guides.
+  files:
+    - AGENTS.md
+    - instructions/WORKFLOW.md
+    - instructions/SECURITY_GUIDELINES.md
+    - instructions/AIML_SECURITY.md
+    - scripts/configure_instructions.py
+    - instructions/maintenance/scoped-guides-security-review.md
+
+- id: ADR-002
+  title: Initialize project-owned documents separately from source policies and shared instructions
+  date: 2026-10-21
+  status: Accepted
+  context: >-
+    The owner approved separate templates and initialization after a GitHub template copy retained source-project identity.
+    Known whole-file hashes permit backed-up replacement. Customized files remain project-owned.
+    Exact license choices use bundled SPDX texts. OR alternatives and separate content scope remain explicit.
+    The instruction library retains its MIT notices independently of new project licensing.
+  files:
+    - scripts/project_initialization.py
+    - scripts/license_selection.py
+    - scripts/update_template_baseline.py
+    - instructions/templates/repository/TEMPLATES.md
+
+- id: ADR-003
+  title: Record explicit Workspace choices and planned source scope
+  date: 2026-10-21
+  status: Accepted
+  context: >-
+    New repositories need instructions before source directories exist. Planned literal paths remain explicit
+    and preserve strict existing-path checks. Workspace setup uses model-specific choices rather than free-text
+    platform and delivery guesses. Legacy profiles remain readable and report missing structured choices.
+  files:
+    - scripts/workspace_profile.py
+    - scripts/profile_interview.py
+    - scripts/configure_instructions.py
+    - instructions/google-workspace/GOOGLE_WORKSPACE.md
+    - instructions/REPO.md
+
+- id: ADR-004
+  title: Use named source components and explicit database ownership
+  date: 2026-10-21
+  status: Accepted
+  context: >-
+    The owner approved additive src/<type>/<component-name>/ conventions and requested singular root test/.
+    New components use stable named locations while existing layouts remain authoritative.
+    Service-owned database scripts belong beside the backend under that service. Tool-required migrations stay
+    with their backend project. Independently managed database components require explicit ownership.
+    The interview offers replaceable examples without moving source or creating application directories.
+  files:
+    - instructions/REPO.md
+    - instructions/PERSISTENCE.md
+    - instructions/TESTING.md
+    - instructions/PROJECT_PROFILE_TEMPLATE.md
+    - scripts/profile_interview.py
+    - instructions/maintenance/recommended-layouts-review.md
+
+- id: ADR-005
+  title: Select Apps Script guidance from runtime metadata as well as source-language labels
+  date: 2026-10-21
+  status: Accepted
+  context: >-
+    Apps Script shares JavaScript syntax but has different runtime capabilities from browsers and Node.js.
+    TypeScript source can also produce Apps Script artifacts. A Workspace apps-script runtime therefore selects
+    both the runtime guide and shared JavaScript rules, independently of the editable source language.
+    HTTP runtimes keep backend and actual language guidance. Legacy explicit Apps Script language labels
+    remain sufficient to select the runtime guide without inventing missing deployment metadata.
+  files:
+    - instructions/apps-script/APPS_SCRIPT.md
+    - instructions/javascript/JAVASCRIPT.md
+    - instructions/google-workspace/GOOGLE_WORKSPACE.md
+    - scripts/configure_instructions.py
+    - scripts/tests/test_workspace_profile.py
+
+- id: ADR-006
+  title: Collect extension delivery by product and create explicitly approved source folders
+  date: 2026-10-22
+  status: Accepted
+  context: >-
+    The owner found generic browser platform and delivery prompts unclear and requested paths matching
+    src/extensions/googleworkspace/markdown. Extensions now group by ecosystem before extension name.
+    Typed browser/OS pairs and distribution choices drive tailored guidance without inventing a backend.
+    Optional Source folders metadata distinguishes approved directory creation from planned file scope.
+    First-time interactive setup records it explicitly. Every creation is previewed and validated before apply.
+    Existing paths and legacy profiles remain preserved. Terminal colors are optional and require no dependency.
+  files:
+    - scripts/browser_profile.py
+    - scripts/source_folders.py
+    - scripts/terminal_ui.py
+    - scripts/profile_interview.py
+    - scripts/configure_instructions.py
+    - instructions/REPO.md
+    - instructions/maintenance/extension-bootstrap-review.md
+
+- id: ADR-007
+  title: Keep project ownership at the root and initialize local targets without Git
+  date: 2026-10-22
+  status: Accepted
+  context: >-
+    The owner requested root project profiles and facts, selectable multiple roles per host tool,
+    and complete local setup without repeated GitHub template creation.
+    Shared rules stay under instructions/. Legacy moves preserve history, custom paths, permissions, and backups.
+    Project initialization captures business facts, creates missing operation placeholders, and reports completion tasks.
+    New backends use test locally, dev for staging, and prod for production. Unimplemented operations fail explicitly.
+    Single-license output keeps full terms in root LICENSE unless additional texts are required.
+  files:
+    - scripts/project_layout.py
+    - scripts/agent_roles.py
+    - scripts/project_context.py
+    - scripts/project_scaffolding.py
+    - instructions/AGENT_ROLES.md
+    - instructions/PROJECT_SCAFFOLDING.md
+    - PROJECT_PROFILE.md
+    - PROJECT.md
+
+- id: ADR-008
+  title: Use optional ncurses forms for interactive setup and retain plain automation
+  date: 2026-10-22
+  status: Accepted
+  context: >-
+    The owner found line-oriented terminal editing unreliable for a long interview and requested ncurses.
+    Python curses provides forms, choice lists, scrolling help, full review, and explicit cancellation.
+    TextBuffer stores printable Unicode and editing operations rather than escape sequences.
+    curses.wrapper restores terminal state. Redirected and JSON workflows remain plain.
+    --ui auto selects the interface. --ui plain opts out and --ui curses requires terminal support.
+    The setup installs no terminal dependencies or global agent configuration.
+  files:
+    - scripts/curses_interview.py
+    - scripts/interview_widgets.py
+    - scripts/terminal_ui.py
+    - scripts/interview_cancelled.py
+    - scripts/tests/test_curses_interview.py
+
+- id: ADR-009
+  title: Keep repository-wide public documents at the root
+  date: 2026-10-22
+  status: Accepted
+  context: >-
+    The owner requested visible root README, contribution, conduct, and security documents.
+    GitHub configuration remains under .github/. Setup previews known legacy moves, repairs Markdown links,
+    preserves customized content and permissions, and rejects conflicting destinations before writing.
+    README provides the public introduction. PROJECT holds detailed facts. PROJECT_PROFILE selects instructions.
+  files:
+    - scripts/project_layout.py
+    - scripts/project_initialization.py
+    - instructions/REPO.md
+    - README.md
+
+- id: ADR-010
+  title: Revisit UI questions through session history before the write boundary
+  date: 2026-10-23
+  status: Accepted
+  context: >-
+    The owner requested backward and forward navigation in the UI interview only.
+    Question snapshots retain drafts and accepted answers. Explicit Back rebuilds read-only processing
+    from fresh command arguments and matching prior answers, then reopens the chosen question.
+    Earlier edits require later confirmation and rebuild conditional choices and the final plan.
+    Final approval is never replayed. Navigation locks before writes. Plain and JSON operation remain sequential.
+  files:
+    - scripts/interview_history.py
+    - scripts/interview_question.py
+    - scripts/interview_revisit.py
+    - scripts/curses_interview.py
+    - scripts/terminal_ui.py
+
+- id: ADR-011
+  title: Select supported platforms before contextual source languages
+  date: 2026-10-23
+  status: Accepted
+  context: >-
+    The owner requested relevant selection lists instead of arbitrary language and platform input.
+    Native apps, CLI tools, and generated SDKs collect platforms before their source languages.
+    Extension runtimes use individual language choices. Existing unlisted facts require explicit retention.
+    The shared catalog also owns guide mapping and is installed with local targets.
+    Manual and JSON configurations retain existing coverage validation. Platform edits rebuild UI choices.
+  files:
+    - scripts/profile_choices.py
+    - scripts/profile_interview.py
+    - scripts/workspace_profile.py
+    - scripts/browser_profile.py
+    - scripts/configure_instructions.py
+    - instructions/REPO.md
