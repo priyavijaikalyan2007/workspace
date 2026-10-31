@@ -54,3 +54,6 @@ Created: 2026
 ## Agent roles
 
 No tool-specific roles are assigned. Follow the user task and shared workflow.
+
+Codex performs its own review and validation. The user runs Claude Code separately for independent review.
+These assignments do not request an automatic handoff or invocation of another coding tool.

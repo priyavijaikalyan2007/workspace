@@ -974,3 +974,26 @@ Response: Added UI-only F5 Back and F6 Next, with session drafts and existing fi
 User: I found some more issues. In multiple places such as tagret language selection, target platform selection etc. you ask for a comman separated free form input. Since this repository only supports specific languages and target platforms, best to present selection relevant options instead. That means, for example, if the target platforms are iOS, iPadOS and macOS, the target languages may present Swift along with TypeScript, HTML, CSS & SCSS (since those are common for websites). If tools is picked, then expanding to present Python or Go is useful.
 
 Response: Replaced language and platform name entry with supported selection lists in UI and plain interviews. Native apps, CLI tools, and generated SDKs choose platforms before contextual source languages. Extensions choose individual script, markup, and stylesheet languages. Existing unlisted facts can be retained explicitly. Platform edits rebuild language checkboxes. Manual and JSON validation remains available, and local targets include the shared catalog. Regression tests and a real ncurses checkbox trial verify the changes.
+
+## 31 October 2026: repository orientation
+
+User: ok. Summarize your understanding of this repository, your role in it, what instructions files you will load etc. Then let's work on our goals, what we intend to achieve, getting started with finetuning the instrucitons and setup, etc.
+
+Response summary: Inspected the project configuration, shared workflow, roles, source paths, and operation scripts.
+The configured Markdown extension has no implementation. Profile validation fails because the SaaS product checkbox is absent.
+Build and test operations report TODOs and exit with status 2. Existing setup changes remain separate from interview work.
+
+## 31 October 2026: interview request
+
+User: Great. So let's work on fleshing out any placeholders or gaps in the instructions. Use an interview format to work with me on that.
+
+Response summary: Started an interview about instruction ownership, the engineering quality bar, and independent review.
+
+## 31 October 2026: interview round 1
+
+User: 1) Agreed; repository specific instructions can live in ADDITIONAL.md. 2) I would keep it at the existing bar. The reason is that I see that coding agents lose context, make mistakes and pile up technical debt rapidly. I want to avoid that as much as I can. 3) I will use Claude COde separately in a separate pass differnt from yours. So you should run your own checks while Claude can come at it from a different angle.
+
+Response summary: Recorded repository-specific instruction ownership and retained the existing engineering quality requirements.
+Clarified that Codex performs its own checks and that the user runs Claude Code separately.
+Created specs/setup-interview.md to track accepted decisions and unresolved setup questions.
+No product code or shared-guide changes form part of this round.
