@@ -1012,3 +1012,11 @@ Response summary: Restarted GitHub Projects authorization after the first device
 Authorization completed, and the command restored the previously active GitHub account.
 Created setup issues #1 through #8 and the private workspace Project, then linked the tracking destinations from PROJECT.md.
 Verified all eight Project memberships and the repository link. The setup interview remains in progress under issue #1.
+
+## 31 October 2026: shared setup before product features
+
+User: Right. I would prefer we get things set up right first. For example, the scripts to build the code, publish, test etc. Decide what frameworks we are going to use across one or more extensions and documenting them. Making sure the instructions are all sorted nad correct w.r.t which scripts to use and so on.
+
+Response summary: Changed the interview sequence to establish the shared development setup before product-feature decisions.
+Inspected existing scripts and language guidance, checked current tool documentation, and prepared a proposed toolchain and command contract.
+The toolchain remains a proposal until the user answers the setup interview questions.

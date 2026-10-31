@@ -23,6 +23,7 @@ The interview remains in progress. Record accepted decisions separately from pro
 - Track work through GitHub Issues and Projects. Reuse or create the appropriate Project and ask when access or selection is unclear.
 - Fix task-introduced debt and defects that block safe completion. Track unrelated debt separately.
 - Complete and commit the primary task before starting separate cleanup or follow-up work.
+- Complete the shared development setup before implementing extension features or selecting the first Markdown workflow.
 
 The user selected these controls to reduce mistakes and technical debt when coding agents lose context.
 ADDITIONAL.md contains the operating rules. PROJECT_PROFILE.md contains the tool-role assignments and review arrangement.
@@ -35,9 +36,10 @@ CONVERSATION.md records the interview requests and response summaries.
 ## Remaining setup work
 
 - Repair the missing explicit SaaS product choice and rerun profile validation.
-- Define the initial Markdown workflow, supported features, success criteria, and exclusions.
 - Confirm the languages, development tools, test runner, source layout, and generated output policy.
-- Implement and verify project operations after the product and toolchain decisions.
+- Implement and verify shared project operations after the toolchain decisions.
+- Align instructions and documentation with the verified script commands across extensions.
+- Define the initial Markdown workflow, supported features, success criteria, and exclusions after the shared setup.
 - Complete contributor, conduct, security, and support policies through the interview.
 - Establish relevant knowledge records without inventing application models or past decisions.
 
@@ -62,8 +64,9 @@ The setup interview remains in progress. The remaining setup issues await implem
 
 ## Next action
 
-Continue the interview to define the first Markdown workflow and its acceptance criteria under issue #3.
-Keep the other setup gaps tracked while those decisions remain open.
+Continue the shared development setup interview under issue #4 using specs/development-setup.md.
+Resolve the toolchain, command contract, developer environments, and release configuration before product-feature work.
+Keep issue #3 pending until the shared setup is ready.
 
 ## Current verification limits
 

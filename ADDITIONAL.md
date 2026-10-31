@@ -76,3 +76,11 @@ Do not claim that tracking is complete until issue creation and Project membersh
 Fix technical debt introduced by the current task and existing defects that block safe completion.
 Record unrelated technical debt and follow-up work in GitHub Issues and Projects, including impact, proposed fixes, and priority.
 Complete and commit the primary task before starting separate cleanup or follow-up work.
+
+## Setup sequence
+
+Establish the shared development setup before implementing extension features.
+Decide and document the languages, frameworks, build tools, test tools, supported developer environments, and release operations first.
+Use one documented command contract across extensions. Keep extension-specific configuration and release destinations separate.
+Keep agent instructions consistent with the verified root commands and their component implementations.
+Distinguish proposed tooling, implemented tooling, local validation, Google-host validation, deployment, and publication.
