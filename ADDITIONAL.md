@@ -48,3 +48,31 @@ Codex must review its own changes and run the applicable checks before reporting
 The user runs Claude Code separately for an independent review pass.
 Do not invoke Claude Code or make completion depend on an automatic review handoff.
 Do not assume that an independent review occurred without evidence from the user or review results.
+
+## Work tracking and handoffs
+
+Use GitHub Issues and Projects to track tasks, bugs, technical debt, and follow-up work.
+Use the repository and Project links in PROJECT.md as the configured tracking destinations.
+Check existing items before creating an issue. Reuse the appropriate Project or create one when needed.
+If the correct Project or access is unclear, ask the user.
+Record each work item as an issue and add the issue to the repository's Project.
+Include the impact, completion criteria, dependencies, and known owner or ownership gap.
+Keep issue and Project status consistent with verified progress. Link relevant commits and verification evidence.
+Keep secrets, private user content, and undisclosed vulnerabilities out of public tracking.
+
+After each completed task and before a planned handoff, update the local project records and relevant GitHub items.
+Record completed work, decisions, verification results, known failures, unresolved questions, and the next action.
+Include all accumulated bugs, technical-debt items, issues, and follow-up work, with their GitHub links.
+Use CONVERSATION.md for requests and response summaries and specs/ for the relevant status and handoff records.
+Update agentknowledge/ when the shared workflow requires it. Link tracking items instead of maintaining a competing local backlog.
+When resuming work, read the local handoff and refresh the relevant GitHub issue and Project states.
+
+If GitHub is unavailable, preserve pending items and their details in the local status record.
+Report the tracking failure and identify unsynchronized items. Synchronize those items when access returns.
+Do not claim that tracking is complete until issue creation and Project membership are verified.
+
+## Technical debt and task boundaries
+
+Fix technical debt introduced by the current task and existing defects that block safe completion.
+Record unrelated technical debt and follow-up work in GitHub Issues and Projects, including impact, proposed fixes, and priority.
+Complete and commit the primary task before starting separate cleanup or follow-up work.

@@ -997,3 +997,18 @@ Response summary: Recorded repository-specific instruction ownership and retaine
 Clarified that Codex performs its own checks and that the user runs Claude Code separately.
 Created specs/setup-interview.md to track accepted decisions and unresolved setup questions.
 No product code or shared-guide changes form part of this round.
+
+## 31 October 2026: interview round 2
+
+User: 1) Yes, plus any technical debt items accumulated, bugs or issues or follow up work items. Should use Github Issues and Projects (create one if needed, or ask me) for tracking everything so nothing is ever lost. 2) Yes. LGTM.
+
+Response summary: Recorded GitHub Issues and Projects as the work-tracking system and expanded the handoff requirements.
+Accepted the task boundary for technical debt and the requirement to commit primary work before separate follow-up work.
+The user authorized Projects access for the saved repository-owner account.
+
+User: you will need to try that again; the code is expired.
+
+Response summary: Restarted GitHub Projects authorization after the first device code expired.
+Authorization completed, and the command restored the previously active GitHub account.
+Created setup issues #1 through #8 and the private workspace Project, then linked the tracking destinations from PROJECT.md.
+Verified all eight Project memberships and the repository link. The setup interview remains in progress under issue #1.

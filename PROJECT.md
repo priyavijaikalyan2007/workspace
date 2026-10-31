@@ -82,3 +82,10 @@ Single-license output keeps full terms in root LICENSE when no companion or sepa
 Interactive terminal interviews use Python curses forms. Plain and forced-curses modes are explicit --ui choices.
 PTY checks cover cursor editing, forward Delete, Backspace, choice selection, terminal resize, review, apply, and cancellation.
 Curses remains optional. JSON and redirected invocations retain plain output.
+
+## Work tracking
+
+Track tasks, bugs, technical debt, and follow-up work in [GitHub Issues](https://github.com/priyavijaikalyan2007/workspace/issues).
+Use the private [workspace Project](https://github.com/users/priyavijaikalyan2007/projects/1) to organize those issues.
+[Issue #1](https://github.com/priyavijaikalyan2007/workspace/issues/1) tracks the setup interview and links the remaining setup work.
+Keep local status and handoff records linked to these tracking items, as ADDITIONAL.md requires.
