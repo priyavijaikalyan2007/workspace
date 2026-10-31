@@ -89,3 +89,11 @@ Track tasks, bugs, technical debt, and follow-up work in [GitHub Issues](https:/
 Use the private [workspace Project](https://github.com/users/priyavijaikalyan2007/projects/1) to organize those issues.
 [Issue #1](https://github.com/priyavijaikalyan2007/workspace/issues/1) tracks the setup interview and links the remaining setup work.
 Keep local status and handoff records linked to these tracking items, as ADDITIONAL.md requires.
+
+## Selected development tools
+
+The user selected npm workspaces, strict TypeScript, esbuild, Vitest with coverage, ESLint with Stylistic rules, and repository-pinned clasp.
+These tools will provide a common setup across extensions. Tool versions and the repository toolchain are not yet installed or verified.
+The initial supported development environment is the user's Mac. No separately hosted application backend is planned.
+The meaning of client-side execution remains unresolved because the configured Editor add-on model uses Google-hosted Apps Script.
+Record the resolved runtime and UI decisions in specs/development-setup.md before implementing their build and release configuration.

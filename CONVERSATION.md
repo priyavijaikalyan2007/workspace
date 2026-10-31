@@ -1020,3 +1020,11 @@ User: Right. I would prefer we get things set up right first. For example, the s
 Response summary: Changed the interview sequence to establish the shared development setup before product-feature decisions.
 Inspected existing scripts and language guidance, checked current tool documentation, and prepared a proposed toolchain and command contract.
 The toolchain remains a proposal until the user answers the setup interview questions.
+
+## 31 October 2026: toolchain and developer environment
+
+User: 1) Yes. I assume that's the stack that allows us to build and ship Google Workspace plugin especially for Docs? 2) I don't think our extensions at this time will have any backend; all of them should be client side for now. 3) Well, I use this mac for development. Good enough for now.
+
+Response summary: Recorded the selected local toolchain and macOS development scope. Excluded a separately hosted application backend.
+Explained that the configured Editor add-on uses Google-hosted Apps Script alongside browser UI code.
+Asked whether that model satisfies the client-side requirement before implementing runtime-specific tooling.

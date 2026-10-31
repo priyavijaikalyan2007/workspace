@@ -24,6 +24,8 @@ The interview remains in progress. Record accepted decisions separately from pro
 - Fix task-introduced debt and defects that block safe completion. Track unrelated debt separately.
 - Complete and commit the primary task before starting separate cleanup or follow-up work.
 - Complete the shared development setup before implementing extension features or selecting the first Markdown workflow.
+- Use npm workspaces, strict TypeScript, esbuild, Vitest coverage, ESLint and Stylistic rules, and repository-pinned clasp.
+- Support development on the user's Mac initially. Do not introduce a separately hosted application backend.
 
 The user selected these controls to reduce mistakes and technical debt when coding agents lose context.
 ADDITIONAL.md contains the operating rules. PROJECT_PROFILE.md contains the tool-role assignments and review arrangement.
@@ -32,6 +34,7 @@ CONVERSATION.md records the interview requests and response summaries.
 ## Pending instruction decisions
 
 - Define the coverage measurements and scope that enforce the existing 90% requirement.
+- Clarify whether Google-hosted Apps Script meets the user's client-side requirement before implementing runtime-specific tooling.
 
 ## Remaining setup work
 

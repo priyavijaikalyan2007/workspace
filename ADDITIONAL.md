@@ -84,3 +84,9 @@ Decide and document the languages, frameworks, build tools, test tools, supporte
 Use one documented command contract across extensions. Keep extension-specific configuration and release destinations separate.
 Keep agent instructions consistent with the verified root commands and their component implementations.
 Distinguish proposed tooling, implemented tooling, local validation, Google-host validation, deployment, and publication.
+
+## Initial development scope
+
+Use the selected development tools recorded in PROJECT.md. Support macOS development initially.
+Do not introduce a separately hosted application backend for the initial extensions.
+Resolve the browser and Google-hosted execution boundary before implementing runtime-specific tooling.
