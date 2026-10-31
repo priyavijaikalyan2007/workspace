@@ -95,5 +95,6 @@ Keep local status and handoff records linked to these tracking items, as ADDITIO
 The user selected npm workspaces, strict TypeScript, esbuild, Vitest with coverage, ESLint with Stylistic rules, and repository-pinned clasp.
 These tools will provide a common setup across extensions. Tool versions and the repository toolchain are not yet installed or verified.
 The initial supported development environment is the user's Mac. No separately hosted application backend is planned.
-The meaning of client-side execution remains unresolved because the configured Editor add-on model uses Google-hosted Apps Script.
-Record the resolved runtime and UI decisions in specs/development-setup.md before implementing their build and release configuration.
+Google-hosted Apps Script is accepted for add-on execution. The configured Google Docs integration remains an Editor add-on.
+Browser UI code and Google-hosted document operations use separate build boundaries. No application server is required outside Google's platform.
+Record the remaining UI and release decisions in specs/development-setup.md before implementing their configuration.

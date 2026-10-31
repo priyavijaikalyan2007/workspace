@@ -13,7 +13,7 @@ Created: 2026
 
 [Issue #4](https://github.com/priyavijaikalyan2007/workspace/issues/4) tracks this work.
 Complete the shared setup before implementing extension features. The user accepted the local toolchain on 31 October 2026.
-Tool versions, runtime boundaries, UI choices, and release configuration still need resolution.
+Tool versions, UI choices, and release configuration still need resolution.
 
 ## Confirmed requirements
 
@@ -45,16 +45,16 @@ Verify global Google callbacks in generated artifacts. Bundling module exports a
 Do not choose a universal browser UI framework before discussing the supported add-on models and UI needs.
 Editor sidebars and card-based Workspace add-ons have different UI contracts.
 
-## Runtime boundary awaiting clarification
+## Selected runtime boundary
 
 The existing profile selects a Google Docs Editor add-on implemented through Apps Script.
 Editor add-ons require Apps Script. Their HTML-service browser pages can call server-side Apps Script functions.
 Google hosts those functions, so this model does not require a separately hosted application backend.
 It is not strictly browser-only execution.
 
-The user requested client-side extensions without a backend. Clarify whether Google-hosted Apps Script is acceptable.
-Do not treat that runtime boundary as accepted until the user resolves the distinction.
-The selected local toolchain can support the configured Editor add-on model, subject to runtime-compatible artifacts and host verification.
+The user confirmed that Google-hosted Apps Script is acceptable and that no separately hosted application backend is needed.
+Use browser UI code and Google-hosted Apps Script with distinct build boundaries.
+The selected local toolchain supports this model, subject to runtime-compatible artifacts and actual host verification.
 
 ## Proposed root command contract
 
@@ -81,7 +81,6 @@ Do not replace an unimplemented operation with a successful no-op or an empty pa
 
 ## Interview decisions still needed
 
-- Clarify whether Google-hosted Apps Script meets the user's client-side requirement.
 - Decide the initial UI approach and any required browser framework.
 - Decide whether to configure GitHub Actions now and select its runner environment. Developer support currently covers macOS only.
 - Define extension selection, environment names, and script options.

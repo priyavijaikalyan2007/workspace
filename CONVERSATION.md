@@ -1028,3 +1028,10 @@ User: 1) Yes. I assume that's the stack that allows us to build and ship Google 
 Response summary: Recorded the selected local toolchain and macOS development scope. Excluded a separately hosted application backend.
 Explained that the configured Editor add-on uses Google-hosted Apps Script alongside browser UI code.
 Asked whether that model satisfies the client-side requirement before implementing runtime-specific tooling.
+
+## 31 October 2026: Google-hosted runtime confirmation
+
+User: No backend to host; Google Apps Script is acceptable.
+
+Response summary: Confirmed the Google-hosted Apps Script runtime and excluded a separately hosted application backend.
+The next setup decisions concern the UI framework, script interface, and CI checks.

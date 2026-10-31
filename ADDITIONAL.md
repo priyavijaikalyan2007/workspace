@@ -89,4 +89,4 @@ Distinguish proposed tooling, implemented tooling, local validation, Google-host
 
 Use the selected development tools recorded in PROJECT.md. Support macOS development initially.
 Do not introduce a separately hosted application backend for the initial extensions.
-Resolve the browser and Google-hosted execution boundary before implementing runtime-specific tooling.
+Use Google-hosted Apps Script for the configured add-ons. Browser UI code can call Apps Script for authorized host operations.
