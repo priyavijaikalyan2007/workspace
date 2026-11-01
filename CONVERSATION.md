@@ -1066,3 +1066,10 @@ User: Strict SemVer, plus a separate increasing production release sequence.
 Response summary: Selected stable SemVer build metadata and an independent increasing production release sequence per extension.
 Documented BUILD_NUMBER precedence, UTC defaults, repository persistence, source-commit identity, and About diagnostics.
 Created issue #9 to track implementation and added it to the workspace Project.
+
+## 1 November 2026: profile validation repair
+
+Response summary: Confirmed that ./configure.sh --check failed because the SaaS product checkbox was absent.
+Restored the explicit unchecked choice and clarified the active workspace profile heading. Existing component selections remain unchanged.
+The same validation command then passed. This verifies instruction routing and does not establish a product build or test pass.
+The active workspace profile replaces the inherited instruction-library profile in the committed baseline.

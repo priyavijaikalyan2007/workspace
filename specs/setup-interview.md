@@ -52,7 +52,6 @@ CONVERSATION.md records the interview requests and response summaries.
 
 ## Remaining setup work
 
-- Repair the missing explicit SaaS product choice and rerun profile validation.
 - Confirm the languages, development tools, test runner, source layout, and generated output policy.
 - Implement and verify shared project operations after the toolchain decisions.
 - Align instructions and documentation with the verified script commands across extensions.
@@ -65,7 +64,7 @@ CONVERSATION.md records the interview requests and response summaries.
 [Issue #1](https://github.com/priyavijaikalyan2007/workspace/issues/1) tracks the remaining setup interview.
 The following issues contain the current work descriptions and completion criteria:
 
-- [Issue #2: profile validation](https://github.com/priyavijaikalyan2007/workspace/issues/2).
+- [Issue #2: profile validation](https://github.com/priyavijaikalyan2007/workspace/issues/2). Fixed and verified locally.
 - [Issue #3: first Markdown release](https://github.com/priyavijaikalyan2007/workspace/issues/3).
 - [Issue #4: development and validation setup](https://github.com/priyavijaikalyan2007/workspace/issues/4).
 - [Issue #5: contribution and conduct policies](https://github.com/priyavijaikalyan2007/workspace/issues/5).
@@ -90,6 +89,7 @@ Keep issue #3 pending until the shared setup is ready.
 ## Current verification limits
 
 The source directory is empty. No product build or test suite exists.
-Profile validation reports a missing SaaS product checkbox.
+Profile validation now passes. The missing explicit SaaS choice is restored as unchecked, preserving the standalone extension configuration.
+This check validates instruction routing, not product readiness.
 The root build and test scripts are placeholders that exit with status 2.
 Existing uncommitted setup changes predate the interview and must remain separate from the interview additions.

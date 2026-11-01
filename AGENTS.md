@@ -36,10 +36,13 @@ Common requirements apply in every profile. Read the relevant task sections:
 
 Enabled target and language guides. Read only those affected by the task:
 
-- [DOCUMENTATION.md](instructions/DOCUMENTATION.md)
-- [python/PYTHON.md](instructions/python/PYTHON.md)
-- [shell/SHELL.md](instructions/shell/SHELL.md)
-- [tools/TOOLS.md](instructions/tools/TOOLS.md)
+- [apps-script/APPS_SCRIPT.md](instructions/apps-script/APPS_SCRIPT.md)
+- [css/CSS.md](instructions/css/CSS.md)
+- [google-workspace/GOOGLE_WORKSPACE.md](instructions/google-workspace/GOOGLE_WORKSPACE.md)
+- [html/HTML.md](instructions/html/HTML.md)
+- [javascript/JAVASCRIPT.md](instructions/javascript/JAVASCRIPT.md)
+- [scss/SCSS.md](instructions/scss/SCSS.md)
+- [typescript/TYPESCRIPT.md](instructions/typescript/TYPESCRIPT.md)
 
 For AI or ML work, also read [AIML_SECURITY.md](instructions/AIML_SECURITY.md).
 For credentials or sensitive data, read [SECRET_HANDLING.md](instructions/SECRET_HANDLING.md).
