@@ -144,3 +144,19 @@ Record independently changing theme assets when diagnosing UI issues. The applic
 Use strict SemVer for production, with build identity after the plus sign.
 Reset the patch number when major or minor increases. Maintain a separate increasing production release sequence for each extension.
 Follow specs/release-versioning.md for build-number inputs, persisted release records, and About diagnostics.
+
+## Publisher resource and billing limits
+
+Start with new Google projects. Keep the publisher's Cloud projects unlinked from billing accounts and verify that billing is disabled.
+Do not attach billing accounts, activate paid services, or request paid quota increases without a new explicit user decision.
+Check actual billing state after project creation and before upload, deployment, or publication.
+Stop remote operations if billing is enabled, linked, or cannot be verified. Do not change billing settings automatically.
+
+Run interactive add-on operations under the current user's authorization.
+Do not introduce publisher-owned triggers, service-account execution, or execute-as-owner endpoints to serve other users without reviewing this boundary.
+Review quotas at user, script, and API-project levels. Do not assume that user authorization removes shared limits.
+Handle exhausted quotas with bounded recovery and clear errors. Do not enable paid capacity as a fallback.
+
+Treat the Google Cloud project as the authorization and publication configuration, not permission to provision a paid application backend.
+Keep the existing Outcrop CDN delivery decision explicit. CDN traffic still consumes hosting resources independently from Google project billing.
+Review service pricing and the verified billing state before release. Do not claim unlimited usage or zero shared resource consumption.

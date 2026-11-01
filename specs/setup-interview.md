@@ -41,6 +41,8 @@ The interview remains in progress. Record accepted decisions separately from pro
 - Require clean, committed source and an explicit version for production. Record dirty source state for development uploads.
 - Persist release versions in the repository, support injected BUILD_NUMBER values, and display running identity through an About action.
 - Use stable SemVer metadata, such as 1.2.37+202611011430.gabc1234, and a separate increasing production release sequence per extension.
+- Start with new Google projects and avoid publisher-funded Google Cloud usage for other users.
+- Keep billing accounts unlinked and billing disabled. Verify execution identities and shared quota limits before release.
 
 The user selected these controls to reduce mistakes and technical debt when coding agents lose context.
 ADDITIONAL.md contains the operating rules. PROJECT_PROFILE.md contains the tool-role assignments and review arrangement.
@@ -84,6 +86,7 @@ The setup interview remains in progress. The remaining setup issues await implem
 Continue the shared development setup interview under issue #4 using specs/development-setup.md.
 Implement the shared tooling with the accepted version policy and explicit dev/prod configuration boundaries.
 Project identifiers and credentials remain unconfigured. Local tooling and controlled tests must not require Google credentials.
+Project creation and remote operation checks must preserve the no-billing constraint. No Google projects were created during the interview.
 Keep issue #3 pending until the shared setup is ready.
 
 ## Current verification limits

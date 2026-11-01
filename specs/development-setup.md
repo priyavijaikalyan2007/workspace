@@ -115,6 +115,29 @@ Persist the effective version in the repository and artifact metadata. Keep veri
 Provide an About action that displays the version and source identity embedded in the running artifact.
 The complete requirements and remaining version-policy decisions are in specs/release-versioning.md.
 
+## Google projects and publisher cost limits
+
+The user selected new projects and requires a design that avoids publisher-funded Google Cloud usage for other users.
+Create separate dev and prod Apps Script projects per extension.
+Every Apps Script project has an associated Cloud project. Default Cloud projects can support development testing.
+Each publicly published add-on needs its own standard Cloud project for authorization and Marketplace configuration.
+Projects are required for production as well as testing. End users install and authorize the add-on rather than create developer projects.
+
+Keep publisher Cloud projects unlinked from billing accounts and verify that billing is disabled.
+Choose a creation method that does not link billing automatically. The Cloud console can automatically select an existing billing account.
+Verify the actual state after creation. Require the same billing check before remote release operations.
+If billing is linked, enabled, or unverifiable, stop and report the state without changing billing settings automatically.
+Do not add paid services or paid quota increases as a recovery mechanism.
+
+Interactive Editor add-on calls use the current user's identity, and Apps Script daily quotas are generally per user.
+Some script and API-project limits remain shared. Avoid publisher-owned execution paths that move end-user work to the publisher's account.
+Test quota exhaustion, bounded retries, and user-visible recovery without paid capacity changes.
+Treat the existing Outcrop CDN resource usage and any CI costs as separate from Google Cloud billing.
+
+On 1 November 2026, Google's Docs API limits page described standard use as free and announced planned charges for overages.
+Do not assume that older pricing statements establish future release costs. Verify applicable service pricing before release.
+No project creation, billing change, or runtime quota verification forms part of this documentation update.
+
 ## Interview decisions still needed
 
 - Configure the dev/prod project mappings and remaining script options.
@@ -128,6 +151,8 @@ The complete requirements and remaining version-policy decisions are in specs/re
 - Verify selection, invalid arguments, missing configuration, failed prerequisites, and failure propagation.
 - Verify that generated Apps Script excludes unsupported modules, browser globals, development dependencies, and credentials.
 - Verify that local commands require no Google credentials and cannot trigger remote operations.
+- Verify that project creation and remote preflight enforce the no-billing boundary and fail on unknown billing state.
+- Verify execution identities and user, script, and API-project quota failure behavior.
 - Verify that macOS CI invokes the same local commands and document its pinned runner and tool versions.
 - Check selected theme components and their complete dependency closure in the Google-hosted UI.
 - Verify the React prohibition in dependency checks and shipped artifacts.
@@ -150,3 +175,9 @@ The complete requirements and remaining version-policy decisions are in specs/re
 - [Outcrop CDN integration guide](https://static.outcrop.us/docs/CDN_INTEGRATION_GUIDE.html).
 - [Google HTML-service sandbox restrictions](https://developers.google.com/apps-script/guides/html/restrictions).
 - [WCAG 2.2](https://www.w3.org/TR/WCAG22/).
+- [Apps Script Cloud projects and publication requirements](https://developers.google.com/apps-script/guides/cloud-platform-projects).
+- [Google execution identities](https://developers.google.com/apps-script/guides/services/authorization).
+- [Apps Script quotas](https://developers.google.com/apps-script/guides/services/quotas).
+- [Google Docs API usage limits and pricing](https://developers.google.com/workspace/docs/api/limits).
+- [Cloud project creation without automatic billing association](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects).
+- [Cloud Billing account linkage](https://docs.cloud.google.com/billing/docs/how-to/modify-project).

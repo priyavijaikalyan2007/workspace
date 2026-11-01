@@ -131,3 +131,15 @@ GitHub CI and release builds may supply BUILD_NUMBER through the build propertie
 Use strict SemVer with stable build metadata, such as 1.2.37+202611011430.gabc1234.
 Maintain a separate increasing production release sequence per extension. The patch number follows SemVer reset rules.
 The release-record and About requirements are recorded in specs/release-versioning.md.
+
+## Google project and cost boundaries
+
+The user selected new Google projects. Project creation and billing verification have not occurred.
+Each extension will use separate dev and prod Apps Script projects. Public production add-ons require their own standard Google Cloud project.
+Cloud projects provide authorization, API configuration, and Marketplace identity. They do not imply an application server deployment.
+
+The publisher must not pay Google Cloud usage charges for other users' extension activity under the initial design.
+Keep billing accounts unlinked and billing disabled. Do not provision paid services or enable paid quota increases.
+Interactive operations run as the current user. Per-user quotas coexist with shared script and API-project limits.
+Outcrop CDN resource usage remains separate from Google Cloud billing under the selected live-asset model.
+Google's Docs API limits page currently announces planned paid overages. Recheck applicable pricing before release.

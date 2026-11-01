@@ -1073,3 +1073,12 @@ Response summary: Confirmed that ./configure.sh --check failed because the SaaS 
 Restored the explicit unchecked choice and clarified the active workspace profile heading. Existing component selections remain unchanged.
 The same validation command then passed. This verifies instruction routing and does not establish a product build or test pass.
 The active workspace profile replaces the inherited instruction-library profile in the committed baseline.
+
+## 1 November 2026: Google projects, quotas, and publisher costs
+
+User: We will start with new projects. One question: do we need projects or is that just for testing? Basically, I don't want "my project" consuming resources and money for "other people using these extensions".
+
+Response summary: Checked current Google project, execution identity, quota, and billing documentation.
+Production publication requires an Apps Script project and a standard Cloud project. Interactive operations run under the current user's identity.
+Recorded the no-billing constraint, shared quota limits, and the separate Outcrop CDN resource boundary.
+No Google projects were created and no billing settings were changed.
