@@ -28,6 +28,15 @@ The interview remains in progress. Record accepted decisions separately from pro
 - Support development on the user's Mac initially. Do not introduce a separately hosted application backend.
 - Use Google-hosted Apps Script for the configured add-ons. The user confirmed that this meets the no-backend requirement.
 
+## Accepted decisions: 1 November 2026
+
+- Use plain TypeScript, HTML, and CSS. Prohibit React.
+- Prefer Outcrop's documented components and request missing components through the UI team's issue tracker.
+- Follow the theme's documented delivery model: live theme and components, with pinned third-party libraries and integrity hashes.
+- Use a consistent `--extension <name>` interface. Local builds and tests default to all enabled extensions.
+- Require explicit extension and environment selection for remote operations.
+- Configure GitHub Actions to run the same local build and validation scripts on macOS for pull requests.
+
 The user selected these controls to reduce mistakes and technical debt when coding agents lose context.
 ADDITIONAL.md contains the operating rules. PROJECT_PROFILE.md contains the tool-role assignments and review arrangement.
 CONVERSATION.md records the interview requests and response summaries.
@@ -68,7 +77,7 @@ The setup interview remains in progress. The remaining setup issues await implem
 ## Next action
 
 Continue the shared development setup interview under issue #4 using specs/development-setup.md.
-Resolve the toolchain, command contract, developer environments, and release configuration before product-feature work.
+Resolve release environments, project mappings, tool versions, and remaining script options before implementing the shared tooling.
 Keep issue #3 pending until the shared setup is ready.
 
 ## Current verification limits

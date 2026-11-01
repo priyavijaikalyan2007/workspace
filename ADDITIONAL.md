@@ -90,3 +90,35 @@ Distinguish proposed tooling, implemented tooling, local validation, Google-host
 Use the selected development tools recorded in PROJECT.md. Support macOS development initially.
 Do not introduce a separately hosted application backend for the initial extensions.
 Use Google-hosted Apps Script for the configured add-ons. Browser UI code can call Apps Script for authorized host operations.
+
+## UI architecture and component reuse
+
+Use plain TypeScript, HTML, and CSS. React is prohibited, including React DOM, React UI adapters, and React-specific tooling.
+Check dependency and generated artifact contents so React does not enter through another package.
+Use the Outcrop component catalog and source locations recorded in PROJECT.md before creating UI components.
+Prefer existing components and their documented factories, dependencies, design tokens, keyboard behavior, and lifecycle methods.
+Do not substitute raw controls or a local component copy when a suitable library component exists.
+
+If a reusable component is missing or defective, request it through the UI library's GitHub issue tracker.
+Include the required behavior, API, accessibility checks, and Google-host constraints. Link that request to the workspace issue.
+Continue independent work while the component request remains open. Verify the delivered component before using it.
+
+Follow the library's documented CDN model and the canonical origin recorded in PROJECT.md.
+Theme files and components use live URLs. Third-party library assets use versioned URLs and the published integrity hashes.
+Do not attach a fixed integrity hash to an always-latest theme or component URL.
+Record selected third-party assets and hashes in the build inputs. Include the applicable notices in packaged output.
+Review any direct or transitive dependency loaded by a component, including fonts, icons, workers, and dynamic assets.
+
+Target WCAG 2.2 AA in the integrated UI. Verify keyboard behavior, focus, labels, contrast, zoom, reflow, and error announcements.
+Test the selected components in Google's HTML-service sandbox. Library claims alone do not establish add-on accessibility or host compatibility.
+
+## Commands and continuous integration
+
+Use the root command contract in specs/development-setup.md as the implementation contract until verified commands enter PROJECT.md.
+Use `--extension <name>` consistently for product operations. Local build and test commands default to all enabled extensions.
+Require an explicit extension and environment for upload, deployment, publication, and host smoke checks.
+Reject unsupported or ambiguous selections before performing an operation.
+Keep configure.sh dedicated to instruction configuration and validation.
+
+Configure GitHub Actions to run the same root build and validation scripts on a macOS runner for pull requests.
+Keep deployment and publication as explicit release operations. Local validation and pull-request checks must not trigger remote releases.

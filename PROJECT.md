@@ -98,3 +98,23 @@ The initial supported development environment is the user's Mac. No separately h
 Google-hosted Apps Script is accepted for add-on execution. The configured Google Docs integration remains an Editor add-on.
 Browser UI code and Google-hosted document operations use separate build boundaries. No application server is required outside Google's platform.
 Record the remaining UI and release decisions in specs/development-setup.md before implementing their configuration.
+
+## UI components and delivery
+
+The UI uses plain TypeScript, HTML, and CSS. React is prohibited.
+The selected library is Outcrop's enterprise theme and component collection, built around Bootstrap 5 customizations.
+Use the component documentation at https://static.outcrop.us/docs/ and the canonical asset origin https://static.outcrop.us/.
+Inspect local component source at /Users/vijaikalyan/Work/pvk2007/theme.
+The library's upstream repository and UI-team issue tracker are https://github.com/priyavijaikalyan2007/b2btheme.
+
+Follow the documented CDN model: theme files and components are live, while vendored third-party libraries use versioned URLs and integrity hashes.
+The dependency manifest is https://static.outcrop.us/lib-manifest.json.
+The integrated add-on targets WCAG 2.2 AA. Actual accessibility and HTML-service compatibility remain unverified.
+The theme repository is an inspection source, not an absolute-path dependency for workspace builds or CI.
+
+## Command and CI decisions
+
+Use `--extension <name>` for product operations. Local build and test commands default to all enabled extensions.
+Remote operations require an explicit extension and environment. Keep instruction configuration separate in configure.sh.
+GitHub Actions will run the same root validation and build scripts on macOS for pull requests.
+These interfaces and checks are accepted but not implemented. The intended contract is in specs/development-setup.md.

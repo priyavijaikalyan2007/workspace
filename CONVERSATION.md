@@ -1035,3 +1035,16 @@ User: No backend to host; Google Apps Script is acceptable.
 
 Response summary: Confirmed the Google-hosted Apps Script runtime and excluded a separately hosted application backend.
 The next setup decisions concern the UI framework, script interface, and CI checks.
+
+## 1 November 2026: UI library, command interface, and CI
+
+User: 1) I hate react. I would ban it. Plain Typescript, HTML & CSS works. For UI needs, prefer to use the components documented at static.outcrop.us/docs/ and found in teh repository ~/Work/pvk2007/theme. You can request the UI team to buidl new components if you prefer. Their theme is more of an enterprise theme customized from Bootstrap 5 but it is meant to operate cleanly with vendored dependencies, AA / WCAG guideliness etc. 2) agree 3) yes.
+
+Response summary: Recorded the React prohibition and selected Outcrop components for plain TypeScript, HTML, and CSS interfaces.
+Inspected the published documentation, local component source, dependency manifest, and upstream repository location.
+Recorded the consistent extension selector and macOS CI checks. Actual tooling and host integration remain unimplemented.
+
+User: Follow the documented CDN model: live theme/components and pinned third-party libraries.
+
+Response summary: Recorded live theme and component URLs, versioned third-party assets, and published integrity hashes as the selected delivery model.
+Kept Google-host integration and accessibility verification explicit instead of assuming that library checks establish add-on compliance.

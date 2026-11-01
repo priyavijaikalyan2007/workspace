@@ -13,7 +13,8 @@ Created: 2026
 
 [Issue #4](https://github.com/priyavijaikalyan2007/workspace/issues/4) tracks this work.
 Complete the shared setup before implementing extension features. The user accepted the local toolchain on 31 October 2026.
-Tool versions, UI choices, and release configuration still need resolution.
+The user accepted the UI approach, script selection interface, and macOS CI on 1 November 2026.
+Tool versions and release configuration still need resolution.
 
 ## Confirmed requirements
 
@@ -36,14 +37,31 @@ Tool versions, UI choices, and release configuration still need resolution.
 | Local tests | Vitest and its V8 coverage provider | Test processing, host boundaries, and build artifacts. |
 | Code checks | ESLint, typescript-eslint, and ESLint Stylistic | Enforce correctness and the configured Allman brace style. |
 | Google operations | Repository-pinned clasp | Inspect upload contents and manage configured Apps Script projects and versions. |
+| CI checks | GitHub Actions on macOS | Invoke the same root validation and build commands for pull requests. |
 
 These selections are accepted but not yet installed or validated as a repository toolchain.
 Pin compatible tool versions during implementation. Keep Node.js build dependencies out of Apps Script upload artifacts.
 Separate server and browser TypeScript configurations so browser and Node.js APIs cannot silently enter server code.
 Verify global Google callbacks in generated artifacts. Bundling module exports alone does not establish host-callable functions.
 
-Do not choose a universal browser UI framework before discussing the supported add-on models and UI needs.
-Editor sidebars and card-based Workspace add-ons have different UI contracts.
+## Selected UI and component delivery
+
+Use plain TypeScript, HTML, and CSS. React is prohibited.
+Prefer the Outcrop components documented at https://static.outcrop.us/docs/.
+PROJECT.md records the canonical asset origin, local source path, dependency manifest, and upstream issue tracker.
+Use the published component contracts and theme tokens instead of creating duplicate components or a separate appearance system.
+Request missing components or shared fixes through the UI team's issue tracker and link the request to the workspace issue.
+
+Follow the documented CDN model: theme files and components remain live, while third-party libraries use versioned URLs and integrity hashes.
+Do not describe the complete UI as frozen by the npm lockfile. Live theme and component updates can change its runtime assets.
+Do not hash-pin a mutable theme URL. Pin the third-party library URLs and hashes supplied by the dependency manifest.
+Do not make the user's local theme checkout a build or CI prerequisite.
+
+Verify selected factories, peer dependencies, asset loading order, fonts, icons, workers, and dynamic resource paths.
+Test integration in Google's HTML-service sandbox, including its navigation, framing, and HTTPS restrictions.
+Use the required Playwright browser workflow for user-facing changes and relevant component integration checks.
+Target WCAG 2.2 AA and retain keyboard and manual accessibility checks alongside automated checks.
+The theme's accessibility goals do not establish that the integrated add-on meets all applicable success criteria.
 
 ## Selected runtime boundary
 
@@ -56,12 +74,17 @@ The user confirmed that Google-hosted Apps Script is acceptable and that no sepa
 Use browser UI code and Google-hosted Apps Script with distinct build boundaries.
 The selected local toolchain supports this model, subject to runtime-compatible artifacts and actual host verification.
 
-## Proposed root command contract
+## Selected root command contract
 
-The names below define proposed responsibilities. They are not implemented commands or verified syntax.
+The command responsibilities and selection interface are accepted. The commands are not yet implemented or verified.
 Root scripts should delegate to a shared runner and the selected extension's configuration.
-Local operations should support one extension or all enabled extensions.
-Remote operations must require an explicit extension and environment.
+Use `--extension <name>` for product operations. Local build and test commands default to all enabled extensions.
+Remote operations must require `--extension <name>` and `--environment <name>`.
+Host smoke checks also require an explicit extension and environment.
+Reject invalid or missing selections before remote work. Keep configure.sh's instruction-configuration options separate.
+
+The CI workflow must call the same root test.sh and build.sh commands on macOS for pull requests.
+Keep upload, deployment, and publication outside automatic pull-request checks.
 
 | Entry point | Responsibility |
 | --- | --- |
@@ -81,9 +104,7 @@ Do not replace an unimplemented operation with a successful no-op or an empty pa
 
 ## Interview decisions still needed
 
-- Decide the initial UI approach and any required browser framework.
-- Decide whether to configure GitHub Actions now and select its runner environment. Developer support currently covers macOS only.
-- Define extension selection, environment names, and script options.
+- Define environment names, project mappings, and remaining script options.
 - Define release credentials, artifact promotion, publication steps, and verification limits.
 
 ## Completion criteria
@@ -93,7 +114,9 @@ Do not replace an unimplemented operation with a successful no-op or an empty pa
 - Verify selection, invalid arguments, missing configuration, failed prerequisites, and failure propagation.
 - Verify that generated Apps Script excludes unsupported modules, browser globals, development dependencies, and credentials.
 - Verify that local commands require no Google credentials and cannot trigger remote operations.
-- If CI is configured, verify that it invokes the same local commands and document its runner environment.
+- Verify that macOS CI invokes the same local commands and document its pinned runner and tool versions.
+- Check selected theme components and their complete dependency closure in the Google-hosted UI.
+- Verify the React prohibition in dependency checks and shipped artifacts.
 - Update README.md, SETUP.md, ADDITIONAL.md, and applicable entry files with verified commands and limits.
 - Keep Google account setup, host verification, and publication requirements explicit when they need external configuration.
 
@@ -109,3 +132,7 @@ Do not replace an unimplemented operation with a successful no-op or an empty pa
 - [Google add-on publication overview](https://developers.google.com/workspace/add-ons/how-tos/publish-add-on-overview).
 - [Google add-on types and Editor add-on runtime](https://developers.google.com/workspace/add-ons/concepts/types).
 - [HTML-service browser and server communication](https://developers.google.com/apps-script/guides/html/communication).
+- [Selected Outcrop component documentation](https://static.outcrop.us/docs/).
+- [Outcrop CDN integration guide](https://static.outcrop.us/docs/CDN_INTEGRATION_GUIDE.html).
+- [Google HTML-service sandbox restrictions](https://developers.google.com/apps-script/guides/html/restrictions).
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/).
