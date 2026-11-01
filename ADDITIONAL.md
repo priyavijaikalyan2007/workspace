@@ -87,7 +87,7 @@ Distinguish proposed tooling, implemented tooling, local validation, Google-host
 
 ## Initial development scope
 
-Use the selected development tools recorded in PROJECT.md. Support macOS development initially.
+Use the selected development tools recorded in PROJECT.md. Support native macOS development and native Ubuntu CI.
 Do not introduce a separately hosted application backend for the initial extensions.
 Use Google-hosted Apps Script for the configured add-ons. Browser UI code can call Apps Script for authorized host operations.
 
@@ -120,7 +120,7 @@ Require an explicit extension and environment for upload, deployment, publicatio
 Reject unsupported or ambiguous selections before performing an operation.
 Keep configure.sh dedicated to instruction configuration and validation.
 
-Configure GitHub Actions to run the same root build and validation scripts on a macOS runner for pull requests.
+Configure GitHub Actions to run the same root build and validation scripts directly on an Ubuntu runner for pull requests.
 Keep deployment and publication as explicit release operations. Local validation and pull-request checks must not trigger remote releases.
 
 ## Release controls and identity
@@ -160,3 +160,16 @@ Handle exhausted quotas with bounded recovery and clear errors. Do not enable pa
 Treat the Google Cloud project as the authorization and publication configuration, not permission to provision a paid application backend.
 Keep the existing Outcrop CDN delivery decision explicit. CDN traffic still consumes hosting resources independently from Google project billing.
 Review service pricing and the verified billing state before release. Do not claim unlimited usage or zero shared resource consumption.
+
+## Native development and CI portability
+
+Run local edit, build, test, and watch workflows directly on macOS.
+Run GitHub Actions build and validation jobs directly on Ubuntu hosts.
+Do not require Docker, a development container, or a CI job container for this setup.
+Containers are not selected for release packaging either. Consider them only if a concrete release need justifies a later decision.
+
+Use the same root scripts, interfaces, pinned Node.js and npm versions, and lockfile on macOS and Ubuntu.
+Keep shell wrappers thin. Put portable processing, filesystem, hashing, and timestamp logic in TypeScript using Node.js APIs.
+Avoid dependencies on GNU-only utilities, Homebrew paths, developer home directories, or newer Bash features absent from macOS system Bash.
+Install dependencies separately on each operating system. Do not copy node_modules between macOS and Linux.
+Verify paths, filename case, argument quoting, exit status, and equivalent package contents under both environments.

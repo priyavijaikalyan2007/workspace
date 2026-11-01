@@ -13,7 +13,8 @@ Created: 2026
 
 [Issue #4](https://github.com/priyavijaikalyan2007/workspace/issues/4) tracks this work.
 Complete the shared setup before implementing extension features. The user accepted the local toolchain on 31 October 2026.
-The user accepted the UI approach, script selection interface, and macOS CI on 1 November 2026.
+The user accepted the UI approach and script selection interface on 1 November 2026.
+The current execution model is native macOS development and native Ubuntu CI. It supersedes the initial macOS CI selection.
 The user accepted separate dev/prod projects, automatic package validation, and clean-source production gates on 1 November 2026.
 Tool versions, project identifiers, and release credentials still need configuration.
 
@@ -25,7 +26,7 @@ Tool versions, project identifiers, and release credentials still need configura
 - Retain strict test-first implementation and the existing coverage requirements.
 - Keep each extension's source, manifest, tests, generated output, and deployment configuration identifiable.
 - Verify the setup using controlled fixtures before product source exists. Do not report fixture checks as product validation.
-- Support development on the user's Mac. Additional developer operating systems are outside the initial support scope.
+- Support development directly on the user's Mac and run the same scripts directly on Ubuntu CI hosts.
 - Do not introduce a separately hosted application backend for the initial extensions.
 
 ## Selected local toolchain
@@ -38,7 +39,7 @@ Tool versions, project identifiers, and release credentials still need configura
 | Local tests | Vitest and its V8 coverage provider | Test processing, host boundaries, and build artifacts. |
 | Code checks | ESLint, typescript-eslint, and ESLint Stylistic | Enforce correctness and the configured Allman brace style. |
 | Google operations | Repository-pinned clasp | Inspect upload contents and manage configured Apps Script projects and versions. |
-| CI checks | GitHub Actions on macOS | Invoke the same root validation and build commands for pull requests. |
+| CI checks | GitHub Actions directly on Ubuntu | Invoke the same root validation and build commands for pull requests. |
 
 These selections are accepted but not yet installed or validated as a repository toolchain.
 Pin compatible tool versions during implementation. Keep Node.js build dependencies out of Apps Script upload artifacts.
@@ -84,8 +85,21 @@ Remote operations must require `--extension <name>` and `--environment <name>`.
 Host smoke checks also require an explicit extension and environment.
 Reject invalid or missing selections before remote work. Keep configure.sh's instruction-configuration options separate.
 
-The CI workflow must call the same root test.sh and build.sh commands on macOS for pull requests.
+The CI workflow must call the same root test.sh and build.sh commands directly on Ubuntu for pull requests.
 Keep upload, deployment, and publication outside automatic pull-request checks.
+
+## Native development and portability
+
+Run the iterative edit, build, test, and watch loop natively on macOS.
+Run CI jobs directly on Ubuntu hosts. Do not require a container for local development or CI.
+No containerized release process is selected. Consider it only if a later release requirement justifies one.
+
+Pin the same Node.js and npm versions and use the same lockfile on both platforms.
+Install platform-specific dependencies through the package manager on each host. Do not transfer node_modules between operating systems.
+Keep shell wrappers compatible with macOS system Bash. Use portable TypeScript and Node.js APIs for filesystem and build logic.
+Avoid GNU-specific commands, Homebrew paths, local theme-checkout dependencies, and implicit assumptions about filename case.
+Verify argument handling, paths containing spaces, exit statuses, output ownership, and equivalent artifact contents across platforms.
+Record local macOS verification separately from Ubuntu CI results. A workflow definition alone does not prove a successful CI run.
 
 | Entry point | Responsibility |
 | --- | --- |
@@ -153,7 +167,7 @@ No project creation, billing change, or runtime quota verification forms part of
 - Verify that local commands require no Google credentials and cannot trigger remote operations.
 - Verify that project creation and remote preflight enforce the no-billing boundary and fail on unknown billing state.
 - Verify execution identities and user, script, and API-project quota failure behavior.
-- Verify that macOS CI invokes the same local commands and document its pinned runner and tool versions.
+- Verify the same commands on native macOS and native Ubuntu CI. Document pinned runner and tool versions.
 - Check selected theme components and their complete dependency closure in the Google-hosted UI.
 - Verify the React prohibition in dependency checks and shipped artifacts.
 - Update README.md, SETUP.md, ADDITIONAL.md, and applicable entry files with verified commands and limits.

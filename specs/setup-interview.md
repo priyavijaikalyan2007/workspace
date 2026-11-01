@@ -35,7 +35,8 @@ The interview remains in progress. Record accepted decisions separately from pro
 - Follow the theme's documented delivery model: live theme and components, with pinned third-party libraries and integrity hashes.
 - Use a consistent `--extension <name>` interface. Local builds and tests default to all enabled extensions.
 - Require explicit extension and environment selection for remote operations.
-- Configure GitHub Actions to run the same local build and validation scripts on macOS for pull requests.
+- Run local development natively on macOS and the same build and validation scripts directly on Ubuntu CI hosts.
+- Require no development or CI containers. Containerized release packaging is not selected.
 - Use separate dev and prod Apps Script projects for each extension.
 - Make packaging run full validation and build automatically.
 - Require clean, committed source and an explicit version for production. Record dirty source state for development uploads.

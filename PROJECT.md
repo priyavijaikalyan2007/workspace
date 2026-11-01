@@ -116,7 +116,7 @@ The theme repository is an inspection source, not an absolute-path dependency fo
 
 Use `--extension <name>` for product operations. Local build and test commands default to all enabled extensions.
 Remote operations require an explicit extension and environment. Keep instruction configuration separate in configure.sh.
-GitHub Actions will run the same root validation and build scripts on macOS for pull requests.
+GitHub Actions will run the same root validation and build scripts directly on Ubuntu for pull requests.
 These interfaces and checks are accepted but not implemented. The intended contract is in specs/development-setup.md.
 
 ## Release controls and version identity
@@ -143,3 +143,12 @@ Keep billing accounts unlinked and billing disabled. Do not provision paid servi
 Interactive operations run as the current user. Per-user quotas coexist with shared script and API-project limits.
 Outcrop CDN resource usage remains separate from Google Cloud billing under the selected live-asset model.
 Google's Docs API limits page currently announces planned paid overages. Recheck applicable pricing before release.
+
+## Development and CI execution
+
+Local development, iterative builds, tests, and watch commands run natively on the user's Mac.
+GitHub Actions runs the same root build and validation commands natively on Ubuntu hosts.
+No development container or CI job container is required or selected.
+The earlier macOS CI selection is superseded by native Ubuntu CI with macOS local verification.
+Use pinned tools and a shared lockfile, with a separate dependency installation for each operating system.
+Containerized final packaging is not selected. The user considers containers potentially suitable for final release work, not iterative local development.

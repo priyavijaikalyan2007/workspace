@@ -1082,3 +1082,26 @@ Response summary: Checked current Google project, execution identity, quota, and
 Production publication requires an Apps Script project and a standard Cloud project. Interactive operations run under the current user's identity.
 Recorded the no-billing constraint, shared quota limits, and the separate Outcrop CDN resource boundary.
 No Google projects were created and no billing settings were changed.
+
+## 1 November 2026: native macOS development and Ubuntu CI
+
+User: great. what's next?
+
+Response summary: Identified the next milestone as the tested local toolchain and shared build, test, packaging, and CI commands.
+
+User: Right. On 5] Github probably uses Linux for its CI; i use macOS locally to developer ... so we have to make sure all scripts work either way. Alternative is containizerd dev & build.
+
+User: What native behavior do you expecT? This is Google Workspace extensions that run in the browser right?
+
+Response summary: Distinguished host build-tool portability from the browser and Google-hosted extension runtime.
+Proposed a container approach, which the user did not select.
+
+User: But I have teh container dev model. I prefer build & test directly on the mac. is that doable?
+
+User: I meant, I "hate" the container dev model. It works for "final build & packaging & distribution" but not for fast, iterative local dev.
+
+User: But if you are doing native, why not run Github builds directly on a Ubuntu host? why do we need a container?
+
+Response summary: Corrected the setup to native macOS development and native Ubuntu GitHub Actions jobs with the same scripts and pinned tools.
+No development, build, or CI container is required. Containerized release packaging is not selected.
+Recorded portability checks for shell wrappers, filesystem behavior, dependencies, arguments, and artifact contents.
