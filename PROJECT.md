@@ -152,3 +152,9 @@ No development container or CI job container is required or selected.
 The earlier macOS CI selection is superseded by native Ubuntu CI with macOS local verification.
 Use pinned tools and a shared lockfile, with a separate dependency installation for each operating system.
 Containerized final packaging is not selected. The user considers containers potentially suitable for final release work, not iterative local development.
+
+## Verified instruction-tool checks
+
+On 1 November 2026, ./configure.sh --check passed.
+The command python3 -m unittest discover -s scripts/tests -q passed all 213 retained instruction-tool tests.
+These checks validate retained configuration tooling. Product build, test, and packaging scripts remain unimplemented.

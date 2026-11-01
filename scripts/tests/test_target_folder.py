@@ -16,6 +16,8 @@ import subprocess
 import tempfile
 import unittest
 
+from fixture_library import source_repository
+
 SCRIPT = Path(__file__).resolve().parents[2] / 'configure.sh'
 
 
@@ -130,7 +132,7 @@ class TargetFolderTests(unittest.TestCase):
         self.assertEqual((self.root / 'LICENSE').read_bytes(), before)
 
     def test_target_mode_rejects_the_source_library_before_any_write(self):
-        self.root = SCRIPT.parent
+        source_repository(self.root)
         result = self.run_cli('--apply', json_answers=False, input_text='')
         self.assertEqual(result.returncode, 2)
         self.assertIn('source instruction repository', result.stderr)

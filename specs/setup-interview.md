@@ -75,6 +75,7 @@ The following issues contain the current work descriptions and completion criter
 - [Issue #7: knowledge and handoff records](https://github.com/priyavijaikalyan2007/workspace/issues/7).
 - [Issue #8: licensing and attribution](https://github.com/priyavijaikalyan2007/workspace/issues/8).
 - [Issue #9: persisted release identity and About diagnostics](https://github.com/priyavijaikalyan2007/workspace/issues/9).
+- [Issue #10: retained instruction-test baseline](https://github.com/priyavijaikalyan2007/workspace/issues/10). Fixed and verified locally with all 213 tests passing.
 
 The private [workspace Project](https://github.com/users/priyavijaikalyan2007/projects/1) organizes the tracked work.
 PROJECT.md records the tracking destinations. GitHub Projects authorization completed for priyavijaikalyan2007.

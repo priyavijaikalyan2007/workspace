@@ -11,11 +11,14 @@
 # RELATES: scripts/project_initialization.py, scripts/license_selection.py
 
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
 import tempfile
 import unittest
+
+from fixture_library import inherit_library, source_repository
 
 
 LIBRARY = Path(__file__).resolve().parents[2]
@@ -31,6 +34,7 @@ class ProjectInitializationTests(unittest.TestCase):
         self.addCleanup(self.directory.cleanup)
         self.root = Path(self.directory.name) / 'utilextensions'
         self.root.mkdir()
+        self.inherited = False
         self.identity = {'name': 'utilextensions', 'owner': 'Example Owner', 'year': '2026',
                          'repository_url': 'https://github.com/example/utilextensions',
                          'description': 'Writing tools', 'license': {'software': ['MIT']}}
@@ -42,7 +46,8 @@ class ProjectInitializationTests(unittest.TestCase):
 
     def run_cli(self, *flags, identity=True, input_text=None):
         """Run initialization with JSON selections through the public entry point."""
-        command = ['bash', str(SCRIPT), '--root', str(self.root), '--initialize-project', *flags]
+        script = self.root / 'scripts/configure-instructions.sh' if self.inherited else SCRIPT
+        command = ['bash', str(script), '--root', str(self.root), '--initialize-project', *flags]
         if identity:
             path = Path(self.directory.name) / 'project.json'
             path.write_text(json.dumps(self.identity))
@@ -50,17 +55,14 @@ class ProjectInitializationTests(unittest.TestCase):
         path = Path(self.directory.name) / 'profile.json'
         path.write_text(json.dumps(self.profile))
         command.extend(['--answers', str(path)])
-        return subprocess.run(command, text=True, input=input_text, capture_output=True, timeout=20)
+        # Disable interpreter cache writes so snapshots measure the configuration command's file changes.
+        environment = dict(os.environ, PYTHONDONTWRITEBYTECODE='1')
+        return subprocess.run(command, text=True, input=input_text, capture_output=True, timeout=20, env=environment)
 
     def inherit(self):
         """Reproduce GitHub template copying without its Git metadata."""
-        for folder in ['instructions', '.github', 'agentknowledge', 'scripts']:
-            if (LIBRARY / folder).exists():
-                shutil.copytree(LIBRARY / folder, self.root / folder, ignore=shutil.ignore_patterns('__pycache__'))
-        for name in ['LICENSE', 'AGENTS.md', 'CLAUDE.md', 'CODEX.md', 'GEMINI.md',
-                     'PROJECT_PROFILE.md', 'PROJECT.md', 'ADDITIONAL.md', 'CONVERSATION.md', 'CHANGELOG.md',
-                     'configure.sh', 'README.md', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md', 'SECURITY.md']:
-            shutil.copy2(LIBRARY / name, self.root / name)
+        inherit_library(self.root)
+        self.inherited = True
 
     def snapshot(self):
         """Capture bytes to detect writes during preview, cancellation, and errors."""
@@ -79,7 +81,8 @@ class ProjectInitializationTests(unittest.TestCase):
         self.assertEqual((self.root / '.instructions/template-backup/README.md').read_bytes(), original)
         self.assertFalse((self.root / 'agentknowledge/history.jsonl').exists())
         self.assertFalse((self.root / 'CONVERSATION.md').exists())
-        self.assertEqual((self.root / 'instructions/LICENSE').read_bytes(), (LIBRARY / 'LICENSE').read_bytes())
+        upstream = LIBRARY / 'instructions/templates/repository/INSTRUCTION_LIBRARY_LICENSE.txt'
+        self.assertEqual((self.root / 'instructions/LICENSE').read_bytes(), upstream.read_bytes())
 
     def test_dry_run_and_cancel_write_nothing(self):
         self.inherit()
@@ -216,7 +219,7 @@ class ProjectInitializationTests(unittest.TestCase):
             self.assertFalse(is_source_repository(child))
 
     def test_source_repository_initialization_is_rejected(self):
-        self.root = LIBRARY
+        source_repository(self.root)
         result = self.run_cli('--apply')
         self.assertEqual(result.returncode, 2)
         self.assertIn('source instruction repository', result.stderr)

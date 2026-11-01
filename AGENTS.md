@@ -41,7 +41,10 @@ Enabled target and language guides. Read only those affected by the task:
 - [google-workspace/GOOGLE_WORKSPACE.md](instructions/google-workspace/GOOGLE_WORKSPACE.md)
 - [html/HTML.md](instructions/html/HTML.md)
 - [javascript/JAVASCRIPT.md](instructions/javascript/JAVASCRIPT.md)
+- [python/PYTHON.md](instructions/python/PYTHON.md)
 - [scss/SCSS.md](instructions/scss/SCSS.md)
+- [shell/SHELL.md](instructions/shell/SHELL.md)
+- [tools/TOOLS.md](instructions/tools/TOOLS.md)
 - [typescript/TYPESCRIPT.md](instructions/typescript/TYPESCRIPT.md)
 
 For AI or ML work, also read [AIML_SECURITY.md](instructions/AIML_SECURITY.md).

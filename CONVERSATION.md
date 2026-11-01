@@ -1105,3 +1105,13 @@ User: But if you are doing native, why not run Github builds directly on a Ubunt
 Response summary: Corrected the setup to native macOS development and native Ubuntu GitHub Actions jobs with the same scripts and pinned tools.
 No development, build, or CI container is required. Containerized release packaging is not selected.
 Recorded portability checks for shell wrappers, filesystem behavior, dependencies, arguments, and artifact contents.
+
+## 1 November 2026: implementation baseline
+
+User: great. what's next?
+
+Response summary: Started the local tooling milestone and checked the retained configuration-tool test baseline.
+The initial 213-test run had 3 failures and 10 errors because tests depended on the original instruction repository's state.
+Moved bounded profile examples into test fixtures and constructed disposable source snapshots for initialization tests.
+Kept source-origin protection and file-preservation assertions. All 213 tests then passed, and profile validation passed.
+No application code, Google projects, or remote releases form part of this baseline repair.

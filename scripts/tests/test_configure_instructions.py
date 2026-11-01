@@ -115,10 +115,10 @@ class ConfigureInstructionsTests(unittest.TestCase):
         self.assertEqual(list(outside.iterdir()), [])
 
     def test_java_saas_native_fixture_resolves_without_dotnet_scope(self):
-        fixture = SCRIPT.parents[1] / "instructions/maintenance/examples/java-saas"
+        fixture = Path(__file__).with_name("fixtures") / "java-saas-profile.md"
         profile = self.root / PROFILE
         profile.parent.mkdir(parents=True, exist_ok=True)
-        profile.write_bytes((fixture / "PROJECT_PROFILE.md").read_bytes())
+        profile.write_bytes(fixture.read_bytes())
         for name in ["server", "web", "api/generator-config", "sdks/swift", "sdks/typescript", "apps/apple"]:
             (self.root / name).mkdir(parents=True)
         for name in ["Dockerfile", "pom.xml", "mvnw", "package.json", "api/openapi.yaml"]:
@@ -300,7 +300,7 @@ class ConfigureInstructionsTests(unittest.TestCase):
     def test_interview_explains_repository_specific_component_names(self):
         profile = self.root / PROFILE
         profile.parent.mkdir(parents=True, exist_ok=True)
-        source = SCRIPT.parents[1] / PROFILE
+        source = Path(__file__).with_name("fixtures") / "instruction-profile.md"
         text = source.read_text().replace('`*.md`, `instructions/`, `agentknowledge/`', '`src`')
         text = text.replace('`configure.sh`, `scripts/`', '`src`')
         profile.write_text(text)

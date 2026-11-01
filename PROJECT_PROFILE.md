@@ -116,6 +116,17 @@ Keep Source state: planned explicit for absent paths. Do not enable future compo
 - SDK component: none
 - Deployment: `<CLI binary, package, or configured mode>`
 
+### instruction-tools
+
+- [x] Enabled
+- Source paths: configure.sh, scripts/
+- Targets: tools
+- Languages: Python, Shell
+- Platforms: macOS, Linux
+- SaaS client: no
+- SDK component: none
+- Deployment: local instruction configuration
+
 ### workspace-extension
 
 - [x] Enabled
