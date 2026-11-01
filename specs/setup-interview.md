@@ -36,6 +36,11 @@ The interview remains in progress. Record accepted decisions separately from pro
 - Use a consistent `--extension <name>` interface. Local builds and tests default to all enabled extensions.
 - Require explicit extension and environment selection for remote operations.
 - Configure GitHub Actions to run the same local build and validation scripts on macOS for pull requests.
+- Use separate dev and prod Apps Script projects for each extension.
+- Make packaging run full validation and build automatically.
+- Require clean, committed source and an explicit version for production. Record dirty source state for development uploads.
+- Persist release versions in the repository, support injected BUILD_NUMBER values, and display running identity through an About action.
+- Use stable SemVer metadata, such as 1.2.37+202611011430.gabc1234, and a separate increasing production release sequence per extension.
 
 The user selected these controls to reduce mistakes and technical debt when coding agents lose context.
 ADDITIONAL.md contains the operating rules. PROJECT_PROFILE.md contains the tool-role assignments and review arrangement.
@@ -67,17 +72,19 @@ The following issues contain the current work descriptions and completion criter
 - [Issue #6: security reporting and support](https://github.com/priyavijaikalyan2007/workspace/issues/6).
 - [Issue #7: knowledge and handoff records](https://github.com/priyavijaikalyan2007/workspace/issues/7).
 - [Issue #8: licensing and attribution](https://github.com/priyavijaikalyan2007/workspace/issues/8).
+- [Issue #9: persisted release identity and About diagnostics](https://github.com/priyavijaikalyan2007/workspace/issues/9).
 
 The private [workspace Project](https://github.com/users/priyavijaikalyan2007/projects/1) organizes the tracked work.
 PROJECT.md records the tracking destinations. GitHub Projects authorization completed for priyavijaikalyan2007.
 The authorization command restored the previously active account, knobbyadmin.
-Verified all eight issue memberships and the repository link through GitHub.
+Verified the initial setup issue memberships and the repository link through GitHub. New release work is tracked in issue #9.
 The setup interview remains in progress. The remaining setup issues await implementation or user decisions.
 
 ## Next action
 
 Continue the shared development setup interview under issue #4 using specs/development-setup.md.
-Resolve release environments, project mappings, tool versions, and remaining script options before implementing the shared tooling.
+Implement the shared tooling with the accepted version policy and explicit dev/prod configuration boundaries.
+Project identifiers and credentials remain unconfigured. Local tooling and controlled tests must not require Google credentials.
 Keep issue #3 pending until the shared setup is ready.
 
 ## Current verification limits

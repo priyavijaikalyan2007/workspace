@@ -14,7 +14,8 @@ Created: 2026
 [Issue #4](https://github.com/priyavijaikalyan2007/workspace/issues/4) tracks this work.
 Complete the shared setup before implementing extension features. The user accepted the local toolchain on 31 October 2026.
 The user accepted the UI approach, script selection interface, and macOS CI on 1 November 2026.
-Tool versions and release configuration still need resolution.
+The user accepted separate dev/prod projects, automatic package validation, and clean-source production gates on 1 November 2026.
+Tool versions, project identifiers, and release credentials still need configuration.
 
 ## Confirmed requirements
 
@@ -91,7 +92,7 @@ Keep upload, deployment, and publication outside automatic pull-request checks.
 | configure.sh | Configure and validate instruction selection. Keep this separate from product builds. |
 | build.sh | Type-check and assemble runtime-compatible artifacts without uploading them. |
 | test.sh | Run the complete local validation suite, including code checks, tests, and coverage. |
-| package.sh | Assemble and inspect a release artifact from verified build output. |
+| package.sh | Run full validation and build, then assemble and inspect the release artifact. |
 | upload.sh | Upload prepared files to an explicitly configured Apps Script project. |
 | deploy.sh | Create or update the configured deployment from a verified uploaded version. |
 | publish.sh | Check publication readiness and support the applicable Marketplace submission process. Report manual steps explicitly. |
@@ -102,10 +103,23 @@ Separate upload, deployment, and Marketplace publication results. An upload or d
 Document callbacks, manifests, permissions, artifacts, environments, and credentials before remote operations can run.
 Do not replace an unimplemented operation with a successful no-op or an empty passing test suite.
 
+## Selected release controls
+
+Use separate dev and prod Apps Script projects for each extension.
+Make package.sh run the complete local validation suite and build. Stop after any failed prerequisite.
+Require a clean, committed source checkout and an explicit version for production.
+Development uploads may use uncommitted changes when build metadata records the dirty state.
+
+Support BUILD_NUMBER as an injected build property for local, CI, and release builds.
+Persist the effective version in the repository and artifact metadata. Keep verified production state distinct from candidate or failed releases.
+Provide an About action that displays the version and source identity embedded in the running artifact.
+The complete requirements and remaining version-policy decisions are in specs/release-versioning.md.
+
 ## Interview decisions still needed
 
-- Define environment names, project mappings, and remaining script options.
+- Configure the dev/prod project mappings and remaining script options.
 - Define release credentials, artifact promotion, publication steps, and verification limits.
+- Implement stable SemVer build metadata, the independent production release sequence, and persisted release records under issue #9.
 
 ## Completion criteria
 

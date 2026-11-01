@@ -118,3 +118,16 @@ Use `--extension <name>` for product operations. Local build and test commands d
 Remote operations require an explicit extension and environment. Keep instruction configuration separate in configure.sh.
 GitHub Actions will run the same root validation and build scripts on macOS for pull requests.
 These interfaces and checks are accepted but not implemented. The intended contract is in specs/development-setup.md.
+
+## Release controls and version identity
+
+Each extension will use separate dev and prod Apps Script projects. Project identifiers and credentials are not configured yet.
+package.sh will run full validation and build automatically. Production requires a clean, committed source checkout and an explicit version.
+Development uploads may use uncommitted source when the artifact records that state.
+
+The release identity must connect the full version, effective BUILD_NUMBER, source commit, artifact, and verified production state.
+Persist this identity in repository records and embed the running version in an About surface.
+GitHub CI and release builds may supply BUILD_NUMBER through the build properties.
+Use strict SemVer with stable build metadata, such as 1.2.37+202611011430.gabc1234.
+Maintain a separate increasing production release sequence per extension. The patch number follows SemVer reset rules.
+The release-record and About requirements are recorded in specs/release-versioning.md.

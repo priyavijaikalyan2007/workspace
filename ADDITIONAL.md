@@ -122,3 +122,25 @@ Keep configure.sh dedicated to instruction configuration and validation.
 
 Configure GitHub Actions to run the same root build and validation scripts on a macOS runner for pull requests.
 Keep deployment and publication as explicit release operations. Local validation and pull-request checks must not trigger remote releases.
+
+## Release controls and identity
+
+Use separate dev and prod Apps Script projects for each extension.
+Make package.sh run full validation and the build before assembling a package. Stop packaging when a required check fails.
+Require a clean, committed source checkout and an explicit version for production releases.
+Allow development uploads from an uncommitted checkout only when its dirty state is recorded in the build metadata.
+
+Persist the release version and its source identity in the repository. Do not rely only on CI logs or environment variables.
+Support an injected BUILD_NUMBER environment variable through the build properties.
+Preserve the effective build number in the artifact metadata and repository release record.
+Record the actual source commit independently from caller-supplied build identifiers.
+Keep candidate builds, failed releases, and verified production releases distinguishable in the release history.
+
+Provide an About action in each production extension that displays the running artifact's version and source identity.
+Read application identity from embedded build metadata, not a mutable latest-version endpoint or the current repository branch.
+Link bug reports to the full version, extension, environment, and source commit.
+Keep the application version distinct from Google's script version number and deployment identifier.
+Record independently changing theme assets when diagnosing UI issues. The application's version does not freeze live CDN components.
+Use strict SemVer for production, with build identity after the plus sign.
+Reset the patch number when major or minor increases. Maintain a separate increasing production release sequence for each extension.
+Follow specs/release-versioning.md for build-number inputs, persisted release records, and About diagnostics.

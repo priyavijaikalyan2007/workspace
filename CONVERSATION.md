@@ -1048,3 +1048,21 @@ User: Follow the documented CDN model: live theme/components and pinned third-pa
 
 Response summary: Recorded live theme and component URLs, versioned third-party assets, and published integrity hashes as the selected delivery model.
 Kept Google-host integration and accessibility verification explicit instead of assuming that library checks establish add-on compliance.
+
+## 1 November 2026: release controls and persisted version identity
+
+User: Agree on all three. For 3, I usually like a versioning scheme that is based on SemVers 2.0 and goes like this: major.minor.revision-buildnumber where buildnumber is usually YYYYMMDDhhmm+Git commitId and revision is monotically increasing with each production release. The main idea for me is to be able to distinguish which version an isuse is in and what verison is in production. Ideally, I like to have a way in production like an About button that displays the version as well.
+
+User: And invariably, this version is persisted into the repository. For GitHub CI / release builds, I think it should be configurable in the build properties: typically through an injected BUILD_NUMBER env var.
+
+Response summary: Recorded separate dev/prod projects, automatic package validation, and clean committed production sources.
+Recorded persisted release identity, BUILD_NUMBER injection, production traceability, and the About requirement.
+Asked about SemVer production metadata placement and revision resets before implementing version rules.
+
+User: Stable release: 1.2.37+202611011430.gabc1234.
+
+User: Strict SemVer, plus a separate increasing production release sequence.
+
+Response summary: Selected stable SemVer build metadata and an independent increasing production release sequence per extension.
+Documented BUILD_NUMBER precedence, UTC defaults, repository persistence, source-commit identity, and About diagnostics.
+Created issue #9 to track implementation and added it to the workspace Project.
