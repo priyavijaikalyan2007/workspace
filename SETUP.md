@@ -59,7 +59,8 @@ Upload, deploy, publish, and host smoke commands require explicit extension and 
 These commands stop before remote work because Apps Script IDs, product adapters, and an authorized release client remain unconfigured.
 Production local commands remain blocked until real product adapters and a trusted publication verifier are configured.
 The shared release engine and safe diagnostic formatter are implemented. See releases/README.md.
-Two standard Cloud projects now exist. No Markdown Apps Script project, upload, deployment, or publication exists yet.
+Two standard Cloud projects now exist. One Apps Script creation was initiated, but its ID and final state remain unverified.
+No Markdown upload, deployment, or publication was performed.
 
 The selected clasp tool is deferred because its current dependency graph introduced audit findings.
 The local lockfile excludes clasp and pins minimatch 11.0.1 to resolve the lint graph findings.
@@ -103,6 +104,8 @@ A closed billing account still counts as a prohibited link. Command failures exc
 The live query has a 20-second timeout. The check neither changes billing nor creates a deployment.
 
 Both preflight runs reported scriptConfigured=false. A successful billing check does not establish release readiness.
-Apps Script account switching failed in the current multi-account browser session.
-A publisher-only browser sign-in is pending before script creation and linking can continue.
+The publisher account was verified in the user-specified testing profile.
+Only the other Chrome profile is connected to browser control. Native control changed windows and was interrupted.
+Project creation was initiated once. Inspect My Projects before creating another project. Script IDs and Cloud linking remain unverified.
+The current control options and next steps are in specs/google-project-setup.md.
 Google documents this limitation in its [Apps Script troubleshooting guide](https://developers.google.com/apps-script/guides/support/troubleshooting).

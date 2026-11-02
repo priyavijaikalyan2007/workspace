@@ -63,7 +63,7 @@ No default gcloud account or project setting was changed.
 The browser initially used a different Google account. The saved publisher account was available in the account list.
 Selecting that account returned Google's file-open error in the multi-account browser session.
 Google documents that Apps Script does not support multi-login and recommends a single-account or private session.
-A request for a publisher-only session is pending. Do not create script resources under the other account.
+The user later supplied a publisher-only Chrome profile. The account was verified there. See the browser-control handoff below.
 
 The latest clasp registry version remains 3.4.1, so the previous dependency findings are not resolved by a newer release.
 Clasp remains absent from the local lockfile. The runtime preflight uses the installed Google Cloud CLI instead.
@@ -72,3 +72,23 @@ The full package command retains all profile, Python, compiler, lint, and covera
 
 A final verification attempt hit Vitest's coverage lock because two runs started concurrently.
 Subsequent final validation runs are sequential. The lock failure did not change application or release records.
+
+
+## Browser-control handoff: 2 November 2026
+
+The user identified the Chrome profile Priyavijai Kalyan (Knobby.IO Testing), open at the Apps Script home page.
+Native UI inspection confirmed the publisher account and showed no projects in that account's Apps Script list.
+The browser-control connection inventory exposed only the different profile Priya Vijai.
+
+Clicked New project once in the verified publisher profile. Google displayed Creating Project.
+The next native observation returned a different Chrome window. A later attempt to select the other window was interrupted by a Chrome state change.
+The created project's final state, name, and script ID remain unverified. Do not create another project before inspecting My Projects.
+No script ID was guessed or entered in workspace.config.json. No Cloud association, upload, deployment, or publication was verified.
+
+The account-selection blocker is resolved. The remaining blocker is stable browser control of the requested profile.
+Asked the user to choose between connecting that profile to browser control, retaining its active window for native control, or completing the steps manually.
+After control is available, inspect the existing project first, name it Outcrop Markdown Dev, and link it to Cloud project number 134157199372.
+Only after development is verified, create and link production to Cloud project number 468067001295.
+Recheck live billing before remote operations and after linking.
+
+Live billing rechecks returned disabled billing and no account links at 10:31:24 UTC for dev and 16:49:38 UTC for prod on 2 November 2026.

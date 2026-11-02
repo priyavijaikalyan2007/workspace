@@ -1142,3 +1142,12 @@ All 176 tooling tests and seven shell checks pass at 95.86% line coverage. Full 
 Apps Script account switching returned a Google error in the current multi-account session.
 Asked the user to prepare a publisher-only browser session. No script projects, uploads, deployments, or publications were created for Markdown.
 No repository push occurred. Issue #11 retains the browser, script linking, remote client, and Google-host work.
+
+## 2 November 2026: Publisher profile supplied
+
+The user supplied a Chrome window in profile Priyavijai Kalyan (Knobby IO testing), signed into the publisher account at https://script.google.com/home/.
+Verified the account through native UI and clicked New project once. Google displayed Creating Project.
+Native Chrome observation then returned another window, and a later window-selection action was interrupted.
+The resulting project's ID and Cloud linkage are unverified. No duplicate creation was attempted and no script ID was guessed.
+Only the other Chrome profile is connected to browser control. Asked which control method the user prefers before continuing.
+Updated the setup handoff and preserved the unconfigured script IDs. No upload, deployment, publication, or push occurred.

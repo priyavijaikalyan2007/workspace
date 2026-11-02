@@ -77,7 +77,7 @@ The local tooling contract is implemented for shared tools and a controlled fixt
 ## Release controls and version identity
 
 Each extension will use separate dev and prod Apps Script projects. Cloud project IDs are configured. Script IDs and release credentials remain unconfigured.
-package.sh runs full validation and build for the local fixture. Production commands remain blocked pending release-record implementation.
+package.sh runs full validation and build for the local fixture. Production commands remain blocked pending product and remote adapter integration.
 Development uploads may use uncommitted source when the artifact records that state.
 
 The release identity must connect the full version, effective BUILD_NUMBER, source commit, artifact, and verified production state.
@@ -151,7 +151,7 @@ Both were created with the Cloud APIs auto-enable flag disabled. No billing acco
 The new preflight.sh command verified live unbilled state in both environments and reported that script IDs remain unconfigured.
 The recorded check times were 2 November 2026 at 07:04:12 UTC for dev and 07:04:25 UTC for prod.
 
-Apps Script creation and linking require a working publisher browser session. Switching accounts in the current multi-login session returned a Google error.
-The user was asked to prepare a publisher-only session. Product adapters, host verification, and the About surface remain pending.
+The publisher account was verified in the user-specified testing Chrome profile. One script creation was initiated, but the resulting ID remains unverified.
+Stable control of that profile is pending after native Chrome control changed windows. Product adapters, host verification, and the About surface remain pending.
 Current local validation includes 176 TypeScript tests, seven shell checks, and 213 retained Python tests.
 Tooling line coverage is 95.86%. Hosted Ubuntu verification still awaits an authorized push.
