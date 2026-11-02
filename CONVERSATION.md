@@ -1115,3 +1115,12 @@ The initial 213-test run had 3 failures and 10 errors because tests depended on 
 Moved bounded profile examples into test fixtures and constructed disposable source snapshots for initialization tests.
 Kept source-origin protection and file-preservation assertions. All 213 tests then passed, and profile validation passed.
 No application code, Google projects, or remote releases form part of this baseline repair.
+
+## 2 November 2026: First local tooling milestone
+
+The user asked what comes next after selecting native macOS development and native Ubuntu CI.
+Implemented pinned local tooling, shared root commands, controlled fixture packaging, and an Ubuntu workflow.
+Test-first runs exposed missing modules and failure-boundary defects before the corresponding implementations.
+Eighty-one tooling tests pass with 96.28% line coverage. Five shell checks and 213 retained instruction tests pass.
+The fixture is not the Markdown product. Google projects, billing preflight, production records, About, and hosted CI evidence remain incomplete.
+Issue #10 is closed. Issues #4, #9, and #11 retain the remaining work. No push, deployment, or publication occurred.

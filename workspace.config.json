@@ -1,0 +1,11 @@
+{
+    "schemaVersion": 1,
+    "buildProperties": {},
+    "extensions": [
+        {
+            "name": "markdown",
+            "path": "src/extensions/googleworkspace/markdown",
+            "state": "planned"
+        }
+    ]
+}

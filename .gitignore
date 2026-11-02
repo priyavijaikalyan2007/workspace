@@ -31,3 +31,12 @@ replay_pid*
 **/__pycache__/**
 
 .metrics/**
+
+# Local dependency installation and explicitly owned generated artifacts.
+node_modules/
+build/
+dist/
+coverage/
+.clasp.json
+.clasprc.json
+*.tsbuildinfo

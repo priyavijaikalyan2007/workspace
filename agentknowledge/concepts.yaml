@@ -11,12 +11,24 @@
         "name": "InstructionConfiguration",
         "definition": "Retained profile configuration and guide validation for this consuming repository.",
         "anchor_file": "configure.sh",
-        "related": ["InstructionTestFixtures"]
+        "related": [
+            "InstructionTestFixtures"
+        ]
     },
     {
         "name": "InstructionTestFixtures",
         "definition": "Disposable instruction-source snapshots that keep retained tests independent from project identity and history.",
         "anchor_file": "scripts/tests/fixture_library.py",
-        "related": ["InstructionConfiguration"]
+        "related": [
+            "InstructionConfiguration"
+        ]
+    },
+    {
+        "name": "NativeBuildTooling",
+        "definition": "Portable root commands, strict argument and dependency policies, isolated Apps Script fixture builds, owned outputs, and immutable local packages. Product and remote adapters remain pending.",
+        "anchor_file": "src/tool/workspace-build/runner.ts",
+        "related": [
+            "InstructionConfiguration"
+        ]
     }
 ]

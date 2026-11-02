@@ -98,3 +98,12 @@ Profile validation now passes. The missing explicit SaaS choice is restored as u
 This check validates instruction routing, not product readiness.
 The root build and test scripts are placeholders that exit with status 2.
 Existing uncommitted setup changes predate the interview and must remain separate from the interview additions.
+
+
+## Implementation progress: 2 November 2026
+
+The first local tooling milestone now has pinned dependencies, working native commands, and a controlled package fixture.
+Use SETUP.md for the current command status. Issue #4 remains open for product adapters, iterative product builds, and hosted CI evidence.
+Issue #10 is closed after commit 743e83d restored all retained tests without weakening assertions.
+Issue #11 tracks remote tooling, billing preflight, and host verification. Issue #9 retains production identity and About work.
+The next setup pass must complete those release controls before any product deployment.

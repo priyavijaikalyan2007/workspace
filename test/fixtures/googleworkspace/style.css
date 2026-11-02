@@ -1,0 +1,10 @@
+/* SPDX-FileCopyrightText: 2026 Outcrop Inc
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * File GUID: e91770c9-d6c4-4dca-9075-b29869b640d0
+ * PURPOSE: Make the local fixture readable without defining product components.
+ */
+body
+{
+    font-family: sans-serif;
+    margin: 1rem;
+}

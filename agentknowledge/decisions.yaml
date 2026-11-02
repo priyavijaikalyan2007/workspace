@@ -13,6 +13,21 @@
         "date": "2026-11-01",
         "status": "Accepted",
         "context": "The inherited tests assumed the source instruction repository's identity, origin, and history. A consuming repository must validate retained tools without restoring unrelated records or weakening source-protection assertions.",
-        "files": ["scripts/tests/fixture_library.py", "scripts/tests/fixtures/instruction-profile.md"]
+        "files": [
+            "scripts/tests/fixture_library.py",
+            "scripts/tests/fixtures/instruction-profile.md"
+        ]
+    },
+    {
+        "id": "ADR-002",
+        "title": "Use native macOS development and native Ubuntu validation",
+        "date": "2026-11-02",
+        "status": "Accepted",
+        "context": "The user rejects container development. Thin Bash 3.2 wrappers delegate to pinned Node/TypeScript functions. A controlled fixture validates artifact mechanics without inventing Markdown features. Unconfigured production and remote operations fail before work. Clasp installation is deferred because the current dependency graph introduced audit findings.",
+        "files": [
+            "src/tool/workspace-build/runner.ts",
+            ".github/workflows/validate.yml",
+            "SETUP.md"
+        ]
     }
 ]

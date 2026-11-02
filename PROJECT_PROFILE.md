@@ -127,6 +127,18 @@ Keep Source state: planned explicit for absent paths. Do not enable future compo
 - SDK component: none
 - Deployment: local instruction configuration
 
+### workspace-build
+
+- [x] Enabled
+- Source paths: src/tool/workspace-build, test, package.json, package-lock.json, workspace.config.json, tsconfig.json, eslint.config.mjs, vitest.config.ts, .node-version, .npmrc, .github/workflows, *.sh
+- Targets: tools
+- Languages: TypeScript, JavaScript, Shell, HTML, CSS
+- Platforms: macOS, Linux
+- SaaS client: no
+- SDK component: none
+- Deployment: local build and validation tools
+- Source state: existing
+
 ### workspace-extension
 
 - [x] Enabled

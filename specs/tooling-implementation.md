@@ -39,11 +39,12 @@ Thin shell entry points delegate to the TypeScript runner. Processing, file safe
 - Configuration contract: config.ts exports ExtensionConfig and loadExtension(root, selection).
 - Build identity: version.ts exports BuildInfo and createBuildInfo(inputs).
 - Source identity: source.ts exports SourceState and readSourceState(root).
-- Error contract: errors.ts exports ToolError with a stable code, advice, and exit status.
+- Error contract: focused Error messages carry stable prefixes and advice. cli.ts adds a UTC timestamp and failure status.
 - File boundary: files.ts validates owned output paths and rejects symlink or traversal escapes.
 - Artifact generation: build.ts creates Apps Script and browser output, preserves callbacks, and embeds build identity.
 - Packaging: package.ts validates prerequisites, inspects files, and records hashes before producing an immutable package.
 - Execution: process.ts, validation.ts, runner.ts, and cli.ts handle processes, validation, dispatch, and diagnostics.
+- Build properties: properties.ts reads package-owned versions and checked-in defaults. policy.ts rejects React dependencies.
 - Root operations: build.sh, test.sh, package.sh, clean.sh, upload.sh, deploy.sh, publish.sh, and smoke.sh.
 - Controlled input: test/fixtures/googleworkspace contains source, manifest, and HTML/CSS packaging inputs.
 - Tests: src/tool/workspace-build/test and test/shell verify contracts, artifacts, failure propagation, and shell entry points.
@@ -70,3 +71,23 @@ No Google projects, credentials, or billing changes are needed for this mileston
 Remote operations must reject missing configuration and must never report an upload or publication that did not occur.
 Actual Google-host behavior, About UI, project billing checks, and production promotion remain explicit follow-up verification work.
 Ubuntu CI execution cannot be reported as passing until the workflow actually runs after an authorized push.
+
+
+## Local milestone evidence: 2 November 2026
+
+The initial Vitest run failed because the planned implementation modules did not exist.
+Later failing tests exposed malformed manifest acceptance, missing property precedence, and silent handling of unsupported selections.
+The corresponding fixes now pass 81 TypeScript tests with 96.28% line coverage.
+The full fixture package operation passed the retained 213 Python tests, five shell checks, profile checks, lint, and separate runtime type checks.
+Package metadata and callable global callback behavior were inspected through controlled tests.
+
+The lockfile initially reported 19 findings. Removing the unused clasp dependency and pinning minimatch 11.0.1 reduced the audit to zero.
+The override is temporary until upstream lint packages accept the fixed matcher range. Keep that follow-up in issue #4.
+Remote tooling and clasp selection are tracked in issue #11. Production records and About remain in issue #9.
+
+The fixture has no Google authorization or external UI dependencies. It proves local mechanics only.
+No deployment or production readiness is claimed. Hosted Ubuntu execution awaits an authorized push.
+
+A staged-source snapshot also passed the complete fixture package command from a path containing spaces on 2 November 2026.
+All four recorded file hashes matched the packaged bytes. The real clean command removed only owned generated output.
+A planned component README preserves the required source directory in fresh checkouts.

@@ -1,87 +1,42 @@
 <!--
 SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan <priyavijai.kalyan2007@proton.me>
 SPDX-FileCopyrightText: 2026 Outcrop Inc
+SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan 2007, Outcrop Inc, WA, USA
 SPDX-License-Identifier: MIT
-Repository: instructions
-File GUID: 64e42bd9-c0cb-415b-a0d6-e7dfa6b6105d
+Repository: workspace
+File GUID: a46fb4ba-0da8-4a73-a7e4-e49a61a898b8
 Created: 2026
 -->
 
-<!-- AGENT: Project-specific facts about the instruction library. -->
+<!-- AGENT: Current workspace facts and verified command status. -->
 
-# Instruction repository information
-
-## Identity and purpose
+# workspace project facts
 
 | Fact | Value |
 | --- | --- |
-| Repository | instructions |
-| Product | Generic coding-agent instructions and repository analysis tools |
-| Source | instructions/, root agent entries and project files, scripts/, and agentknowledge/ |
-| Review history | Git history and merged pull requests in priyavijaikalyan2007/instructions |
-| Application runtime | none |
-| Generic build.sh or test.sh | absent |
+| Project | workspace |
+| Owner | Priya Vijai Kalyan 2007, Outcrop Inc, WA, USA |
+| Repository | https://github.com/priyavijaikalyan2007/workspace |
+| Purpose | Useful extensions for Google Workspace. |
+| Intended users | Everyone who uses Google Workspace such as GMail, Google Docs, Sheets etc. |
+| User problem | Extensions to full gaps such as markdown support in Google Workspace. |
+| Expected value | Productivity gains. |
+| Initial scope | TODO: Initial product scope |
+| Success criteria | TODO: Success criteria |
+| Constraints and exclusions | TODO: Known constraints or exclusions |
+| Build and test commands | ./build.sh, ./test.sh, and ./package.sh --fixture. See SETUP.md for limits. |
+| Architecture | Native TypeScript build CLI and retained instruction configurator. Product extension remains planned. |
+| Source locations | Recorded in the component profile linked below |
+| Database migration ownership | None. No application database is selected. |
+| Component and cross-component tests | src/tool/workspace-build/test, test/shell, scripts/tests. Run ./test.sh. |
+| Source and generated output mapping | src/tool/workspace-build and test/fixtures/googleworkspace produce owned build/ and dist/ output. |
+| Deployment | Dev/prod projects selected. IDs, billing verification, and remote adapters remain unconfigured. |
 
-## Source and configuration
+Component selections are in [PROJECT_PROFILE.md](<PROJECT_PROFILE.md>).
+Local refinements are in [ADDITIONAL.md](<ADDITIONAL.md>).
+Licensing choices and attribution scope are recorded in the root LICENSE and THIRD_PARTY_NOTICES.md.
 
-| Subject | Fact |
-| --- | --- |
-| Generic entry point | AGENTS.md |
-| Shared agent workflow | instructions/WORKFLOW.md |
-| Agent entry files | CODEX.md, CLAUDE.md, GEMINI.md |
-| Project selections | PROJECT_PROFILE.md |
-| Local refinements | ADDITIONAL.md |
-| Plan and status | instructions/maintenance/instructions-plan.md, instructions/maintenance/instructions.status.md |
-| Profile selector | configure.sh, Python 3.10+, Bash, Python standard library |
-| Selector test command | python3 -m unittest discover -s scripts/tests -v |
-| Selector read-only check | ./configure.sh --check |
-| Repository-tool documentation | instructions/REPO_TOOLS_README.md |
-| Knowledge records | agentknowledge/history.jsonl and agentknowledge/lcv_constraints.yaml |
-| Source encoding | instructions/frontend/FRONTEND.md and instructions/DOCUMENTATION.md use CP1252. Most other guides use UTF-8. |
-
-## Scope facts
-
-The language snippets are examples for consuming projects. They are not a deployed application in this repository.
-The current change has no Java server, browser application, generated SDK, or native application artifact to build.
-The profile configurator is a local Python CLI with a Bash entry point and isolated filesystem integration tests.
-The Java SaaS profile under instructions/maintenance/examples/ is a fictional instruction-routing fixture.
-
-The interview supports eight product categories, including Google Workspace and browser extensions.
-Microsoft Office extension profiles are deferred. No extension host application exists in this repository.
-
-Project initialization: --initialize-project with optional --project-answers JSON.
-License texts: pinned SPDX license-list-data v3.29.0, installed without runtime network access.
-Source baseline check: python3 scripts/update_template_baseline.py.
-
-Workspace setup collects structured hosts, model, runtime, account, and distribution choices.
-Planned literal source paths are supported through an explicit source_state field.
-
-New-component layout defaults are documented in REPO.md and each selected target guide.
-The interview offers named source-path examples only when a concrete component path is absent.
-This instruction repository retains its established scripts/ and scripts/tests/ paths.
-
-Apps Script runtimes select a runtime-specific guide alongside shared JavaScript rules.
-TypeScript source additionally selects TypeScript guidance. HTTP runtimes do not imply Apps Script.
-
-Browser setup records supported browser/OS pairs and a typed distribution mode.
-Language and platform menus use supported choices from scripts/profile_choices.py.
-Native apps, tools, and generated SDKs select platforms before their contextual language lists.
-Existing unlisted values receive an explicit Keep existing option. Manual and JSON coverage validation remains available.
-First-time interactive setup records approved folder creation in optional source_folders metadata.
-Extension defaults use src/extensions/googleworkspace/markdown and src/extensions/browser/markdown.
-Those example names are replaceable. Existing configured paths retain their values.
-Terminal output supports --color auto, always, and never without external dependencies.
-
-Project-owned context files now reside at the repository root. Initialization metadata uses .instructions/.
-The selector supports --target-folder for local tests without a Git repository or existing directory.
-Tools can have multiple roles recorded in PROJECT_PROFILE.md. Shared definitions live in instructions/AGENT_ROLES.md.
-Project initialization captures optional business facts and creates missing profile-specific operation placeholders and SETUP.md.
-For new backend components, the environment model uses test locally, dev for staging, and prod for production.
-Single-license output keeps full terms in root LICENSE when no companion or separate content terms are required.
-
-Interactive terminal interviews use Python curses forms. Plain and forced-curses modes are explicit --ui choices.
-PTY checks cover cursor editing, forward Delete, Backspace, choice selection, terminal resize, review, apply, and cancellation.
-Curses remains optional. JSON and redirected invocations retain plain output.
+Setup status is recorded in SETUP.md. Local fixture operations are verified. Product operations and Google-host behavior remain unverified.
 
 ## Work tracking
 
@@ -93,11 +48,11 @@ Keep local status and handoff records linked to these tracking items, as ADDITIO
 ## Selected development tools
 
 The user selected npm workspaces, strict TypeScript, esbuild, Vitest with coverage, ESLint with Stylistic rules, and repository-pinned clasp.
-These tools will provide a common setup across extensions. Tool versions and the repository toolchain are not yet installed or verified.
+The local tools are installed through the root lockfile. Clasp remains deferred under issue #11 because its dependency graph introduced audit findings.
 The initial supported development environment is the user's Mac. No separately hosted application backend is planned.
 Google-hosted Apps Script is accepted for add-on execution. The configured Google Docs integration remains an Editor add-on.
 Browser UI code and Google-hosted document operations use separate build boundaries. No application server is required outside Google's platform.
-Record the remaining UI and release decisions in specs/development-setup.md before implementing their configuration.
+Selected UI and release decisions remain in specs/development-setup.md. Their implementation status is recorded in SETUP.md.
 
 ## UI components and delivery
 
@@ -117,12 +72,12 @@ The theme repository is an inspection source, not an absolute-path dependency fo
 Use `--extension <name>` for product operations. Local build and test commands default to all enabled extensions.
 Remote operations require an explicit extension and environment. Keep instruction configuration separate in configure.sh.
 GitHub Actions will run the same root validation and build scripts directly on Ubuntu for pull requests.
-These interfaces and checks are accepted but not implemented. The intended contract is in specs/development-setup.md.
+The local tooling contract is implemented for shared tools and a controlled fixture. Product adapters and remote operations remain pending.
 
 ## Release controls and version identity
 
 Each extension will use separate dev and prod Apps Script projects. Project identifiers and credentials are not configured yet.
-package.sh will run full validation and build automatically. Production requires a clean, committed source checkout and an explicit version.
+package.sh runs full validation and build for the local fixture. Production commands remain blocked pending release-record implementation.
 Development uploads may use uncommitted source when the artifact records that state.
 
 The release identity must connect the full version, effective BUILD_NUMBER, source commit, artifact, and verified production state.
@@ -157,4 +112,24 @@ Containerized final packaging is not selected. The user considers containers pot
 
 On 1 November 2026, ./configure.sh --check passed.
 The command python3 -m unittest discover -s scripts/tests -q passed all 213 retained instruction-tool tests.
-These checks validate retained configuration tooling. Product build, test, and packaging scripts remain unimplemented.
+These checks validate retained configuration tooling. The local fixture milestone below validates separate application tooling.
+
+## Verified local tooling
+
+The installed versions are Node.js 26.12.1, npm 11.20.0, TypeScript 6.0.3, esbuild 0.28.2, and Vitest 5.0.5.
+ESLint 10.14.0 uses typescript-eslint 8.72.1 and Stylistic 5.10.0. Python 3.15.2 runs retained configuration tests.
+The root lockfile pins the resolved graph. The minimatch 11.0.1 override fixes current lint dependency findings.
+No React package is permitted in the lockfile graph. Clasp is not installed in this local toolchain.
+
+The native Mac fixture package passed full validation on 1 November 2026.
+Further failure-boundary tests on 2 November 2026 passed 81 TypeScript tests with 96.28% line coverage.
+Five BATS checks verify the real root wrappers. The retained Python suite contains 213 passing tests.
+Server and browser fixture sources pass separate type checks. The fixture uses no product UI or external component library.
+The repository-wide product build reports planned Markdown source instead of claiming a product artifact exists.
+
+The Ubuntu 24.04 workflow uses the same pinned versions and ./package.sh --fixture command.
+Its execution remains unverified until an authorized push. No push, Google upload, deployment, or publication occurred.
+
+A staged-source snapshot also passed the complete fixture package command from a path containing spaces on 2 November 2026.
+All four recorded file hashes matched the packaged bytes. The real clean command removed only owned generated output.
+A planned component README preserves the required source directory in fresh checkouts.

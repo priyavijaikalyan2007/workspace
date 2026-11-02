@@ -16,7 +16,7 @@ Complete the shared setup before implementing extension features. The user accep
 The user accepted the UI approach and script selection interface on 1 November 2026.
 The current execution model is native macOS development and native Ubuntu CI. It supersedes the initial macOS CI selection.
 The user accepted separate dev/prod projects, automatic package validation, and clean-source production gates on 1 November 2026.
-Tool versions, project identifiers, and release credentials still need configuration.
+Local tool versions are now pinned. Project identifiers and release credentials remain unconfigured.
 
 ## Confirmed requirements
 
@@ -41,7 +41,7 @@ Tool versions, project identifiers, and release credentials still need configura
 | Google operations | Repository-pinned clasp | Inspect upload contents and manage configured Apps Script projects and versions. |
 | CI checks | GitHub Actions directly on Ubuntu | Invoke the same root validation and build commands for pull requests. |
 
-These selections are accepted but not yet installed or validated as a repository toolchain.
+The local selections are installed and validated. Clasp is deferred under issue #11 because its current dependency graph introduced audit findings.
 Pin compatible tool versions during implementation. Keep Node.js build dependencies out of Apps Script upload artifacts.
 Separate server and browser TypeScript configurations so browser and Node.js APIs cannot silently enter server code.
 Verify global Google callbacks in generated artifacts. Bundling module exports alone does not establish host-callable functions.
@@ -195,3 +195,11 @@ No project creation, billing change, or runtime quota verification forms part of
 - [Google Docs API usage limits and pricing](https://developers.google.com/workspace/docs/api/limits).
 - [Cloud project creation without automatic billing association](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects).
 - [Cloud Billing account linkage](https://docs.cloud.google.com/billing/docs/how-to/modify-project).
+
+
+## Local milestone status: 2 November 2026
+
+SETUP.md records the verified local commands and output layout. Tooling tests, shell checks, retained instruction tests, and fixture packaging pass on macOS.
+The Ubuntu workflow is configured but has not run for these unpushed changes.
+Product adapters, incremental product builds, remote operations, persisted production records, and About remain incomplete under issues #4, #9, and #11.
+The controlled fixture is not an extension release and must never be uploaded as a product.

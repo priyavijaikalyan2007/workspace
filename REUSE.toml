@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan <priyavijai.kalyan2007@proton.me>
+# SPDX-FileCopyrightText: 2026 Outcrop Inc
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Repository: workspace
+# File GUID: ad589e3c-62d3-466b-b34e-6db8352a2192
+# Created: 2026
+# PURPOSE: Attribute project-owned metadata whose formats do not support comments.
+version = 1
+
+[[annotations]]
+path = [
+    "package.json",
+    "package-lock.json",
+    "workspace.config.json",
+    "tsconfig.json",
+    ".node-version",
+    ".npmrc",
+    "src/tool/workspace-build/package.json",
+    "test/fixtures/googleworkspace/*.json",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = [
+    "2026 Priya Vijai Kalyan <priyavijai.kalyan2007@proton.me>",
+    "2026 Outcrop Inc",
+]
+SPDX-License-Identifier = "GPL-3.0-or-later"
