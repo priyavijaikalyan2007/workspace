@@ -16,6 +16,8 @@ import { run } from '../process.ts';
 import { buildTool, buildFixture } from '../build.ts';
 import { packageArtifact } from '../package.ts';
 import { readExtensions, loadExtension } from '../config.ts';
+import { checkBilling } from '../billing.ts';
+import { loadGoogleTarget } from '../google-target.ts';
 import { cleanOutput } from '../files.ts';
 
 vi.mock('../process.ts', () => ({ run: vi.fn().mockResolvedValue(undefined) }));
@@ -23,10 +25,16 @@ vi.mock('../build.ts', () => ({ buildTool: vi.fn(), buildFixture: vi.fn().mockRe
 vi.mock('../package.ts', () => ({ packageArtifact: vi.fn().mockResolvedValue('/package') }));
 vi.mock('../config.ts', () => ({ readExtensions: vi.fn(), loadExtension: vi.fn() }));
 vi.mock('../files.ts', () => ({ cleanOutput: vi.fn() }));
+vi.mock('../release-store.ts', () => ({ readLedger: vi.fn().mockResolvedValue([]) }));
+vi.mock('../billing.ts', () => ({ checkBilling: vi.fn().mockResolvedValue({ billingEnabled: false }) }));
+vi.mock('../google-target.ts', () => ({ loadGoogleTarget: vi.fn().mockResolvedValue({
+    extension: 'markdown', environment: 'prod', projectId: 'outcrop-test-prod', scriptId: null,
+}) }));
 
 beforeEach(() =>
 {
     vi.clearAllMocks();
+    vi.unstubAllEnvs();
     vi.mocked(readExtensions).mockResolvedValue([{ name: 'markdown', state: 'planned', path: 'unused' }]);
     vi.spyOn(console, 'log').mockImplementation(() =>
     {});
@@ -105,4 +113,23 @@ describe('operation safeguards', () =>
         await validate(process.cwd());
         expect(run).toHaveBeenCalledWith('/bin/bash', ['./configure.sh', '--check'], process.cwd());
     });
+});
+
+it('routes billing preflight through a live check using the explicit saved account', async () =>
+{
+    vi.stubEnv('GOOGLE_ACCOUNT', 'publisher@example.invalid');
+    await execute(process.cwd(), ['preflight', '--extension', 'markdown', '--environment', 'prod']);
+    expect(loadGoogleTarget).toHaveBeenCalledWith(process.cwd(), 'markdown', 'prod');
+    expect(checkBilling).toHaveBeenCalledWith(expect.objectContaining({ projectId: 'outcrop-test-prod' }),
+        'publisher@example.invalid');
+});
+it('inspects a planned extension without pretending that it has production history', async () =>
+{
+    await execute(process.cwd(), ['release', '--extension', 'markdown']);
+    const result = JSON.parse(vi.mocked(console.log).mock.calls.at(-1)![0]);
+    expect(result).toMatchObject({ currentProduction: null, events: [] });
+});
+it('rejects release inspection of an unregistered extension', async () =>
+{
+    await expect(execute(process.cwd(), ['release', '--extension', 'missing'])).rejects.toThrow(/Unknown extension/);
 });

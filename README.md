@@ -47,6 +47,8 @@ The Ubuntu workflow uses the same versions and root commands. Containers are not
 The fixture proves local artifact handling. It does not implement Markdown or prove compatibility with Google's host.
 Read [SETUP.md](SETUP.md) for outputs, command limits, and remaining setup work.
 Use `npm exec vitest` for native test watch mode during development.
+Use `./release.sh --extension markdown` for read-only release inspection.
+Google billing checks use `preflight.sh` and the explicit saved publisher account. See SETUP.md for the command and limits.
 
 ## Architecture and policies
 

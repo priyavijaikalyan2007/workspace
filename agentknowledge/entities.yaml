@@ -24,5 +24,14 @@
         "related": [
             "ReleaseEvent"
         ]
+    },
+    {
+        "name": "GoogleTarget",
+        "table": null,
+        "file": "src/tool/workspace-build/google-target.ts",
+        "description": "Public per-extension/environment Cloud project ID, number, and optional Apps Script ID. This record never authorizes billing state.",
+        "related": [
+            "ProductionObservation"
+        ]
     }
 ]

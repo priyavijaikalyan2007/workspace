@@ -10,7 +10,7 @@
 // FLOW: Arrange controlled inputs -> execute -> assert outcomes.
 
 import { describe, expect, it } from 'vitest';
-import { parseArguments } from '../args.ts';
+import { commandHelp, parseArguments } from '../args.ts';
 import { createBuildInfo } from '../version.ts';
 import { loadExtension } from '../config.ts';
 
@@ -48,6 +48,15 @@ describe('command arguments', () =>
     it('requires an explicit release inspection selection', () =>
     {
         expect(() => parseArguments(['release'])).toThrow();
+    });
+    it('supports read-only billing preflight with an explicit destination', () =>
+    {
+        expect(parseArguments(['preflight', '--extension', 'markdown', '--environment', 'dev']).operation)
+            .toBe('preflight');
+    });
+    it('rejects billing preflight without an explicit environment', () =>
+    {
+        expect(() => parseArguments(['preflight', '--extension', 'markdown'])).toThrow();
     });
     it('returns help without requiring remote destinations', () =>
     {
@@ -118,4 +127,14 @@ describe('product readiness', () =>
     {
         await expect(loadExtension(process.cwd(), 'missing')).rejects.toThrow(/unknown/i);
     });
+});
+
+it('documents the mandatory billing destination and explicit account prerequisite', () =>
+{
+    expect(commandHelp('preflight')).toContain('--extension NAME --environment dev|prod');
+    expect(commandHelp('preflight')).toContain('GOOGLE_ACCOUNT');
+});
+it('does not advertise fixture or environment options for read-only release inspection', () =>
+{
+    expect(commandHelp('release')).not.toMatch(/--fixture|--environment/);
 });

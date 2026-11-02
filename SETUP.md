@@ -56,10 +56,10 @@ Generated outputs and local Google configuration files are ignored by Git.
 ## Remaining release work
 
 Upload, deploy, publish, and host smoke commands require explicit extension and environment selections.
-These commands stop before remote work because project IDs, credentials, and billing preflight are not configured.
+These commands stop before remote work because Apps Script IDs, product adapters, and an authorized release client remain unconfigured.
 Production local commands remain blocked until real product adapters and a trusted publication verifier are configured.
 The shared release engine and safe diagnostic formatter are implemented. See releases/README.md.
-No Google project, deployment, or publication was created during local tooling work.
+Two standard Cloud projects now exist. No Markdown Apps Script project, upload, deployment, or publication exists yet.
 
 The selected clasp tool is deferred because its current dependency graph introduced audit findings.
 The local lockfile excludes clasp and pins minimatch 11.0.1 to resolve the lint graph findings.
@@ -77,3 +77,32 @@ Remaining work is tracked in:
 - [Issue #8](https://github.com/priyavijaikalyan2007/workspace/issues/8): licensing review and dependency notices.
 
 The full release policy remains in [specs/release-versioning.md](specs/release-versioning.md).
+
+
+## Live Google billing preflight
+
+The Markdown Cloud targets are recorded in workspace.config.json:
+
+| Environment | Project ID | Project number |
+| --- | --- | --- |
+| dev | outcrop-markdown-dev-8be3bf5 | 134157199372 |
+| prod | outcrop-markdown-prod-8be3bf5 | 468067001295 |
+
+Live checks on 2 November 2026 verified billingEnabled=false and an empty billingAccountName for both projects.
+These saved observations are historical evidence. Every preflight fetches fresh billing state.
+The commands require the Google Cloud CLI and its saved publisher account. Set GOOGLE_ACCOUNT explicitly for each invocation:
+
+```sh
+GOOGLE_ACCOUNT=publisher@example.com ./preflight.sh --extension markdown --environment dev
+GOOGLE_ACCOUNT=publisher@example.com ./preflight.sh --extension markdown --environment prod
+```
+
+Replace the example email with the saved publisher account. The command does not change the default gcloud account or project.
+The command rejects enabled billing, any billing link, missing fields, a mismatched project, or an unverifiable response.
+A closed billing account still counts as a prohibited link. Command failures exclude raw CLI output from diagnostics.
+The live query has a 20-second timeout. The check neither changes billing nor creates a deployment.
+
+Both preflight runs reported scriptConfigured=false. A successful billing check does not establish release readiness.
+Apps Script account switching failed in the current multi-account browser session.
+A publisher-only browser sign-in is pending before script creation and linking can continue.
+Google documents this limitation in its [Apps Script troubleshooting guide](https://developers.google.com/apps-script/guides/support/troubleshooting).

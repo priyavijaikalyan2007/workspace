@@ -30,7 +30,7 @@ Created: 2026
 | Database migration ownership | None. No application database is selected. |
 | Component and cross-component tests | src/tool/workspace-build/test, test/shell, scripts/tests. Run ./test.sh. |
 | Source and generated output mapping | src/tool/workspace-build and test/fixtures/googleworkspace produce owned build/ and dist/ output. |
-| Deployment | Dev/prod projects selected. IDs, billing verification, and remote adapters remain unconfigured. |
+| Deployment | Dev/prod projects selected. Cloud IDs and live billing checks are configured. Apps Script IDs and remote adapters remain unconfigured. |
 
 Component selections are in [PROJECT_PROFILE.md](<PROJECT_PROFILE.md>).
 Local refinements are in [ADDITIONAL.md](<ADDITIONAL.md>).
@@ -76,7 +76,7 @@ The local tooling contract is implemented for shared tools and a controlled fixt
 
 ## Release controls and version identity
 
-Each extension will use separate dev and prod Apps Script projects. Project identifiers and credentials are not configured yet.
+Each extension will use separate dev and prod Apps Script projects. Cloud project IDs are configured. Script IDs and release credentials remain unconfigured.
 package.sh runs full validation and build for the local fixture. Production commands remain blocked pending release-record implementation.
 Development uploads may use uncommitted source when the artifact records that state.
 
@@ -89,7 +89,7 @@ The release-record and About requirements are recorded in specs/release-versioni
 
 ## Google project and cost boundaries
 
-The user selected new Google projects. Project creation and billing verification have not occurred.
+New separate dev/prod standard Cloud projects were created on 2 November 2026. Live checks verified disabled billing and no billing-account links.
 Each extension will use separate dev and prod Apps Script projects. Public production add-ons require their own standard Google Cloud project.
 Cloud projects provide authorization, API configuration, and Marketplace identity. They do not imply an application server deployment.
 
@@ -141,3 +141,17 @@ On 2 November 2026, the shared release engine passed 147 TypeScript tests at 95.
 Tracked per-extension records preserve candidate identity, failure codes, verified production observations, and rollback events.
 The engine verifies actual package hashes and source state. The read-only release.sh command inspects registered extension histories.
 No real product release exists. Product adapters, trusted Google publication observation, and the Outcrop About surface remain pending.
+
+
+## Google project configuration
+
+The development Cloud project is outcrop-markdown-dev-8be3bf5, number 134157199372.
+The production Cloud project is outcrop-markdown-prod-8be3bf5, number 468067001295.
+Both were created with the Cloud APIs auto-enable flag disabled. No billing account was linked or billing configuration changed.
+The new preflight.sh command verified live unbilled state in both environments and reported that script IDs remain unconfigured.
+The recorded check times were 2 November 2026 at 07:04:12 UTC for dev and 07:04:25 UTC for prod.
+
+Apps Script creation and linking require a working publisher browser session. Switching accounts in the current multi-login session returned a Google error.
+The user was asked to prepare a publisher-only session. Product adapters, host verification, and the About surface remain pending.
+Current local validation includes 176 TypeScript tests, seven shell checks, and 213 retained Python tests.
+Tooling line coverage is 95.86%. Hosted Ubuntu verification still awaits an authorized push.

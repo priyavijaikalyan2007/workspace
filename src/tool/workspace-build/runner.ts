@@ -10,7 +10,7 @@
 // FLOW: Validate inputs -> perform bounded local work -> report actual results.
 
 import { join } from 'node:path';
-import { parseArguments, remoteOperations } from './args.ts';
+import { commandHelp, parseArguments, remoteOperations } from './args.ts';
 import { buildFixture, buildTool } from './build.ts';
 import { loadExtension, readExtensions } from './config.ts';
 import { cleanOutput } from './files.ts';
@@ -22,6 +22,8 @@ import { createBuildInfo } from './version.ts';
 import type { CliOptions } from './args.ts';
 import { readLedger } from './release-store.ts';
 import { currentProduction } from './release-state.ts';
+import { loadGoogleTarget } from './google-target.ts';
+import { checkBilling } from './billing.ts';
 
 /** Dispatch only validated commands. No local operation requests Google authorization. */
 export async function execute(root: string, args: string[]): Promise<void>
@@ -31,9 +33,14 @@ export async function execute(root: string, args: string[]): Promise<void>
     {
         return;
     }
+    if (options.operation === 'preflight')
+    {
+        await billingPreflight(root, options);
+        return;
+    }
     if (remoteOperations.includes(options.operation))
     {
-        throw new Error('REMOTE_UNCONFIGURED: Configure Google projects, credentials, and billing preflight first.');
+        throw new Error('REMOTE_UNCONFIGURED: Configure Apps Script IDs, product adapters, and a release client.');
     }
     if (options.extension)
     {
@@ -47,13 +54,19 @@ export async function execute(root: string, args: string[]): Promise<void>
     await localOperation(root, options);
 }
 
+async function billingPreflight(root: string, options: CliOptions): Promise<void>
+{
+    const target = await loadGoogleTarget(root, options.extension!, options.environment);
+    const billing = await checkBilling(target, process.env.GOOGLE_ACCOUNT ?? '');
+    console.log(JSON.stringify({ extension: target.extension, environment: target.environment,
+        billing, scriptConfigured: target.scriptId !== null }, null, 4));
+}
+
 async function readOnlyOperation(root: string, options: CliOptions): Promise<boolean>
 {
     if (options.help)
     {
-        console.log(`Usage: ./${options.operation}.sh --extension NAME`);
-        console.log('Build/package: [--fixture] [--environment dev|prod] [--version X.Y.Z].');
-        console.log('Release inspection is read-only. Fixture output cannot be deployed.');
+        console.log(commandHelp(options.operation));
         return true;
     }
     if (options.operation !== 'release')

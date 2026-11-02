@@ -38,5 +38,14 @@
         "related": [
             "NativeBuildTooling"
         ]
+    },
+    {
+        "name": "GoogleBillingPreflight",
+        "definition": "Explicit per-extension/environment Cloud targets and fresh bounded gcloud billing checks. Any billing link, enabled state, malformed response, or unverifiable access blocks remote readiness. Apps Script IDs remain unconfigured.",
+        "anchor_file": "src/tool/workspace-build/billing.ts",
+        "related": [
+            "NativeBuildTooling",
+            "ReleasePersistence"
+        ]
     }
 ]

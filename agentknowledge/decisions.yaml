@@ -41,5 +41,18 @@
             "src/tool/workspace-build/release-store.ts",
             "releases/README.md"
         ]
+    },
+    {
+        "id": "ADR-004",
+        "title": "Use separate unbilled Cloud targets and fresh billing preflight",
+        "date": "2026-11-02",
+        "status": "Accepted",
+        "context": "Two new standard Cloud projects reserve dev/prod ownership. Live preflight requires an explicit saved publisher account and rejects linked, enabled, missing, or mismatched billing information. Cloud IDs and project numbers are public configuration. Credentials are not stored in the repository. Apps Script account linking remains blocked on a publisher-only browser session.",
+        "files": [
+            "src/tool/workspace-build/billing.ts",
+            "src/tool/workspace-build/google-target.ts",
+            "workspace.config.json",
+            "specs/google-project-setup.md"
+        ]
     }
 ]

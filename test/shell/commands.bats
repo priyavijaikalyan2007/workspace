@@ -48,3 +48,9 @@ setup()
     [ "$status" -eq 0 ]
     [[ "$output" == *'"events": []'* ]]
 }
+
+@test "billing preflight requires an explicit account without contacting Google" {
+    run env GOOGLE_ACCOUNT= /bin/bash "${repository_root}/preflight.sh" --extension markdown --environment dev
+    [ "$status" -ne 0 ]
+    [[ "$output" == *"BILLING_ACCOUNT"* ]]
+}

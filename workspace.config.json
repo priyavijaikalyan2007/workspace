@@ -5,7 +5,19 @@
         {
             "name": "markdown",
             "path": "src/extensions/googleworkspace/markdown",
-            "state": "planned"
+            "state": "planned",
+            "google": {
+                "dev": {
+                    "projectId": "outcrop-markdown-dev-8be3bf5",
+                    "projectNumber": "134157199372",
+                    "scriptId": null
+                },
+                "prod": {
+                    "projectId": "outcrop-markdown-prod-8be3bf5",
+                    "projectNumber": "468067001295",
+                    "scriptId": null
+                }
+            }
         }
     ]
 }

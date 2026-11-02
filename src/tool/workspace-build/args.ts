@@ -19,8 +19,33 @@ export interface CliOptions
     version?: string;
 }
 
-const operations = ['build', 'test', 'package', 'clean', 'upload', 'deploy', 'publish', 'smoke', 'release'];
-export const remoteOperations = ['upload', 'deploy', 'publish', 'smoke'];
+const operations = [
+    'build', 'test', 'package', 'clean', 'upload', 'deploy', 'publish', 'smoke', 'release', 'preflight',
+];
+export const remoteOperations = ['upload', 'deploy', 'publish', 'smoke', 'preflight'];
+
+/** Keep help aligned with the parser so read-only operations never advertise ignored release flags. */
+export function commandHelp(operation: string): string
+{
+    if (operation === 'release')
+    {
+        return 'Usage: ./release.sh --extension NAME\nRead-only release history. No Google credentials are required.';
+    }
+    if (remoteOperations.includes(operation))
+    {
+        const usage = `Usage: ./${operation}.sh --extension NAME --environment dev|prod`;
+        const detail = operation === 'preflight'
+            ? 'Fresh billing check only. Requires GOOGLE_ACCOUNT and a saved gcloud login.'
+            : 'Remote product operations remain unconfigured. A billing check alone does not authorize release.';
+        return `${usage}\n${detail}`;
+    }
+    if (['build', 'package'].includes(operation))
+    {
+        return `Usage: ./${operation}.sh [--extension NAME | --fixture]` +
+            ' [--environment dev|prod] [--version X.Y.Z]\nFixture output is local and cannot be deployed.';
+    }
+    return `Usage: ./${operation}.sh [--extension NAME]\nProduct adapters remain unconfigured.`;
+}
 
 /** Parse the shared command contract without accessing the filesystem. */
 export function parseArguments(args: string[]): CliOptions

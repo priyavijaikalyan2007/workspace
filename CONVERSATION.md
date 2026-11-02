@@ -1132,3 +1132,13 @@ Implemented locked, append-only release events, clean-source and package identit
 The read-only release command reports that Markdown has no releases. The fixture cannot become a production candidate.
 All 147 tooling tests and six shell checks pass. About UI, real product adapters, and live publication observation remain pending.
 No push, deployment, or publication occurred. Google project setup follows this local commit.
+
+## 2 November 2026: Google Cloud targets and live billing preflight
+
+After the release foundation commit, created the authorized separate dev/prod Cloud projects with no billing links.
+Both immediate billing queries and the new preflight command verified disabled billing and empty account links.
+The preflight requires an explicit saved publisher account and environment and excludes raw failure output.
+All 176 tooling tests and seven shell checks pass at 95.86% line coverage. Full retained checks remain required.
+Apps Script account switching returned a Google error in the current multi-account session.
+Asked the user to prepare a publisher-only browser session. No script projects, uploads, deployments, or publications were created for Markdown.
+No repository push occurred. Issue #11 retains the browser, script linking, remote client, and Google-host work.

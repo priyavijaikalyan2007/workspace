@@ -15,6 +15,8 @@ Created: 2026
 
 ### Added
 
+- Added live Google billing preflight and separate unbilled dev/prod Cloud project configuration.
+
 - Added locked append-only release histories, production identity checks, rollback events, read-only inspection, and safe diagnostics.
 
 - Pinned native TypeScript tooling, shared root commands, and an Ubuntu validation workflow.
