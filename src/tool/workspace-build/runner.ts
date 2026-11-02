@@ -20,15 +20,15 @@ import { readBuildProperties } from './properties.ts';
 import { validate } from './validation.ts';
 import { createBuildInfo } from './version.ts';
 import type { CliOptions } from './args.ts';
+import { readLedger } from './release-store.ts';
+import { currentProduction } from './release-state.ts';
 
 /** Dispatch only validated commands. No local operation requests Google authorization. */
 export async function execute(root: string, args: string[]): Promise<void>
 {
     const options = parseArguments(args);
-    if (options.help)
+    if (await readOnlyOperation(root, options))
     {
-        console.log(`Usage: ./${options.operation}.sh [--extension NAME | --fixture] [--environment dev|prod]`);
-        console.log('Build/package: --version X.Y.Z. Fixture output is local and cannot be deployed.');
         return;
     }
     if (remoteOperations.includes(options.operation))
@@ -45,6 +45,29 @@ export async function execute(root: string, args: string[]): Promise<void>
         await requireProductAdapters(root);
     }
     await localOperation(root, options);
+}
+
+async function readOnlyOperation(root: string, options: CliOptions): Promise<boolean>
+{
+    if (options.help)
+    {
+        console.log(`Usage: ./${options.operation}.sh --extension NAME`);
+        console.log('Build/package: [--fixture] [--environment dev|prod] [--version X.Y.Z].');
+        console.log('Release inspection is read-only. Fixture output cannot be deployed.');
+        return true;
+    }
+    if (options.operation !== 'release')
+    {
+        return false;
+    }
+    if (!(await readExtensions(root)).some(entry => entry.name === options.extension))
+    {
+        throw new Error('RELEASE_CONFIG: Unknown extension. Check workspace.config.json.');
+    }
+    const events = await readLedger(root, options.extension!);
+    console.log(JSON.stringify({ extension: options.extension, currentProduction: currentProduction(events) ?? null,
+        events }, null, 4));
+    return true;
 }
 
 async function requireProductAdapters(root: string): Promise<void>
@@ -80,7 +103,7 @@ async function buildSelection(root: string, options: CliOptions): Promise<void>
 {
     if (options.environment === 'prod')
     {
-        throw new Error('RELEASE_NOT_READY: Production ledger and promotion gates are not implemented. See issue #9.');
+        throw new Error('RELEASE_NOT_READY: Configure a product adapter first. Fixtures are local validation only.');
     }
     if (options.operation === 'package')
     {

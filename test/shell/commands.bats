@@ -42,3 +42,9 @@ setup()
     run /bin/bash "${repository_root}/build.sh" --unknown
     [ "$status" -ne 0 ]
 }
+
+@test "release inspection reports planned product history without Google credentials" {
+    run /bin/bash "${repository_root}/release.sh" --extension markdown
+    [ "$status" -eq 0 ]
+    [[ "$output" == *'"events": []'* ]]
+}

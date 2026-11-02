@@ -130,7 +130,7 @@ Keep Source state: planned explicit for absent paths. Do not enable future compo
 ### workspace-build
 
 - [x] Enabled
-- Source paths: src/tool/workspace-build, test, package.json, package-lock.json, workspace.config.json, tsconfig.json, eslint.config.mjs, vitest.config.ts, .node-version, .npmrc, .github/workflows, *.sh
+- Source paths: src/tool/workspace-build, test, releases, package.json, package-lock.json, workspace.config.json, tsconfig.json, eslint.config.mjs, vitest.config.ts, .node-version, .npmrc, .github/workflows, *.sh
 - Targets: tools
 - Languages: TypeScript, JavaScript, Shell, HTML, CSS
 - Platforms: macOS, Linux

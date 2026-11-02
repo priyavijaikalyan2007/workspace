@@ -41,6 +41,14 @@ describe('command arguments', () =>
         expect(parseArguments(['upload', '--extension', 'markdown', '--environment', 'dev']))
             .toMatchObject({ operation: 'upload', extension: 'markdown', environment: 'dev' });
     });
+    it('supports read-only release inspection for a named extension', () =>
+    {
+        expect(parseArguments(['release', '--extension', 'markdown']).operation).toBe('release');
+    });
+    it('requires an explicit release inspection selection', () =>
+    {
+        expect(() => parseArguments(['release'])).toThrow();
+    });
     it('returns help without requiring remote destinations', () =>
     {
         expect(parseArguments(['publish', '--help']).help).toBe(true);

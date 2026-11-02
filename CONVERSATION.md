@@ -1124,3 +1124,11 @@ Test-first runs exposed missing modules and failure-boundary defects before the 
 Eighty-one tooling tests pass with 96.28% line coverage. Five shell checks and 213 retained instruction tests pass.
 The fixture is not the Markdown product. Google projects, billing preflight, production records, About, and hosted CI evidence remain incomplete.
 Issue #10 is closed. Issues #4, #9, and #11 retain the remaining work. No push, deployment, or publication occurred.
+
+## 2 November 2026: Release persistence foundation
+
+The user said "go ahead" after the local tooling milestone and the proposed release safeguards and Google setup work.
+Implemented locked, append-only release events, clean-source and package identity checks, verified promotion and rollback contracts, and safe diagnostics.
+The read-only release command reports that Markdown has no releases. The fixture cannot become a production candidate.
+All 147 tooling tests and six shell checks pass. About UI, real product adapters, and live publication observation remain pending.
+No push, deployment, or publication occurred. Google project setup follows this local commit.

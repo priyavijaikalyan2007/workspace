@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan <priyavijai.kalyan2007@proton.me>
+# SPDX-FileCopyrightText: 2026 Outcrop Inc
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Repository: workspace
+# File GUID: 8f0c5b68-4a29-4315-b903-f9895693dd31
+# Created: 2026
+# COMPONENT: Workspace release data models
+# PURPOSE: Locate actual persisted release entities. No database is configured.
+[
+    {
+        "name": "ReleaseEvent",
+        "table": null,
+        "file": "src/tool/workspace-build/release-event.ts",
+        "description": "Immutable candidate, failure, production, and rollback events stored in tracked per-extension JSON history.",
+        "related": [
+            "ProductionObservation"
+        ]
+    },
+    {
+        "name": "ProductionObservation",
+        "table": null,
+        "file": "src/tool/workspace-build/observation.ts",
+        "description": "Verified Google target, script version, publication state, and matching artifact identity. Application version remains separate.",
+        "related": [
+            "ReleaseEvent"
+        ]
+    }
+]

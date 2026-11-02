@@ -29,5 +29,17 @@
             ".github/workflows/validate.yml",
             "SETUP.md"
         ]
+    },
+    {
+        "id": "ADR-003",
+        "title": "Persist immutable release events and separate source from record commits",
+        "date": "2026-11-02",
+        "status": "Accepted",
+        "context": "A per-extension locked JSON history preserves candidates, failures, verified publication, and rollback without replacing artifact identity. Sequence reservations include failed candidates. Only a trusted remote verifier can mark production. The CLI provides inspection until real product adapters exist.",
+        "files": [
+            "src/tool/workspace-build/release.ts",
+            "src/tool/workspace-build/release-store.ts",
+            "releases/README.md"
+        ]
     }
 ]

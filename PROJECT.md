@@ -133,3 +133,11 @@ Its execution remains unverified until an authorized push. No push, Google uploa
 A staged-source snapshot also passed the complete fixture package command from a path containing spaces on 2 November 2026.
 All four recorded file hashes matched the packaged bytes. The real clean command removed only owned generated output.
 A planned component README preserves the required source directory in fresh checkouts.
+
+
+## Release persistence foundation
+
+On 2 November 2026, the shared release engine passed 147 TypeScript tests at 95.66% line coverage.
+Tracked per-extension records preserve candidate identity, failure codes, verified production observations, and rollback events.
+The engine verifies actual package hashes and source state. The read-only release.sh command inspects registered extension histories.
+No real product release exists. Product adapters, trusted Google publication observation, and the Outcrop About surface remain pending.

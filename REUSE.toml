@@ -17,6 +17,7 @@ path = [
     ".npmrc",
     "src/tool/workspace-build/package.json",
     "test/fixtures/googleworkspace/*.json",
+    "releases/*.json",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = [

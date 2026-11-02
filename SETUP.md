@@ -29,6 +29,7 @@ Install dependencies separately on each operating system through `npm ci`. Do no
 | `./build.sh --fixture` | Build the controlled Apps Script and browser fixture. |
 | `./package.sh --fixture` | Run full validation and build, then create a local fixture package with file hashes. |
 | `./clean.sh` | Remove build and dist only when their ownership markers match. Preserve unowned directories. |
+| `./release.sh --extension markdown` | Inspect release history without modifying it or contacting Google. |
 | `npm exec vitest` | Watch TypeScript tooling tests during native development. |
 
 Use `--help` on each root operation. Errors return status 1. Help returns status 0.
@@ -56,7 +57,8 @@ Generated outputs and local Google configuration files are ignored by Git.
 
 Upload, deploy, publish, and host smoke commands require explicit extension and environment selections.
 These commands stop before remote work because project IDs, credentials, and billing preflight are not configured.
-Production local builds also stop until release records and promotion gates exist.
+Production local commands remain blocked until real product adapters and a trusted publication verifier are configured.
+The shared release engine and safe diagnostic formatter are implemented. See releases/README.md.
 No Google project, deployment, or publication was created during local tooling work.
 
 The selected clasp tool is deferred because its current dependency graph introduced audit findings.

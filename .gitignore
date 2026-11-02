@@ -40,3 +40,7 @@ coverage/
 .clasp.json
 .clasprc.json
 *.tsbuildinfo
+
+# Release history is tracked. Only transient locks and unfinished atomic writes are ignored.
+releases/.locks/
+releases/.release-tmp-*

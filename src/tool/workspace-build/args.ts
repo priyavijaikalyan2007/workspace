@@ -19,7 +19,7 @@ export interface CliOptions
     version?: string;
 }
 
-const operations = ['build', 'test', 'package', 'clean', 'upload', 'deploy', 'publish', 'smoke'];
+const operations = ['build', 'test', 'package', 'clean', 'upload', 'deploy', 'publish', 'smoke', 'release'];
 export const remoteOperations = ['upload', 'deploy', 'publish', 'smoke'];
 
 /** Parse the shared command contract without accessing the filesystem. */
@@ -78,8 +78,12 @@ function readEnvironment(values: Map<string, string>): 'dev' | 'prod'
 
 function validateSelection(options: CliOptions, flags: Map<string, string>): void
 {
+    if (options.operation === 'release' && !options.help && !options.extension)
+    {
+        throw new Error('ARGUMENT: Release inspection requires --extension NAME.');
+    }
     if ((options.fixture && !['build', 'package'].includes(options.operation)) ||
-        (flags.has('--environment') && ['test', 'clean'].includes(options.operation)))
+        (flags.has('--environment') && ['test', 'clean', 'release'].includes(options.operation)))
     {
         throw new Error('ARGUMENT: Selection does not apply to this operation. Read --help.');
     }

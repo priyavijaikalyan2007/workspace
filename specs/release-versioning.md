@@ -93,3 +93,13 @@ Reuse the selected Outcrop components for the About surface where suitable. Requ
 - [SemVer 2.0](https://semver.org/spec/v2.0.0.html).
 - [Apps Script versions](https://developers.google.com/apps-script/guides/versions).
 - [Apps Script deployments](https://developers.google.com/apps-script/concepts/deployments).
+
+
+## Implemented foundation: 2 November 2026
+
+The release engine now validates and persists per-extension candidate, failed, production, and rollback events.
+It checks clean source, explicit package versions, artifact hashes, sequence reservations, and fresh matching publication observations.
+Storage locks writers and permits only appended events. Existing history survives failed writes and corrupt input blocks new writes.
+The read-only command is ./release.sh --extension NAME. Record details and recovery are in releases/README.md.
+The shared diagnostics formatter selects embedded fields and excludes extra caller data.
+Actual product packaging, trusted remote observation, and the Outcrop About surface remain unconfigured.

@@ -30,5 +30,13 @@
         "related": [
             "InstructionConfiguration"
         ]
+    },
+    {
+        "name": "ReleasePersistence",
+        "definition": "Per-extension append-only release history with source identity, verified hashes, atomic storage, strict version transitions, and trusted publication evidence.",
+        "anchor_file": "src/tool/workspace-build/release.ts",
+        "related": [
+            "NativeBuildTooling"
+        ]
     }
 ]

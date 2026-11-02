@@ -15,6 +15,8 @@ Created: 2026
 
 ### Added
 
+- Added locked append-only release histories, production identity checks, rollback events, read-only inspection, and safe diagnostics.
+
 - Pinned native TypeScript tooling, shared root commands, and an Ubuntu validation workflow.
 - Added controlled Apps Script/browser fixture builds and immutable local packages with embedded identity and file hashes.
 - Added 81 tooling tests, five shell checks, React dependency checks, and generated-output ownership guards.
