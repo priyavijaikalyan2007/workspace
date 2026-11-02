@@ -92,3 +92,17 @@ Only after development is verified, create and link production to Cloud project 
 Recheck live billing before remote operations and after linking.
 
 Live billing rechecks returned disabled billing and no account links at 10:31:24 UTC for dev and 16:49:38 UTC for prod on 2 November 2026.
+
+
+## Extension connection selected
+
+The user selected connecting the testing profile to this app's browser-control extension.
+The OpenAI browser-extension guide confirms that the extension must be installed and enabled in the selected Chrome profile.
+Supported setup is through the desktop app's Settings > Computer Use > Chrome > Install flow.
+Source: https://learn.chatgpt.com/docs/chrome-extension.
+
+Computer Use rejected access to the desktop app's own settings for safety reasons.
+Browser security policy rejected chrome://extensions/ because only HTTP and HTTPS protocols are permitted.
+The policy explicitly prohibits workarounds for that rejected action. No alternate browser surface or local browser configuration was used.
+The extension connection remains unverified and requires the user to complete the supported installation flow.
+After that connection appears, resume by inspecting the existing Apps Script project list before any new creation.

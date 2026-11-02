@@ -1151,3 +1151,11 @@ Native Chrome observation then returned another window, and a later window-selec
 The resulting project's ID and Cloud linkage are unverified. No duplicate creation was attempted and no script ID was guessed.
 Only the other Chrome profile is connected to browser control. Asked which control method the user prefers before continuing.
 Updated the setup handoff and preserved the unconfigured script IDs. No upload, deployment, publication, or push occurred.
+
+## 2 November 2026: Extension connection selected
+
+The user selected connecting the testing profile to this app's browser-control extension.
+Read the official OpenAI browser-extension setup guidance. Attempted the app settings and installed-extension inspection routes.
+Computer Use blocked the app's own settings. Browser security policy blocked chrome://extensions/ and explicitly prohibited workarounds.
+The user must complete the supported per-profile extension installation. No browser configuration, permissions, or script IDs were changed.
+After connection is verified, inspect My Projects before attempting another script creation.

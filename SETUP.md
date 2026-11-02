@@ -109,3 +109,9 @@ Only the other Chrome profile is connected to browser control. Native control ch
 Project creation was initiated once. Inspect My Projects before creating another project. Script IDs and Cloud linking remain unverified.
 The current control options and next steps are in specs/google-project-setup.md.
 Google documents this limitation in its [Apps Script troubleshooting guide](https://developers.google.com/apps-script/guides/support/troubleshooting).
+
+
+The user selected connecting the testing profile to browser control.
+Complete the ChatGPT extension installation in that profile through the desktop app's Settings > Computer Use flow.
+The agent cannot operate its own app settings or Chrome's internal extension-management page because tool security policies block both routes.
+The [official extension setup guide](https://learn.chatgpt.com/docs/chrome-extension) describes the supported flow.
