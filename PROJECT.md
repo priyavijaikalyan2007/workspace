@@ -19,10 +19,10 @@ Created: 2026
 | Repository | https://github.com/priyavijaikalyan2007/workspace |
 | Purpose | Useful extensions for Google Workspace. |
 | Intended users | Everyone who uses Google Workspace such as GMail, Google Docs, Sheets etc. |
-| User problem | Extensions to full gaps such as markdown support in Google Workspace. |
+| User problem | Mix ordinary Google Docs prose with inline Markdown and fenced technical content, including diagrams and math. |
 | Expected value | Productivity gains. |
-| Initial scope | First workflow awaits the interview in issue #3. The Markdown component remains planned. |
-| Success criteria | Product acceptance criteria await issue #3. Local fixture verification is recorded below. |
+| Initial scope | Embedded Markdown in regular Google Docs. Product intent and open decisions are in specs/markdown-extension.md under issue #3. |
+| Success criteria | Draft cases are in specs/markdown-extension.md. Rendering interaction, math syntax, source retention, and release scope await agreement. |
 | Constraints and exclusions | Native macOS development, native Ubuntu CI, no React or hosted backend, and unbilled Google targets. See ADDITIONAL.md. |
 | Build and test commands | ./build.sh, ./test.sh, and ./package.sh --fixture. See SETUP.md for limits. |
 | Architecture | Native TypeScript build CLI and retained instruction configurator. Product extension remains planned. |
@@ -160,7 +160,7 @@ Tooling line coverage is 95.86%. Hosted Ubuntu verification still awaits an auth
 ## First extension readiness: 3 November 2026
 
 The shared local foundation passed fresh fixture packaging with all 176 TypeScript, seven shell, and 213 Python checks.
-The next engineering task is the real product build/test adapter. Product-feature implementation also needs an agreed first workflow.
+The next engineering task is the real product build/test adapter. The embedded Markdown workflow is identified. Product-feature implementation still needs agreed acceptance criteria.
 The current milestones and acceptance gates are in [specs/first-extension-readiness.md](specs/first-extension-readiness.md).
 The user deferred the cmux restart and browser setup. Independent local work can continue.
 Google-host testing and production release remain separate, incomplete milestones.

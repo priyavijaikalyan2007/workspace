@@ -12,6 +12,8 @@ Created: 2026
 # Planned Markdown add-on
 
 This directory reserves the source location for a Google Docs Editor add-on.
+The product combines ordinary Google Docs prose with inline Markdown and fenced technical content.
+See [the product specification](../../../../specs/markdown-extension.md) for confirmed intent and open decisions.
 Product requirements remain under [issue #3](https://github.com/priyavijaikalyan2007/workspace/issues/3).
 No add-on implementation, product package, or Google project configuration exists here.
 

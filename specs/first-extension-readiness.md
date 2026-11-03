@@ -24,7 +24,7 @@ Independent local development can continue without Google credentials or browser
 | Milestone | Current state | Remaining work | Tracking |
 | --- | --- | --- | --- |
 | Shared local foundation | Verified | Maintain the selected native tools and existing quality gates. | #4 |
-| First local extension | Ready to start adapter work; no product features implemented | Define one workflow and its acceptance criteria. Implement the product build/test adapter before features. | #3, #4 |
+| First local extension | Ready to start adapter work; no product features implemented | Embedded Markdown workflow identified; finalize acceptance criteria. Implement the product build/test adapter before features. | #3, #4 |
 | Test inside Google Docs | Not ready; browser work deferred | Inspect the existing creation attempt, record script IDs, link dev Cloud configuration, and configure an acceptable remote client. Verify authorization and actual host behavior. | #11 |
 | Production release | Not ready | Verify Ubuntu CI, production adapters, billing, permissions, publication state, About, accessibility, contacts, and licensing. | #4, #5, #6, #8, #9, #11 |
 
@@ -34,7 +34,7 @@ The release safeguards remain mandatory before remote release operations.
 
 ## Next bounded implementation
 
-1. Identify one user task and compare it with Google's current built-in behavior.
+1. Finalize the embedded Markdown workflow and its acceptance criteria in markdown-extension.md.
 2. Record supported behavior, exclusions, permission needs, document-preservation rules, and observable acceptance criteria under issue #3.
 3. Write failing tests for a real product build/test adapter under issue #4.
 4. Connect the existing server/browser build boundary to a registered extension's source and package version.
@@ -50,14 +50,13 @@ Use Outcrop components for actual UI. Preserve the React prohibition and the sel
 
 ## Product decision
 
-The component name Markdown is a proposed area, not a complete product requirement.
-Google's current documentation describes Markdown import/export and clipboard conversion.
-Google also announced native .md editing on 5 October 2026.
-These statements describe documented platform features. They were not verified in the user's account during this task.
+The user confirmed Markdown within a regular Google Doc, rather than file import or export.
+The requested content includes inline spans, fenced Markdown blocks, Mermaid, math described as MathML, Graphviz, and possible code highlighting.
+The confirmed intent, proposed interaction, reuse candidate, and open decisions are in [markdown-extension.md](markdown-extension.md).
 
-The user was asked which remaining task the first extension should solve, or whether another extension should come first.
-No feature choice or change to the configured component is assumed.
-A calendar estimate for a useful prototype requires that workflow and its acceptance criteria.
+Outcrop's MarkdownRenderer already documents most requested rendering capabilities. Its Docs integration remains unverified.
+The next interview decisions are the rendering action and math input syntax.
+Source preservation, block delimiters, first-release scope, and host acceptance criteria still need agreement.
 Local adapter work does not require the deferred browser restart.
 
 ## Verification: 3 November 2026

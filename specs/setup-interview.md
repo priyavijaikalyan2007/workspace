@@ -51,7 +51,7 @@ CONVERSATION.md records the interview requests and response summaries.
 
 ## Pending instruction decisions
 
-- Define the first extension workflow under issue #3. Tooling coverage is configured. Product coverage must join validation through issue #4.
+- Finalize rendering interaction, math input, source retention, and first-release acceptance criteria under issue #3. Product coverage must join validation through issue #4.
 
 ## Remaining setup work
 
@@ -108,6 +108,16 @@ The next setup pass must complete those release controls before any product depl
 ## Current readiness: 3 November 2026
 
 The source of current readiness is [first-extension-readiness.md](first-extension-readiness.md).
-The next implementation is the local product adapter. The next product decision is one workflow beyond Google's existing features.
-Google now documents native Markdown editing as well as import/export. Do not assume basic Markdown support is an unmet requirement.
+The next implementation is the local product adapter. The user confirmed embedded Markdown within regular Google Docs.
+See [markdown-extension.md](markdown-extension.md) for confirmed intent, draft acceptance cases, and remaining interview decisions.
 Browser work remains deferred at the user's request. Publication-only work does not prevent independent local adapter work.
+
+
+## Embedded Markdown clarification: 3 November 2026
+
+The user wants inline Markdown and fenced Markdown blocks within ordinary Google Docs content.
+Blocks should support Mermaid, math described as MathML, Graphviz, and potentially syntax highlighting.
+Import/export and native .md editing do not address this workflow.
+Outcrop MarkdownRenderer is the initial reuse candidate, subject to security and actual host checks.
+The interview asks about explicit rendering versus automatic rendering and actual MathML versus TeX/LaTeX input.
+Source retention and first-release scope remain proposed, not agreed.

@@ -1172,3 +1172,14 @@ Tooling line coverage is 95.86%. No product build, Google-host test, deployment,
 Corrected stale setup documents and defined separate local, host-test, and release milestones.
 Google now documents native Markdown editing plus import/export. Asked the user which remaining workflow the first extension should solve.
 No new framework, feature, component selection, or application code was assumed or implemented.
+
+## Embedded Markdown product clarification — 3 November 2026
+
+The user clarified that the first extension must mix ordinary Google Docs prose with inline Markdown and fenced Markdown blocks.
+Technical blocks should support Mermaid, math described as MathML, Graphviz, and potentially code syntax highlighting.
+Import/export and native .md editing do not solve the requested workflow.
+
+Recorded the confirmed product direction and draft acceptance cases in specs/markdown-extension.md.
+Identified Outcrop MarkdownRenderer as a reuse candidate. Its documentation covers most requested rendering capabilities, but not verified Docs integration.
+Asked whether rendering should use an explicit action and whether math source means MathML, TeX/LaTeX, or both.
+Source retention, exact delimiters, and first-release scope remain open. No feature code, browser setup, upload, or deployment occurred.

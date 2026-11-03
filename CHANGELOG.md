@@ -15,6 +15,8 @@ Created: 2026
 
 ### Changed
 
+- Defined embedded Markdown within regular Google Docs as the first product direction, with rendering and math decisions still open.
+
 - Corrected stale setup records and separated local extension work, Google-host testing, and production release gates.
 - Recorded fresh fixture validation and the need to compare the first Markdown workflow with Google's built-in features.
 
