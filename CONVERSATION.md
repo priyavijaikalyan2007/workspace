@@ -1159,3 +1159,16 @@ Read the official OpenAI browser-extension setup guidance. Attempted the app set
 Computer Use blocked the app's own settings. Browser security policy blocked chrome://extensions/ and explicitly prohibited workarounds.
 The user must complete the supported per-profile extension installation. No browser configuration, permissions, or script IDs were changed.
 After connection is verified, inspect My Projects before attempting another script creation.
+
+## 3 November 2026: Local readiness while browser work is deferred
+
+The user said: "I did evreything but to enable screen recording I have to quite & restart cmux. i am not ready to do that yet."
+The user then asked: "go ahead then. when will we be ready to buidl our first extension?"
+
+Kept browser work deferred and did not restart applications. Refreshed actual source and issue status.
+The shared local foundation works. A real product build/test adapter and an agreed first workflow are still required before feature implementation.
+Fresh fixture packaging passed 176 TypeScript tests, seven shell checks, 213 retained Python tests, lint, types, and profile validation.
+Tooling line coverage is 95.86%. No product build, Google-host test, deployment, or publication was claimed.
+Corrected stale setup documents and defined separate local, host-test, and release milestones.
+Google now documents native Markdown editing plus import/export. Asked the user which remaining workflow the first extension should solve.
+No new framework, feature, component selection, or application code was assumed or implemented.

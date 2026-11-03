@@ -10,6 +10,8 @@ Created: 2026
 
 # Development setup
 
+Current start criteria and the next local task are in [first-extension readiness](specs/first-extension-readiness.md).
+
 The local toolchain runs natively on macOS. GitHub Actions runs directly on Ubuntu 24.04.
 The hosted workflow is configured but has not run for these unpushed changes.
 
@@ -115,3 +117,12 @@ The user selected connecting the testing profile to browser control.
 Complete the ChatGPT extension installation in that profile through the desktop app's Settings > Computer Use flow.
 The agent cannot operate its own app settings or Chrome's internal extension-management page because tool security policies block both routes.
 The [official extension setup guide](https://learn.chatgpt.com/docs/chrome-extension) describes the supported flow.
+
+
+## Browser work deferred: 3 November 2026
+
+The user is not ready to quit and restart cmux for the screen-recording permission change.
+Keep browser setup deferred. Do not restart the application to remove this blocker.
+Continue the local product adapter, scope interview, and repository work without Google credentials or browser control.
+A fresh ./package.sh --fixture run passed the local validation and packaging checks on 3 November 2026.
+The earlier Apps Script creation remains unverified. Inspect it before any future creation attempt.

@@ -16,7 +16,7 @@ Complete the shared setup before implementing extension features. The user accep
 The user accepted the UI approach and script selection interface on 1 November 2026.
 The current execution model is native macOS development and native Ubuntu CI. It supersedes the initial macOS CI selection.
 The user accepted separate dev/prod projects, automatic package validation, and clean-source production gates on 1 November 2026.
-Local tool versions are now pinned. Project identifiers and release credentials remain unconfigured.
+Local tools and Cloud project mappings are configured. Apps Script IDs, the authorized remote client, and product adapters remain unconfigured.
 
 ## Confirmed requirements
 
@@ -78,7 +78,7 @@ The selected local toolchain supports this model, subject to runtime-compatible 
 
 ## Selected root command contract
 
-The command responsibilities and selection interface are accepted. The commands are not yet implemented or verified.
+The shared runner and local fixture commands are implemented and verified. Product adapters and actual remote operations remain incomplete.
 Root scripts should delegate to a shared runner and the selected extension's configuration.
 Use `--extension <name>` for product operations. Local build and test commands default to all enabled extensions.
 Remote operations must require `--extension <name>` and `--environment <name>`.
@@ -154,9 +154,9 @@ No project creation, billing change, or runtime quota verification forms part of
 
 ## Interview decisions still needed
 
-- Configure the dev/prod project mappings and remaining script options.
+- Complete Apps Script ID mapping and the remaining product-specific script options. Cloud mappings already exist.
 - Define release credentials, artifact promotion, publication steps, and verification limits.
-- Implement stable SemVer build metadata, the independent production release sequence, and persisted release records under issue #9.
+- Integrate the implemented release engine with real product packages, About, and trusted remote verification under issue #9.
 
 ## Completion criteria
 
@@ -203,3 +203,11 @@ SETUP.md records the verified local commands and output layout. Tooling tests, s
 The Ubuntu workflow is configured but has not run for these unpushed changes.
 Product adapters, incremental product builds, remote operations, persisted production records, and About remain incomplete under issues #4, #9, and #11.
 The controlled fixture is not an extension release and must never be uploaded as a product.
+
+
+## Current development path: 3 November 2026
+
+The local foundation passed fresh fixture packaging. See first-extension-readiness.md for the three milestone gates.
+The next bounded engineering task is the real product build/test adapter. Product source remains planned until implemented and verified.
+The shared release engine is implemented. Product promotion and About integration remain incomplete.
+Browser setup is deferred because the user is not ready to restart cmux. This does not prevent local adapter work.

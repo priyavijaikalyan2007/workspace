@@ -51,16 +51,14 @@ CONVERSATION.md records the interview requests and response summaries.
 
 ## Pending instruction decisions
 
-- Define the coverage measurements and scope that enforce the existing 90% requirement.
+- Define the first extension workflow under issue #3. Tooling coverage is configured. Product coverage must join validation through issue #4.
 
 ## Remaining setup work
 
-- Confirm the languages, development tools, test runner, source layout, and generated output policy.
-- Implement and verify shared project operations after the toolchain decisions.
-- Align instructions and documentation with the verified script commands across extensions.
-- Define the initial Markdown workflow, supported features, success criteria, and exclusions after the shared setup.
-- Complete contributor, conduct, security, and support policies through the interview.
-- Establish relevant knowledge records without inventing application models or past decisions.
+The shared framework choices, tool versions, native execution model, and fixture command contract are implemented.
+Complete the real product adapter, product scope, and host/release integration through the linked issues.
+Use [first-extension readiness](first-extension-readiness.md) to distinguish local implementation, Google-host testing, and production release.
+Contribution, conduct, security/support, and licensing work remains tracked under issues #5, #6, and #8.
 
 ## GitHub tracking
 
@@ -85,20 +83,18 @@ The setup interview remains in progress. The remaining setup issues await implem
 
 ## Next action
 
-Continue the shared development setup interview under issue #4 using specs/development-setup.md.
-Implement the shared tooling with the accepted version policy and explicit dev/prod configuration boundaries.
-Project identifiers and credentials remain unconfigured. Local tooling and controlled tests must not require Google credentials.
-Project creation and remote operation checks must preserve the no-billing constraint. No Google projects were created during the interview.
-Keep issue #3 pending until the shared setup is ready.
+Begin the local product build/test adapter under issue #4 and define one first workflow under issue #3.
+Do not reopen settled framework decisions without a concrete defect or unmet requirement.
+The user deferred browser setup and the cmux restart on 3 November 2026. Continue independent local work without restarting their applications.
+Actual Apps Script IDs and Cloud linking remain unverified under issue #11. Inspect the earlier creation attempt before creating another project.
 
 ## Current verification limits
 
-The source directory is empty. No product build or test suite exists.
-Profile validation now passes. The missing explicit SaaS choice is restored as unchecked, preserving the standalone extension configuration.
-This check validates instruction routing, not product readiness.
-The root build and test scripts are placeholders that exit with status 2.
-Existing uncommitted setup changes predate the interview and must remain separate from the interview additions.
-
+The product directory contains a planning README, not an add-on implementation.
+The shared scripts and fixture pipeline are implemented. Explicit product builds still stop at the planned-source guard.
+On 3 November 2026, ./package.sh --fixture passed the full native validation suite and produced a fixture package.
+No product build, Google-host test, deployment, publication, or hosted Ubuntu result is claimed.
+Existing unrelated initialization changes remain separate from these setup records.
 
 ## Implementation progress: 2 November 2026
 
@@ -107,3 +103,11 @@ Use SETUP.md for the current command status. Issue #4 remains open for product a
 Issue #10 is closed after commit 743e83d restored all retained tests without weakening assertions.
 Issue #11 tracks remote tooling, billing preflight, and host verification. Issue #9 retains production identity and About work.
 The next setup pass must complete those release controls before any product deployment.
+
+
+## Current readiness: 3 November 2026
+
+The source of current readiness is [first-extension-readiness.md](first-extension-readiness.md).
+The next implementation is the local product adapter. The next product decision is one workflow beyond Google's existing features.
+Google now documents native Markdown editing as well as import/export. Do not assume basic Markdown support is an unmet requirement.
+Browser work remains deferred at the user's request. Publication-only work does not prevent independent local adapter work.

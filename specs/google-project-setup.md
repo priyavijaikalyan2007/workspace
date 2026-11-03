@@ -106,3 +106,11 @@ Browser security policy rejected chrome://extensions/ because only HTTP and HTTP
 The policy explicitly prohibits workarounds for that rejected action. No alternate browser surface or local browser configuration was used.
 The extension connection remains unverified and requires the user to complete the supported installation flow.
 After that connection appears, resume by inspecting the existing Apps Script project list before any new creation.
+
+
+## User deferral: 3 November 2026
+
+The user completed permission setup but deferred quitting and restarting cmux for screen recording.
+Do not restart cmux or attempt further browser work until the user is ready.
+Continue independent local repository work. Script identities and linking remain unverified.
+When browser control resumes, inspect the existing creation attempt before creating any new project.

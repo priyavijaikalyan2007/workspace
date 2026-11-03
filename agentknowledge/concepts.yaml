@@ -47,5 +47,15 @@
             "NativeBuildTooling",
             "ReleasePersistence"
         ]
+    },
+    {
+        "name": "FirstExtensionReadiness",
+        "definition": "Current gates for local adapter/feature work, Google-host testing, and production release. Prevents stale scaffold status and publication tasks from obscuring the next local engineering step.",
+        "anchor_file": "specs/first-extension-readiness.md",
+        "related": [
+            "NativeBuildTooling",
+            "GoogleBillingPreflight",
+            "ReleasePersistence"
+        ]
     }
 ]

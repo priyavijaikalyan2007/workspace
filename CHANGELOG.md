@@ -11,6 +11,13 @@ Created: 2026
 
 # Changelog
 
+## 3 November 2026
+
+### Changed
+
+- Corrected stale setup records and separated local extension work, Google-host testing, and production release gates.
+- Recorded fresh fixture validation and the need to compare the first Markdown workflow with Google's built-in features.
+
 ## 2 November 2026
 
 ### Added

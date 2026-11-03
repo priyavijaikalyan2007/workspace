@@ -21,9 +21,9 @@ Created: 2026
 | Intended users | Everyone who uses Google Workspace such as GMail, Google Docs, Sheets etc. |
 | User problem | Extensions to full gaps such as markdown support in Google Workspace. |
 | Expected value | Productivity gains. |
-| Initial scope | TODO: Initial product scope |
-| Success criteria | TODO: Success criteria |
-| Constraints and exclusions | TODO: Known constraints or exclusions |
+| Initial scope | First workflow awaits the interview in issue #3. The Markdown component remains planned. |
+| Success criteria | Product acceptance criteria await issue #3. Local fixture verification is recorded below. |
+| Constraints and exclusions | Native macOS development, native Ubuntu CI, no React or hosted backend, and unbilled Google targets. See ADDITIONAL.md. |
 | Build and test commands | ./build.sh, ./test.sh, and ./package.sh --fixture. See SETUP.md for limits. |
 | Architecture | Native TypeScript build CLI and retained instruction configurator. Product extension remains planned. |
 | Source locations | Recorded in the component profile linked below |
@@ -155,3 +155,12 @@ The publisher account was verified in the user-specified testing Chrome profile.
 Stable control of that profile is pending after native Chrome control changed windows. Product adapters, host verification, and the About surface remain pending.
 Current local validation includes 176 TypeScript tests, seven shell checks, and 213 retained Python tests.
 Tooling line coverage is 95.86%. Hosted Ubuntu verification still awaits an authorized push.
+
+
+## First extension readiness: 3 November 2026
+
+The shared local foundation passed fresh fixture packaging with all 176 TypeScript, seven shell, and 213 Python checks.
+The next engineering task is the real product build/test adapter. Product-feature implementation also needs an agreed first workflow.
+The current milestones and acceptance gates are in [specs/first-extension-readiness.md](specs/first-extension-readiness.md).
+The user deferred the cmux restart and browser setup. Independent local work can continue.
+Google-host testing and production release remain separate, incomplete milestones.
