@@ -60,7 +60,7 @@
     },
     {
         "name": "EmbeddedMarkdown",
-        "definition": "Inline Markdown and fenced technical content in regular Google Docs. Rendering interaction, math source, source retention, and first-release scope remain open. Outcrop MarkdownRenderer is a reuse candidate, not a verified integration.",
+        "definition": "Inline Markdown and fenced technical content in regular Google Docs. Automatic rendering, editable source, and both MathML and TeX/LaTeX input are required. Host feasibility, source storage, and first-release scope remain open. Outcrop MarkdownRenderer is a reuse candidate, not a verified integration.",
         "anchor_file": "specs/markdown-extension.md",
         "related": [
             "FirstExtensionReadiness"

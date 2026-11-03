@@ -22,7 +22,7 @@ Created: 2026
 | User problem | Mix ordinary Google Docs prose with inline Markdown and fenced technical content, including diagrams and math. |
 | Expected value | Productivity gains. |
 | Initial scope | Embedded Markdown in regular Google Docs. Product intent and open decisions are in specs/markdown-extension.md under issue #3. |
-| Success criteria | Draft cases are in specs/markdown-extension.md. Rendering interaction, math syntax, source retention, and release scope await agreement. |
+| Success criteria | Draft cases are in specs/markdown-extension.md. Automatic rendering, editable source, and both math inputs are confirmed. Host feasibility, source storage, and release scope remain open. |
 | Constraints and exclusions | Native macOS development, native Ubuntu CI, no React or hosted backend, and unbilled Google targets. See ADDITIONAL.md. |
 | Build and test commands | ./build.sh, ./test.sh, and ./package.sh --fixture. See SETUP.md for limits. |
 | Architecture | Native TypeScript build CLI and retained instruction configurator. Product extension remains planned. |

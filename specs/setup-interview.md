@@ -51,7 +51,7 @@ CONVERSATION.md records the interview requests and response summaries.
 
 ## Pending instruction decisions
 
-- Finalize rendering interaction, math input, source retention, and first-release acceptance criteria under issue #3. Product coverage must join validation through issue #4.
+- Verify automatic-rendering feasibility and finalize source storage and first-release acceptance criteria under issue #3. Product coverage must join validation through issue #4.
 
 ## Remaining setup work
 
@@ -121,3 +121,11 @@ Import/export and native .md editing do not address this workflow.
 Outcrop MarkdownRenderer is the initial reuse candidate, subject to security and actual host checks.
 The interview asks about explicit rendering versus automatic rendering and actual MathML versus TeX/LaTeX input.
 Source retention and first-release scope remain proposed, not agreed.
+
+
+## Automatic rendering and editable source — 3 November 2026
+
+The user accepted editable source, requires automatic rendering, and confirmed both MathML and TeX/LaTeX input.
+The user questioned why a sidebar was necessary. A sidebar is an implementation proposal, not an accepted product requirement.
+MarkdownRenderer provides browser rendering, not document embedding, change tracking, source retention, or Docs updates.
+Verify whether the selected Editor add-on model can meet the intended experience before implementing feature code.

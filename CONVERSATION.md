@@ -1183,3 +1183,12 @@ Recorded the confirmed product direction and draft acceptance cases in specs/mar
 Identified Outcrop MarkdownRenderer as a reuse candidate. Its documentation covers most requested rendering capabilities, but not verified Docs integration.
 Asked whether rendering should use an explicit action and whether math source means MathML, TeX/LaTeX, or both.
 Source retention, exact delimiters, and first-release scope remain open. No feature code, browser setup, upload, or deployment occurred.
+
+## Automatic rendering and renderer integration — 3 November 2026
+
+The user accepted editable source, required automatic rendering, and selected both MathML and TeX/LaTeX math input.
+The user asked how a UI component could integrate into the document, then questioned the proposed sidebar.
+Explained that MarkdownRenderer needs a browser runtime and cannot be embedded as a live widget in the Docs body.
+A separate document adapter must preserve source and apply native text formatting or supported image output.
+A sidebar is not an accepted product requirement. Automatic rendering must pass a host feasibility check before feature implementation.
+No architecture change, product code, browser setup, deployment, or publication occurred.

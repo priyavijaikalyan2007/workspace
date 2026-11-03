@@ -55,7 +55,8 @@ The requested content includes inline spans, fenced Markdown blocks, Mermaid, ma
 The confirmed intent, proposed interaction, reuse candidate, and open decisions are in [markdown-extension.md](markdown-extension.md).
 
 Outcrop's MarkdownRenderer already documents most requested rendering capabilities. Its Docs integration remains unverified.
-The next interview decisions are the rendering action and math input syntax.
+The user requires automatic rendering, editable source, and both MathML and TeX/LaTeX input.
+The current add-on model must pass an automatic-rendering feasibility check. A persistent sidebar is not accepted.
 Source preservation, block delimiters, first-release scope, and host acceptance criteria still need agreement.
 Local adapter work does not require the deferred browser restart.
 

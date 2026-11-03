@@ -21,7 +21,7 @@ The user identified these forms:
 
 - Inline Markdown within ordinary prose, such as a code span enclosed in backticks.
 - Explicit fenced Markdown blocks within a regular document.
-- Technical content within blocks, including Mermaid diagrams, math described as MathML, and Graphviz diagrams.
+- Technical content within blocks, including Mermaid diagrams, both MathML and TeX/LaTeX math, and Graphviz diagrams.
 - Syntax highlighting for code, although the user noted that other extensions may already provide it.
 
 These requirements establish the product direction. They do not establish a complete Markdown dialect or a first-release feature list.
@@ -30,9 +30,12 @@ The exact block delimiter must support nested diagram and code fences without am
 ## Proposed first workflow
 
 The following behavior is a proposal, pending the interview and host verification.
-The user selects a Markdown region and invokes Render/Update. The add-on previews the result before changing document content.
+The user requires automatic rendering and rejected a required Render/Update action.
+Editable source is confirmed. The user also confirmed both MathML markup and TeX/LaTeX expressions.
+A sidebar is not an accepted product requirement. The user questioned why one would be necessary.
+The automatic interaction and source-editing design remain subject to feasibility checks.
 Ordinary prose outside that region retains its text and formatting.
-The add-on retains the region's source so the user can edit and render the content again.
+The add-on must retain the region's source so the user can edit the content and obtain updated output.
 The source location and ownership model remain undecided.
 
 Native Docs text formatting is the preferred output for supported inline text.
@@ -45,7 +48,8 @@ Live HTML, SVG, MathML objects, and native equation insertion are not promised.
 Outcrop's MarkdownRenderer documents standard Markdown, syntax highlighting, KaTeX math, Mermaid, and Graphviz rendering.
 Inspect its implementation and dependency closure before selecting another renderer or creating duplicate functionality.
 Its README documents TeX-style math input. This does not establish support for actual MathML input.
-The user must clarify the requested math source syntax.
+Actual MathML input needs separate rendering support or an extension to the component.
+Do not treat MathML output from KaTeX as support for MathML input.
 
 The component README is available in the theme repository under components/markdownrenderer/README.md.
 The theme checkout is an inspection source, not a local build dependency.
@@ -56,11 +60,27 @@ Graphviz is documented as client-side WebAssembly rendering through @viz-js/viz.
 The component also offers server-rendered PlantUML. PlantUML is not requested and must remain disabled in this proposed integration.
 Do not transmit document content to public rendering services.
 
+## Proposed integration boundary
+
+MarkdownRenderer is a browser UI component. It cannot become a live component inside the Google Docs document body.
+A document adapter must identify regions, preserve source, and update supported Docs text or image elements.
+For inline code, that adapter would apply native text formatting. Complex diagrams and math may require image conversion.
+HTML rendering is not a general HTML-to-Docs conversion API.
+
+The earlier sidebar proposal supplied a browser runtime for rendering and periodic checks through google.script.run.
+An HTML-service sidebar is a separate interface, not a document-embedded widget.
+The user did not accept a persistent sidebar. Do not require one merely to reuse MarkdownRenderer.
+Periodic checks while an interface remains open are a feasibility candidate, not verified automatic integration.
+Check latency, quotas, completion detection, cursor movement, concurrent edits, and interface lifecycle before accepting that candidate.
+No document content should be sent to third-party rendering services.
+If the current add-on model cannot meet the intended document experience, present the measured limits before proposing a model change.
+
 ## Host constraints and verification
 
 Google documents edit triggers for Sheets, not Docs. The selected add-on cannot rely on an onEdit text trigger.
-An explicit Render/Update action is the recommended initial interaction.
-If automatic rendering as the user types is essential, assess feasibility before committing to that interaction or changing architecture.
+A required Render/Update action does not meet the confirmed requirement.
+The existing Editor add-on selection must pass an automatic-rendering feasibility check before feature implementation.
+Do not claim that a browser extension would solve this limitation without proving its own supported integration.
 
 Verify text-run formatting, image conversion and insertion, document tabs, selection offsets, and source recovery in the actual host.
 Do not overwrite stale selections or unrelated collaborator changes.
@@ -74,11 +94,12 @@ These cases guide the next design step. They are not approved release criteria o
 1. Render an inline code span within a sentence while preserving the surrounding words and formatting.
 2. Render a fenced Markdown region while preserving adjacent document content.
 3. Render a Mermaid example and a Graphviz example without a remote rendering service.
-4. Render an agreed math example after the source syntax decision.
+4. Render both an actual MathML example and a TeX/LaTeX example.
 5. Recover the original source and update an existing region without duplicating output.
 6. Preserve the source and existing document content when parsing or rendering fails.
 7. Reject a changed or ambiguous target rather than overwrite unrelated content.
 8. Provide keyboard access, understandable errors, and suitable descriptions for rendered technical content.
+9. Detect and render completed Markdown automatically without a required Render/Update action.
 
 Define malformed syntax behavior, supported structures, rendering limits, and recovery rules before implementing these cases.
 Treat Markdown, diagram labels, math, links, and generated SVG as untrusted input.
@@ -86,9 +107,8 @@ Do not execute source code or permit source-driven script execution or arbitrary
 
 ## Interview decisions still open
 
-- Explicit Render/Update versus automatic rendering as the user types.
-- Actual MathML input, TeX/LaTeX expressions, or both.
-- Source editing and retention, block delimiters, and literal Markdown escape behavior.
+- Automatic activation, acceptable rendering delay, and source-editing interaction.
+- Source retention mechanism, block delimiters, and literal Markdown escape behavior.
 - First-release Markdown features and whether syntax highlighting belongs in that release.
 - Document structures, output fidelity, accessibility, and recovery guarantees.
 
@@ -102,6 +122,8 @@ No product feature implementation or integrated renderer verification occurred d
 
 ## References
 
+- [Apps Script browser/server communication](https://developers.google.com/apps-script/guides/html/communication)
+- [Apps Script HTML sandbox](https://developers.google.com/apps-script/guides/html/restrictions)
 - [Google Editor add-on triggers](https://developers.google.com/workspace/add-ons/concepts/editor-triggers)
 - [Google Docs text operations](https://developers.google.com/apps-script/reference/document/text)
 - [Google Docs paragraph image operations](https://developers.google.com/apps-script/reference/document/paragraph)
