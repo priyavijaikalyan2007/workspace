@@ -112,6 +112,38 @@ Do not execute source code or permit source-driven script execution or arbitrary
 - First-release Markdown features and whether syntax highlighting belongs in that release.
 - Document structures, output fidelity, accessibility, and recovery guarantees.
 
+## Next bounded feasibility check
+
+The first proof must establish the document interaction before integrating complex renderers.
+Use a disposable test document when browser work resumes. Keep current browser deferral in force.
+Do not create another Apps Script project before inspecting the earlier creation attempt under issue #11.
+
+The documented Editor add-on triggers provide no Docs text-edit event.
+An open-interface polling proposal remains unaccepted and unverified. It does not establish interface-free automatic operation.
+Chrome content scripts can run in web pages, but that capability is not a supported Google Docs editing contract.
+Google announced canvas-based document rendering and warned of extension compatibility changes.
+A browser-extension candidate must prove reliable content access and document writes, not merely observe keyboard events.
+No browser-extension component is enabled by this assessment.
+
+The host proof must cover these cases:
+
+1. Type a backtick-delimited code span within an ordinary sentence.
+2. Observe automatic formatting after complete syntax without invoking Render/Update.
+3. Verify that surrounding text, formatting, and cursor position remain correct.
+4. Recover and edit the source, then verify automatic replacement without duplicate output.
+5. Use undo and redo, then verify both visible content and retained source.
+6. Change the target through a collaborator, then verify that stale output cannot overwrite the change.
+7. Close any auxiliary UI and record whether automatic behavior continues.
+8. Reload the document and record activation requirements and source recovery.
+
+Measure delay, request frequency, supported browser behavior, and authorization needs.
+Record incomplete syntax, pasted content, document-tab changes, and input-method composition as follow-up host cases in issue #3.
+Successful local mocks cannot establish any of these host results.
+
+If no supported approach meets the required interaction, report that finding before implementing diagrams or changing the selected platform.
+The product build/test adapter under issue #4 remains necessary before implementing a product prototype.
+Independent local preparation can continue, but actual host feasibility remains unverified until browser access resumes.
+
 ## Implementation and tracking
 
 Product scope and acceptance decisions belong to [issue #3](https://github.com/priyavijaikalyan2007/workspace/issues/3).
@@ -124,6 +156,8 @@ No product feature implementation or integrated renderer verification occurred d
 
 - [Apps Script browser/server communication](https://developers.google.com/apps-script/guides/html/communication)
 - [Apps Script HTML sandbox](https://developers.google.com/apps-script/guides/html/restrictions)
+- [Chrome content scripts](https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts)
+- [Google Docs canvas rendering announcement](https://workspaceupdates.googleblog.com/2021/05/Google-Docs-Canvas-Based-Rendering-Update.html)
 - [Google Editor add-on triggers](https://developers.google.com/workspace/add-ons/concepts/editor-triggers)
 - [Google Docs text operations](https://developers.google.com/apps-script/reference/document/text)
 - [Google Docs paragraph image operations](https://developers.google.com/apps-script/reference/document/paragraph)

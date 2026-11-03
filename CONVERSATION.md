@@ -1192,3 +1192,10 @@ Explained that MarkdownRenderer needs a browser runtime and cannot be embedded a
 A separate document adapter must preserve source and apply native text formatting or supported image output.
 A sidebar is not an accepted product requirement. Automatic rendering must pass a host feasibility check before feature implementation.
 No architecture change, product code, browser setup, deployment, or publication occurred.
+
+## Next milestone: automatic document interaction — 3 November 2026
+
+The user asked what comes next. Defined a bounded host feasibility check before complex renderer integration.
+The proof starts with automatic inline code formatting, editable source, cursor behavior, undo/redo, and stale-update protection.
+Documented that Editor add-ons lack a Docs edit trigger and browser content scripts do not establish a stable Docs editing contract.
+No architecture change or host result is claimed. Browser setup remains deferred. Product implementation still requires the real build/test adapter.

@@ -34,7 +34,7 @@ The release safeguards remain mandatory before remote release operations.
 
 ## Next bounded implementation
 
-1. Finalize the embedded Markdown workflow and its acceptance criteria in markdown-extension.md.
+1. Assess automatic-rendering feasibility using the bounded host cases in markdown-extension.md.
 2. Record supported behavior, exclusions, permission needs, document-preservation rules, and observable acceptance criteria under issue #3.
 3. Write failing tests for a real product build/test adapter under issue #4.
 4. Connect the existing server/browser build boundary to a registered extension's source and package version.
