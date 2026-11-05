@@ -15,8 +15,8 @@
     ],
     "scripts": {
         "test": "vitest run --coverage",
-        "typecheck": "tsc --noEmit",
-        "lint": "eslint src/tool/workspace-build vitest.config.ts eslint.config.mjs",
+        "typecheck": "tsc --noEmit && tsc -p test/experiments/docs-input/tsconfig.json",
+        "lint": "eslint src/tool/workspace-build test/experiments/docs-input vitest.config.ts eslint.config.mjs",
         "test:shell": "bats test/shell",
         "test:instructions": "python3 -m unittest discover -s scripts/tests -q"
     },

@@ -11,6 +11,12 @@ Created: 2026
 
 # Changelog
 
+## 5 November 2026
+
+### Added
+
+- Added a temporary Docs input probe and recorded delimiter detection, transient paste access, and the remaining source-range gate.
+
 ## 3 November 2026
 
 ### Changed

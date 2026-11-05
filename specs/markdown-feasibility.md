@@ -112,7 +112,8 @@ Our add-on still needs a supported activation mechanism and its own verified sou
 
 ## Decision before implementation
 
-Review the delimiter experiment and embedded-content mechanisms with the user before selecting a prototype.
+The [temporary input experiment](markdown-input-experiment.md) detected backtick keys but did not establish nearby-source access.
+Review those results and embedded-content mechanisms before selecting a product prototype.
 An open-window polling prototype remains one possible route if the user accepts keeping a small modeless dialog open.
 A modeless dialog permits document interaction while the dialog remains open. It is a candidate, not a passing host result.
 The proposed prototype would make serial, bounded checks through Apps Script and show whether automatic mode is active.
@@ -189,3 +190,13 @@ All sources below were reviewed on 5 November 2026.
 - [Text ranges, matching boundaries, formatting, and current-document scopes](https://developers.google.com/apps-script/reference/document/text)
 - [User and service authentication](https://developers.google.com/workspace/guides/auth-overview)
 - [OpenDevEd bFormatReport](https://www.opendeved.net/our-tools/bformat-docs)
+
+
+## Input-event experiment: 5 November 2026
+
+A temporary DevTools observer detected backtick keys in the disposable document.
+Its key-event targets exposed only two characters and no synthetic source marker.
+Paste exposed the marker transiently, but exact Docs range mapping remains unverified.
+The observer stopped before any formatting write. Cleanup and Saved to Drive were verified.
+[The experiment record](markdown-input-experiment.md) contains the metrics, input-method limits, test evidence, and next source-access gate.
+The source is local test tooling, not an installed browser extension or a working add-on.

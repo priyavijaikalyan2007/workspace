@@ -83,5 +83,14 @@
             "EmbeddedMarkdown",
             "LocalProductAdapter"
         ]
+    },
+    {
+        "name": "DocsInputProbe",
+        "definition": "Temporary exact-document page observer with bounded redacted metrics, expiry, and cleanup. Native host test detected delimiter keydown and transient paste text but did not prove nearby source or stable Docs ranges. No formatting writes or browser product selected.",
+        "anchor_file": "test/experiments/docs-input/probe.js",
+        "related": [
+            "MarkdownFeasibility",
+            "EmbeddedMarkdown"
+        ]
     }
 ]

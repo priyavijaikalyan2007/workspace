@@ -28,4 +28,7 @@ export default ts.config(
         },
     },
     { files: ['**/test/**/*.ts'], rules: { 'max-lines-per-function': 'off' } },
+    { files: ['test/experiments/docs-input/probe.js'], languageOptions: { globals: {
+        setTimeout: 'readonly', clearTimeout: 'readonly',
+    } } },
 );

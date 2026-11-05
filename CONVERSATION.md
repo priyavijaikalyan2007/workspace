@@ -299,3 +299,18 @@ The report does not establish that all shipping formatters are manual or justify
 Google's current Marketplace OAuth guide also lists enabled billing as a prerequisite. Its applicability needs verification under issue #11.
 Updated the assessment and Google setup records. No code, runtime selection, scope, billing, installation, upload, or release changed.
 Profile and whitespace checks passed. Application tests were not rerun for this documentation-only review.
+
+
+## Disposable input observer: 5 November 2026
+
+The user said, "ok. continue with your experiments," and later confirmed, "The testing window is active."
+The user then asked, "sorry what's going on?" Explained the backtick result, missing nearby-source access, and cleanup.
+Built a bounded temporary page observer through failing tests before implementation under issue #3.
+Native DevTools in the disposable Doc recorded four backtick key events, three Enter events, and three paste-related events.
+Key targets lacked the source marker. The paste input target contained the marker, but exact Docs range mapping remains unverified.
+Stopped before formatting writes and verified active=false plus Saved to Drive. No extension or new permission was installed.
+Recorded the input-driver and selection limits in specs/markdown-input-experiment.md.
+Full validation passed 237 TypeScript and JavaScript tests, seven shell checks, and 213 Python tests.
+Probe line coverage was 100%, with 93.18% branches. Those tests establish observer behavior, not Docs compatibility.
+The next gate is nearby source and exact Docs offsets. Automatic rendering remains required and unimplemented.
+No Google upload, billing change, deployment, publication, or push occurred.

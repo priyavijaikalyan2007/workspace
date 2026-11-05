@@ -34,7 +34,7 @@ The release safeguards remain mandatory before remote release operations.
 
 ## Next bounded implementation
 
-1. Select the next interaction route from markdown-feasibility.md after reviewing the documented constraints and native baseline.
+1. Prove nearby-source access and exact Docs offsets after reviewing markdown-input-experiment.md.
 2. Record supported behavior, exclusions, permission needs, document-preservation rules, and observable acceptance criteria under issue #3.
 3. Use the verified local adapter contract in product-adapter.md when product source enters scope.
 4. Implement the selected first feature through failing tests after the host proof establishes a supported interaction.
@@ -93,3 +93,12 @@ Docs has no text-edit trigger, add-on timers are hourly, and the newer Workspace
 A disposable Docs baseline showed native inline formatting but did not establish a custom callback or source recovery.
 The next review covers delimiter-triggered detection, supported embedded content, and possible open-window or browser-extension experiments.
 [The assessment](markdown-feasibility.md) records evidence, limits, and the proposed checks. No feature implementation was started.
+
+
+## Input-event experiment: 5 November 2026
+
+The [temporary observer](markdown-input-experiment.md) detected backtick keys and transient pasted text in the disposable Doc.
+Nearby-source access and a stable Docs range remain unverified. The source-access gate stopped formatting-write experiments.
+The observer was removed from active use. No browser extension, persistent interface, or product-platform change was selected.
+Full local validation passed 237 TypeScript and JavaScript tests, seven shell checks, and 213 Python tests.
+These checks verify tooling. They do not establish product readiness or remote integration.

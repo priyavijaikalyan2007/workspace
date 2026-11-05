@@ -13,5 +13,9 @@
         "skipLibCheck": true,
         "types": ["node"]
     },
-    "include": ["src/tool/workspace-build/**/*.ts", "vitest.config.ts"]
+    "include": [
+        "src/tool/workspace-build/**/*.ts",
+        "vitest.config.ts",
+        "test/experiments/docs-input/**/*.ts"
+    ]
 }
