@@ -39,7 +39,8 @@ The wrappers work through macOS system Bash 3.2 and preserve arguments and failu
 
 `--extension markdown` currently fails because the extension is planned.
 The default build reports this limit instead of treating an empty directory as a successful product build.
-Product adapters and incremental product builds remain part of [issue #4](https://github.com/priyavijaikalyan2007/workspace/issues/4).
+The local adapter supports implemented extensions. See [the product adapter contract](specs/product-adapter.md).
+Incremental product builds remain part of [issue #4](https://github.com/priyavijaikalyan2007/workspace/issues/4).
 
 ## Inputs and outputs
 
@@ -58,8 +59,8 @@ Generated outputs and local Google configuration files are ignored by Git.
 ## Remaining release work
 
 Upload, deploy, publish, and host smoke commands require explicit extension and environment selections.
-These commands stop before remote work because Apps Script IDs, product adapters, and an authorized release client remain unconfigured.
-Production local commands remain blocked until real product adapters and a trusted publication verifier are configured.
+These commands stop before remote work because Apps Script IDs, product host integration, and an authorized release client remain unconfigured.
+Production local commands remain blocked until production product integration and a trusted publication verifier are configured.
 The shared release engine and safe diagnostic formatter are implemented. See releases/README.md.
 Two standard Cloud projects now exist. One Apps Script creation was initiated, but its ID and final state remain unverified.
 No Markdown upload, deployment, or publication was performed.
@@ -71,7 +72,7 @@ Do not override incompatible major versions inside clasp to hide findings.
 
 Remaining work is tracked in:
 
-- [Issue #4](https://github.com/priyavijaikalyan2007/workspace/issues/4): product adapters, iterative builds, and hosted Ubuntu verification.
+- [Issue #4](https://github.com/priyavijaikalyan2007/workspace/issues/4): product activation, incremental builds, and hosted Ubuntu verification.
 - [Issue #9](https://github.com/priyavijaikalyan2007/workspace/issues/9): persisted release records, production gates, and About diagnostics.
 - [Issue #11](https://github.com/priyavijaikalyan2007/workspace/issues/11): remote tooling, billing checks, and Google-host verification.
 - [Issue #3](https://github.com/priyavijaikalyan2007/workspace/issues/3): product scope after the shared setup.
@@ -123,6 +124,23 @@ The [official extension setup guide](https://learn.chatgpt.com/docs/chrome-exten
 
 The user is not ready to quit and restart cmux for the screen-recording permission change.
 Keep browser setup deferred. Do not restart the application to remove this blocker.
-Continue the local product adapter, scope interview, and repository work without Google credentials or browser control.
+Continue local tooling, scope decisions, and repository work without Google credentials or browser control.
 A fresh ./package.sh --fixture run passed the local validation and packaging checks on 3 November 2026.
 The earlier Apps Script creation remains unverified. Inspect it before any future creation attempt.
+
+
+## Local product adapter: 5 November 2026
+
+Registered, implemented extensions now use the root build, test, and development package commands.
+The adapter reads each extension's package version and preserves named Apps Script callbacks.
+It supports server-only products and optional, separate browser bundles. It does not require a sidebar.
+Each extension receives isolated runtime type checks, lint, and its own coverage gate.
+See [the adapter contract](specs/product-adapter.md) for inputs, outputs, commands, and current limits.
+
+Markdown remains planned. No Markdown product artifact or Google-host success is claimed.
+The full fixture package passed 218 TypeScript tests, seven shell checks, and 213 retained Python tests.
+Tooling line coverage was 96.42%. Real native tests passed for synthetic server-only and browser-enabled source.
+An untested synthetic source file failed the separate product coverage gate as expected.
+Incremental product build watching, hosted Ubuntu execution, product UI, and release integration remain pending.
+
+The user reported a computer restart on 5 November 2026. Browser access must be checked before the host proof resumes.

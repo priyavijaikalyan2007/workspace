@@ -5,7 +5,7 @@
 // File GUID: 00f2b928-f6e7-4bdf-b889-1bd7d8c93943
 // Created: 2026
 // COMPONENT: Native workspace tooling
-// PURPOSE: Validate and hash an immutable local fixture package without implying release readiness.
+// PURPOSE: Validate and hash immutable fixture or development product packages without implying release readiness.
 // RELATES: specs/tooling-implementation.md
 // FLOW: Validate inputs -> perform bounded local work -> report actual results.
 
@@ -18,7 +18,7 @@ const runtimeFiles = ['Code.gs', 'Index.html', 'appsscript.json'];
 
 /** Validation must complete before package directories are created or artifacts copied. */
 export async function packageArtifact(
-    root: string, source: string, name: string, validate: () => Promise<void>,
+    root: string, source: string, name: string, validate: () => Promise<void>, extension?: string,
 ): Promise<string>
 {
     await validate();
@@ -26,7 +26,7 @@ export async function packageArtifact(
     {
         throw new Error('PACKAGE: Invalid package name. Use a safe artifact identifier.');
     }
-    const files = await inspectArtifact(source);
+    const files = await inspectArtifact(source, extension);
     const target = join(await claimOutput(root, 'dist'), name);
     await mkdir(target); // Exclusive creation makes accidental replacement fail.
     try
@@ -36,7 +36,8 @@ export async function packageArtifact(
             await cp(join(source, file), join(target, file),
                 { recursive: true, errorOnExist: true, force: false });
         }
-        await writeFile(join(target, 'manifest.json'), JSON.stringify({ fixture: true, files }, null, 4) + '\n');
+        const identity = extension ? { schemaVersion: 1, extension, environment: 'dev' } : { fixture: true };
+        await writeFile(join(target, 'manifest.json'), JSON.stringify({ ...identity, files }, null, 4) + '\n');
         return target;
     }
     catch (error)
@@ -46,18 +47,20 @@ export async function packageArtifact(
     }
 }
 
-async function inspectArtifact(source: string): Promise<Record<string, string>>
+async function inspectArtifact(source: string, extension?: string): Promise<Record<string, string>>
 {
     await rejectLink(source);
     await rejectLink(join(source, 'apps-script'));
     const actual = (await readdir(join(source, 'apps-script'))).sort();
-    if (JSON.stringify(actual) !== JSON.stringify(runtimeFiles) ||
+    const expected = extension && !actual.includes('Index.html')
+        ? ['Code.gs', 'appsscript.json'] : runtimeFiles;
+    if (JSON.stringify(actual) !== JSON.stringify(expected) ||
         JSON.stringify((await readdir(source)).sort()) !== JSON.stringify(['apps-script', 'build-info.json']))
     {
-        throw new Error('PACKAGE: Unexpected runtime files. Rebuild the controlled fixture.');
+        throw new Error('PACKAGE: Unexpected runtime files. Rebuild the selected source.');
     }
     const files: Record<string, string> = {};
-    for (const name of ['build-info.json', ...runtimeFiles.map(file => `apps-script/${file}`)])
+    for (const name of ['build-info.json', ...expected.map(file => `apps-script/${file}`)])
     {
         const path = join(source, name);
         if (!(await lstat(path)).isFile())
@@ -83,6 +86,6 @@ async function verifyManifest(source: string): Promise<void>
     }
     catch
     {
-        throw new Error('PACKAGE: Invalid Apps Script manifest. Rebuild the fixture before packaging.');
+        throw new Error('PACKAGE: Invalid Apps Script manifest. Rebuild the selected source before packaging.');
     }
 }

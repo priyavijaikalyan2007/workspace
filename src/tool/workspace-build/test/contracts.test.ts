@@ -31,7 +31,7 @@ describe('command arguments', () =>
         ['upload'], ['deploy', '--extension', 'markdown'],
         ['publish', '--extension', 'markdown', '--environment', 'other'],
         ['build', '--fixture', '--fixture'], ['clean', '--version', '1.0.0'],
-        ['clean', '--fixture'], ['test', '--environment', 'prod'],
+        ['clean', '--fixture'], ['test', '--environment', 'prod'], ['clean', '--extension', 'sample'],
     ])('rejects invalid command %j', (...args) =>
     {
         expect(() => parseArguments(args)).toThrow();
@@ -137,4 +137,9 @@ it('documents the mandatory billing destination and explicit account prerequisit
 it('does not advertise fixture or environment options for read-only release inspection', () =>
 {
     expect(commandHelp('release')).not.toMatch(/--fixture|--environment/);
+});
+
+it('documents cleanup without an unsupported extension selection', () =>
+{
+    expect(commandHelp('clean')).not.toContain('--extension');
 });

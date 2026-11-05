@@ -141,15 +141,15 @@ Record incomplete syntax, pasted content, document-tab changes, and input-method
 Successful local mocks cannot establish any of these host results.
 
 If no supported approach meets the required interaction, report that finding before implementing diagrams or changing the selected platform.
-The product build/test adapter under issue #4 remains necessary before implementing a product prototype.
+The local build/test adapter is implemented under issue #4. Actual source must follow [its contract](product-adapter.md).
 Independent local preparation can continue, but actual host feasibility remains unverified until browser access resumes.
 
 ## Implementation and tracking
 
 Product scope and acceptance decisions belong to [issue #3](https://github.com/priyavijaikalyan2007/workspace/issues/3).
-The product build/test adapter remains a prerequisite under [issue #4](https://github.com/priyavijaikalyan2007/workspace/issues/4).
+The local product adapter is implemented under [issue #4](https://github.com/priyavijaikalyan2007/workspace/issues/4). Markdown source remains planned.
 Google-host checks remain under [issue #11](https://github.com/priyavijaikalyan2007/workspace/issues/11).
-Browser work remains deferred. Local requirements and adapter work can continue.
+Browser work was deferred. The user reported a computer restart on 5 November 2026. Verify browser access before host work resumes.
 No product feature implementation or integrated renderer verification occurred during this requirements pass.
 
 ## References

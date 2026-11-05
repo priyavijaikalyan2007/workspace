@@ -13,7 +13,8 @@ Created: 2026
 # workspace
 
 This repository will contain Google Workspace extensions. The first planned extension is a Google Docs Editor add-on named Markdown.
-Product features are not implemented. The shared local toolchain can validate, build, and package a controlled fixture.
+Product features are not implemented. The local toolchain supports a controlled fixture and registered extensions that supply actual source.
+The [product adapter contract](specs/product-adapter.md) defines extension inputs, validation, and local development packages.
 
 ## Start development
 

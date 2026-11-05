@@ -1199,3 +1199,17 @@ The user asked what comes next. Defined a bounded host feasibility check before 
 The proof starts with automatic inline code formatting, editable source, cursor behavior, undo/redo, and stale-update protection.
 Documented that Editor add-ons lack a Docs edit trigger and browser content scripts do not establish a stable Docs editing contract.
 No architecture change or host result is claimed. Browser setup remains deferred. Product implementation still requires the real build/test adapter.
+
+
+## Local product adapter: 5 November 2026
+
+The user asked to continue work on the Markdown plugin and later reported a computer restart.
+Implemented the next independent local milestone under issue #4 through failing tests before implementation.
+The adapter selects real registered source, uses each extension's version, preserves callable globals, and builds optional browser output.
+Product type checks, lint, and coverage run separately from tooling. Local development packages retain hashes and source identity.
+The final suite passed 218 TypeScript tests at 96.42% tooling line coverage, seven shell checks, and 213 Python tests.
+Full fixture packaging and complete synthetic-product packaging from a path containing spaces passed.
+Packaged runtime hashes and callable identity matched. Markdown stays planned until source and automatic host interaction are verified.
+Existing repository cleanup and licensing changes were preserved outside this task.
+No push, Google upload, deployment, publication, or hosted Ubuntu result occurred.
+The user reported a computer restart. Browser access must be verified before the host proof resumes.

@@ -19,7 +19,9 @@ import { readExtensions, loadExtension } from '../config.ts';
 import { checkBilling } from '../billing.ts';
 import { loadGoogleTarget } from '../google-target.ts';
 import { cleanOutput } from '../files.ts';
+import { productOperation } from '../product-operation.ts';
 
+vi.mock('../product-operation.ts', () => ({ productOperation: vi.fn() }));
 vi.mock('../process.ts', () => ({ run: vi.fn().mockResolvedValue(undefined) }));
 vi.mock('../build.ts', () => ({ buildTool: vi.fn(), buildFixture: vi.fn().mockResolvedValue('/fixture') }));
 vi.mock('../package.ts', () => ({ packageArtifact: vi.fn().mockResolvedValue('/package') }));
@@ -52,10 +54,11 @@ describe('operation safeguards', () =>
         await expect(execute(process.cwd(), ['upload', '--extension', 'markdown', '--environment', 'dev']))
             .rejects.toThrow(/REMOTE_UNCONFIGURED/);
     });
-    it('blocks product adapters that do not exist', async () =>
+    it('routes an explicit product through the local adapter', async () =>
     {
         vi.mocked(loadExtension).mockResolvedValue({ name: 'sample', state: 'ready', path: 'unused' });
-        await expect(execute(process.cwd(), ['build', '--extension', 'sample'])).rejects.toThrow(/NOT_READY/);
+        await execute(process.cwd(), ['build', '--extension', 'sample']);
+        expect(productOperation).toHaveBeenCalledWith(process.cwd(), expect.objectContaining({ extension: 'sample' }));
     });
     it('blocks production until release gates are implemented', async () =>
     {
@@ -76,10 +79,12 @@ describe('operation safeguards', () =>
         await execute(process.cwd(), ['build']);
         expect(buildTool).toHaveBeenCalledOnce();
     });
-    it('rejects newly ready products until their build adapter exists', async () =>
+    it('builds configured ready products by default', async () =>
     {
         vi.mocked(readExtensions).mockResolvedValue([{ name: 'sample', state: 'ready', path: 'unused' }]);
-        await expect(execute(process.cwd(), ['build'])).rejects.toThrow(/NOT_READY/);
+        await execute(process.cwd(), ['build']);
+        expect(productOperation).toHaveBeenCalledWith(process.cwd(),
+            expect.objectContaining({ extension: 'sample' }), false);
     });
     it('builds an explicitly selected fixture', async () =>
     {
@@ -98,10 +103,12 @@ describe('operation safeguards', () =>
         await expect(execute(process.cwd(), ['package', '--fixture'])).rejects.toThrow('lint failed');
         expect(buildTool).not.toHaveBeenCalled();
     });
-    it('does not pass default validation for a ready product without a test adapter', async () =>
+    it('runs product validation for ready products by default', async () =>
     {
         vi.mocked(readExtensions).mockResolvedValue([{ name: 'sample', state: 'ready', path: 'unused' }]);
-        await expect(execute(process.cwd(), ['test'])).rejects.toThrow(/NOT_READY/);
+        await execute(process.cwd(), ['test']);
+        expect(productOperation).toHaveBeenCalledWith(process.cwd(),
+            expect.objectContaining({ operation: 'test' }), true);
     });
     it('routes the public test command through full validation', async () =>
     {

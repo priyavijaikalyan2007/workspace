@@ -54,5 +54,19 @@
             "workspace.config.json",
             "specs/google-project-setup.md"
         ]
+    },
+    {
+        "id": "ADR-005",
+        "title": "Keep local product tooling independent from host and feature readiness",
+        "date": "2026-11-05",
+        "status": "Accepted",
+        "context": "A ready registry entry and validated source contract permit local build, independent product checks, and development packages. Optional browser inputs avoid imposing a sidebar. Fresh output directories prevent stale runtime files. Synthetic tests verify the adapter while Markdown remains planned. Production and Google operations retain their gates.",
+        "files": [
+            "src/tool/workspace-build/product-config.ts",
+            "src/tool/workspace-build/product-build.ts",
+            "src/tool/workspace-build/product-validation.ts",
+            "src/tool/workspace-build/product-operation.ts",
+            "specs/product-adapter.md"
+        ]
     }
 ]

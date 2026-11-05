@@ -11,12 +11,12 @@ Created: 2026
 
 # First extension readiness
 
-The shared local foundation is sufficient to begin the extension's build adapter and product design.
-Product-feature implementation still requires a working adapter and agreed acceptance criteria.
+The shared local foundation and product adapter support local work on implemented extensions.
+Product-feature implementation still requires supported automatic document interaction and agreed acceptance criteria.
 The planned Markdown component has no product implementation. Fixture packaging does not establish a working add-on.
 
 The user deferred the cmux restart and browser setup on 3 November 2026.
-Do not quit or restart cmux or resume browser work until the user is ready.
+The user reported a computer restart on 5 November 2026. Verify browser access before the host proof resumes.
 Independent local development can continue without Google credentials or browser control.
 
 ## Milestones
@@ -24,8 +24,8 @@ Independent local development can continue without Google credentials or browser
 | Milestone | Current state | Remaining work | Tracking |
 | --- | --- | --- | --- |
 | Shared local foundation | Verified | Maintain the selected native tools and existing quality gates. | #4 |
-| First local extension | Ready to start adapter work; no product features implemented | Embedded Markdown workflow identified; finalize acceptance criteria. Implement the product build/test adapter before features. | #3, #4 |
-| Test inside Google Docs | Not ready; browser work deferred | Inspect the existing creation attempt, record script IDs, link dev Cloud configuration, and configure an acceptable remote client. Verify authorization and actual host behavior. | #11 |
+| First local extension | Local adapter verified against synthetic source; no Markdown features implemented | Prove automatic document interaction, finalize acceptance criteria, and implement product source. | #3, #4 |
+| Test inside Google Docs | Not ready; browser access needs verification | Inspect the existing creation attempt, record script IDs, link dev Cloud configuration, and configure an acceptable remote client. Verify authorization and actual host behavior. | #11 |
 | Production release | Not ready | Verify Ubuntu CI, production adapters, billing, permissions, publication state, About, accessibility, contacts, and licensing. | #4, #5, #6, #8, #9, #11 |
 
 The development and production gates remain distinct.
@@ -36,12 +36,10 @@ The release safeguards remain mandatory before remote release operations.
 
 1. Assess automatic-rendering feasibility using the bounded host cases in markdown-extension.md.
 2. Record supported behavior, exclusions, permission needs, document-preservation rules, and observable acceptance criteria under issue #3.
-3. Write failing tests for a real product build/test adapter under issue #4.
-4. Connect the existing server/browser build boundary to a registered extension's source and package version.
-5. Verify callback preservation, isolated types, embedded version metadata, and product test/coverage collection.
-6. Verify that local commands neither require Google credentials nor trigger remote operations.
-7. Implement the selected first feature after the adapter and its tests pass.
-8. Verify the feature inside Google Docs when browser setup resumes.
+3. Use the verified local adapter contract in product-adapter.md when product source enters scope.
+4. Implement the selected first feature through failing tests after the host proof establishes a supported interaction.
+5. Add product source to its separate type, lint, test, and coverage checks.
+6. Verify the feature inside Google Docs after local checks pass.
 
 Do not mark the component ready solely to bypass the existing planned-source guard.
 Product code must enter type checks, lint, tests, and coverage before its feature checks can pass.
@@ -58,7 +56,7 @@ Outcrop's MarkdownRenderer already documents most requested rendering capabiliti
 The user requires automatic rendering, editable source, and both MathML and TeX/LaTeX input.
 The current add-on model must pass an automatic-rendering feasibility check. A persistent sidebar is not accepted.
 Source preservation, block delimiters, first-release scope, and host acceptance criteria still need agreement.
-Local adapter work does not require the deferred browser restart.
+Local adapter work is complete for the bounded contract. The host proof still needs verified browser access.
 
 ## Verification: 3 November 2026
 
@@ -78,3 +76,11 @@ Ubuntu CI execution remains unverified because the local commits are not pushed.
 - [Markdown import/export and clipboard behavior](https://support.google.com/docs/answer/12014036?hl=en)
 - [Native Markdown editing](https://support.google.com/docs/answer/18289341?hl=en)
 - [Google's native Markdown announcement](https://workspaceupdates.googleblog.com/2026/10/preview-edit-and-collaborate-on-Markdown-files-natively-across-Drive-and-Docs.html)
+
+
+## Adapter verification: 5 November 2026
+
+The full fixture package passed 218 TypeScript tests, seven shell checks, and 213 retained Python tests.
+Tooling line coverage was 96.42%. Real synthetic-product checks verify isolated types and independent product coverage.
+[The adapter contract](product-adapter.md) records supported inputs, outputs, and limits.
+No product source, ready Markdown registry state, Google-host result, upload, deployment, or publication was introduced.

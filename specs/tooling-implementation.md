@@ -91,3 +91,14 @@ No deployment or production readiness is claimed. Hosted Ubuntu execution awaits
 A staged-source snapshot also passed the complete fixture package command from a path containing spaces on 2 November 2026.
 All four recorded file hashes matched the packaged bytes. The real clean command removed only owned generated output.
 A planned component README preserves the required source directory in fresh checkouts.
+
+
+## Local product adapter: 5 November 2026
+
+The bounded product adapter is implemented. See [product-adapter.md](product-adapter.md) for its source and command contract.
+Registered extensions can build server-only or optional browser output, run separate product checks, and create development packages.
+Markdown remains planned until product source and host feasibility exist. No Google or production operation was enabled.
+Full local fixture packaging passed 218 TypeScript tests, seven shell checks, and 213 retained Python tests.
+Tooling line coverage was 96.42%. A disposable checkout also passed the complete synthetic-product package command from a path containing spaces.
+Its runtime hashes and callable embedded identity matched the packaged bytes.
+Incremental builds, hosted Ubuntu execution, component integration, About, and remote release adapters remain tracked under issues #4, #9, and #11.

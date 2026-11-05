@@ -12,7 +12,8 @@
 import { join } from 'node:path';
 import { commandHelp, parseArguments, remoteOperations } from './args.ts';
 import { buildFixture, buildTool } from './build.ts';
-import { loadExtension, readExtensions } from './config.ts';
+import { readExtensions } from './config.ts';
+import { productOperation } from './product-operation.ts';
 import { cleanOutput } from './files.ts';
 import { packageArtifact } from './package.ts';
 import { readSourceState } from './source.ts';
@@ -44,12 +45,8 @@ export async function execute(root: string, args: string[]): Promise<void>
     }
     if (options.extension)
     {
-        await loadExtension(root, options.extension);
-        throw new Error('NOT_READY: Product build adapter is not implemented. Do not mark the extension ready yet.');
-    }
-    if (!options.fixture && ['build', 'test'].includes(options.operation))
-    {
-        await requireProductAdapters(root);
+        await productOperation(root, options);
+        return;
     }
     await localOperation(root, options);
 }
@@ -83,11 +80,18 @@ async function readOnlyOperation(root: string, options: CliOptions): Promise<boo
     return true;
 }
 
-async function requireProductAdapters(root: string): Promise<void>
+async function readyProducts(root: string, options: CliOptions, sharedValidated = false): Promise<void>
 {
-    if ((await readExtensions(root)).some(entry => entry.state === 'ready'))
+    for (const entry of await readExtensions(root))
     {
-        throw new Error('NOT_READY: Implement product build and test adapters before marking extensions ready.');
+        if (entry.state === 'ready')
+        {
+            await productOperation(root, { ...options, extension: entry.name }, sharedValidated);
+        }
+        else
+        {
+            console.log(`${entry.name}: planned. No product source was built or tested.`);
+        }
     }
 }
 
@@ -103,11 +107,15 @@ async function localOperation(root: string, options: CliOptions): Promise<void>
     if (options.operation === 'test')
     {
         await validate(root);
+        await readyProducts(root, options, true);
         return;
     }
     if (options.operation === 'package' && !options.fixture)
     {
-        throw new Error('NOT_READY: No product extension is packageable. Use --fixture for tooling validation.');
+        if (!(await readExtensions(root)).some(entry => entry.state === 'ready'))
+        {
+            throw new Error('NOT_READY: No product extension is packageable. Use --fixture for tooling validation.');
+        }
     }
     await buildSelection(root, options);
 }
@@ -125,12 +133,8 @@ async function buildSelection(root: string, options: CliOptions): Promise<void>
     await buildTool(root);
     if (!options.fixture)
     {
-        const entries = await readExtensions(root);
-        console.log('Built shared tooling. No product extensions were built.');
-        for (const entry of entries)
-        {
-            console.log(`${entry.name}: ${entry.state}. Product build adapter is pending.`);
-        }
+        console.log('Built shared tooling.');
+        await readyProducts(root, options, options.operation === 'package');
         return;
     }
     await fixtureOperation(root, options);

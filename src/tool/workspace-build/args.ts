@@ -39,12 +39,16 @@ export function commandHelp(operation: string): string
             : 'Remote product operations remain unconfigured. A billing check alone does not authorize release.';
         return `${usage}\n${detail}`;
     }
+    if (operation === 'clean')
+    {
+        return 'Usage: ./clean.sh\nRemove only verified, owned build and dist output.';
+    }
     if (['build', 'package'].includes(operation))
     {
         return `Usage: ./${operation}.sh [--extension NAME | --fixture]` +
             ' [--environment dev|prod] [--version X.Y.Z]\nFixture output is local and cannot be deployed.';
     }
-    return `Usage: ./${operation}.sh [--extension NAME]\nProduct adapters remain unconfigured.`;
+    return `Usage: ./${operation}.sh [--extension NAME]\nPlanned extensions remain unavailable.`;
 }
 
 /** Parse the shared command contract without accessing the filesystem. */
@@ -108,7 +112,8 @@ function validateSelection(options: CliOptions, flags: Map<string, string>): voi
         throw new Error('ARGUMENT: Release inspection requires --extension NAME.');
     }
     if ((options.fixture && !['build', 'package'].includes(options.operation)) ||
-        (flags.has('--environment') && ['test', 'clean', 'release'].includes(options.operation)))
+        (flags.has('--environment') && ['test', 'clean', 'release'].includes(options.operation)) ||
+        (options.operation === 'clean' && options.extension))
     {
         throw new Error('ARGUMENT: Selection does not apply to this operation. Read --help.');
     }

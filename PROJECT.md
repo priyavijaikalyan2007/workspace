@@ -25,11 +25,11 @@ Created: 2026
 | Success criteria | Draft cases are in specs/markdown-extension.md. Automatic rendering, editable source, and both math inputs are confirmed. Host feasibility, source storage, and release scope remain open. |
 | Constraints and exclusions | Native macOS development, native Ubuntu CI, no React or hosted backend, and unbilled Google targets. See ADDITIONAL.md. |
 | Build and test commands | ./build.sh, ./test.sh, and ./package.sh --fixture. See SETUP.md for limits. |
-| Architecture | Native TypeScript build CLI and retained instruction configurator. Product extension remains planned. |
+| Architecture | Native TypeScript build CLI, local product adapters, and retained instruction configurator. Markdown remains planned. |
 | Source locations | Recorded in the component profile linked below |
 | Database migration ownership | None. No application database is selected. |
 | Component and cross-component tests | src/tool/workspace-build/test, test/shell, scripts/tests. Run ./test.sh. |
-| Source and generated output mapping | src/tool/workspace-build and test/fixtures/googleworkspace produce owned build/ and dist/ output. |
+| Source and generated output mapping | Shared tools, fixture inputs, and ready extension source produce owned build/ and dist/ output. See specs/product-adapter.md. |
 | Deployment | Dev/prod projects selected. Cloud IDs and live billing checks are configured. Apps Script IDs and remote adapters remain unconfigured. |
 
 Component selections are in [PROJECT_PROFILE.md](<PROJECT_PROFILE.md>).
@@ -72,12 +72,12 @@ The theme repository is an inspection source, not an absolute-path dependency fo
 Use `--extension <name>` for product operations. Local build and test commands default to all enabled extensions.
 Remote operations require an explicit extension and environment. Keep instruction configuration separate in configure.sh.
 GitHub Actions will run the same root validation and build scripts directly on Ubuntu for pull requests.
-The local tooling contract is implemented for shared tools and a controlled fixture. Product adapters and remote operations remain pending.
+The local tooling contract is implemented for shared tools and a controlled fixture. Local product adapters are implemented. Markdown source and remote operations remain pending.
 
 ## Release controls and version identity
 
 Each extension will use separate dev and prod Apps Script projects. Cloud project IDs are configured. Script IDs and release credentials remain unconfigured.
-package.sh runs full validation and build for the local fixture. Production commands remain blocked pending product and remote adapter integration.
+package.sh runs full validation and build for the local fixture. Production commands remain blocked pending product release integration and remote adapters.
 Development uploads may use uncommitted source when the artifact records that state.
 
 The release identity must connect the full version, effective BUILD_NUMBER, source commit, artifact, and verified production state.
@@ -160,7 +160,18 @@ Tooling line coverage is 95.86%. Hosted Ubuntu verification still awaits an auth
 ## First extension readiness: 3 November 2026
 
 The shared local foundation passed fresh fixture packaging with all 176 TypeScript, seven shell, and 213 Python checks.
-The next engineering task is the real product build/test adapter. The embedded Markdown workflow is identified. Product-feature implementation still needs agreed acceptance criteria.
+The local product adapter is now implemented. The embedded Markdown workflow still needs actual source and host feasibility evidence. Product-feature implementation still needs agreed acceptance criteria.
 The current milestones and acceptance gates are in [specs/first-extension-readiness.md](specs/first-extension-readiness.md).
 The user deferred the cmux restart and browser setup. Independent local work can continue.
 Google-host testing and production release remain separate, incomplete milestones.
+
+
+## Local product adapter: 5 November 2026
+
+Implemented source selection, per-extension package versions, global callback wrappers, optional browser bundles, and local development packages.
+Product type checks, lint, and coverage run separately from tooling checks.
+The full fixture package passed 218 TypeScript tests, seven shell checks, and 213 retained Python tests at 96.42% tooling line coverage.
+Native synthetic-product tests verify both runtime boundaries, paths containing spaces, and rejection of insufficient product coverage.
+The source contract and remaining limits are in [specs/product-adapter.md](specs/product-adapter.md).
+Markdown remains planned. Incremental builds, Google-host behavior, Ubuntu execution, and production integration remain unverified.
+The user reported a computer restart. Browser access still requires verification before host work resumes.

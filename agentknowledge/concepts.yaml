@@ -25,7 +25,7 @@
     },
     {
         "name": "NativeBuildTooling",
-        "definition": "Portable root commands, strict argument and dependency policies, isolated Apps Script fixture builds, owned outputs, and immutable local packages. Product and remote adapters remain pending.",
+        "definition": "Portable root commands, strict argument and dependency policies, isolated fixture and product builds, owned outputs, and immutable local development packages. Markdown source and remote adapters remain pending.",
         "anchor_file": "src/tool/workspace-build/runner.ts",
         "related": [
             "InstructionConfiguration"
@@ -64,6 +64,15 @@
         "anchor_file": "specs/markdown-extension.md",
         "related": [
             "FirstExtensionReadiness"
+        ]
+    },
+    {
+        "name": "LocalProductAdapter",
+        "definition": "Registry-guarded Apps Script product builds with per-package versions, global callback wrappers, optional browser output, runtime-only development packages, and independent product type, lint, and coverage gates. Verified against synthetic source. Markdown remains planned.",
+        "anchor_file": "src/tool/workspace-build/product-operation.ts",
+        "related": [
+            "NativeBuildTooling",
+            "EmbeddedMarkdown"
         ]
     }
 ]
