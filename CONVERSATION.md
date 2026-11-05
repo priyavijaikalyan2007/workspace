@@ -270,3 +270,20 @@ Browser-tab control reports an unavailable access host, but native inspection wo
 Updated issues #4 and #11 through the selected account and verified their workspace Project membership and In Progress status.
 Restored the previous active GitHub account. The automatic document-interaction proof and dev/prod Cloud pairing remain incomplete.
 Local adapter commit b8dc0f2 remains unpushed. No Cloud, billing, authorization, deployment, or publication setting changed.
+
+
+## Automatic activation and embedded content: 5 November 2026
+
+The user asked to continue, proposed checking recognized delimiters such as backticks, and challenged the claim about custom components.
+The user saw prior-employer extensions but cannot share their private examples. Continue from public evidence.
+Reviewed Google's current trigger contracts, HTML-service interfaces, Drive events, smart chips, and @-menu resource forms.
+Docs has no text-edit callback, add-on timers are hourly, and Workspace Events subscriptions require billing.
+A new private disposable Doc showed native inline code formatting. Find could locate probe twice but not the backtick-delimited probe.
+The font control reported Roboto Mono. Enable Markdown was unchecked, and no preference was changed.
+This native baseline does not establish a custom callback, per-keystroke behavior, retained source, undo, or collaboration safety.
+Public MathType and draw.io documentation confirms embedded diagrams and equations that can reopen for editing through image/source mechanisms.
+Google smart chips also provide supported embedded content and preview interfaces. The earlier component claim was too broad.
+The assessment separates content insertion from detecting edits and safely writing changes. No browser-extension model or persistent interface was selected.
+Recorded evidence and the delimiter experiment's separate proof obligations in specs/markdown-feasibility.md under issue #3.
+No product feature, third-party add-on installation, code upload, billing change, deployment, or publication occurred.
+Profile validation passed. This documentation and host-assessment task did not change application code or rerun its full test suite.

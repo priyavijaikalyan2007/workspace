@@ -74,5 +74,14 @@
             "NativeBuildTooling",
             "EmbeddedMarkdown"
         ]
+    },
+    {
+        "name": "MarkdownFeasibility",
+        "definition": "Dated review of Docs activation, supported embedded content, delimiter detection, and a native Docs baseline. Images with source metadata and smart chips are supported content mechanisms. Arbitrary text-edit activation remains unverified; no browser-extension model or persistent UI was selected.",
+        "anchor_file": "specs/markdown-feasibility.md",
+        "related": [
+            "EmbeddedMarkdown",
+            "LocalProductAdapter"
+        ]
     }
 ]

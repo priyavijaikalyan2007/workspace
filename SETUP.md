@@ -147,3 +147,10 @@ Native Chrome access recovered after the computer restart on 5 November 2026.
 The existing Untitled script was found and its ID verified. Its Cloud association still reads Default.
 Dev/prod pairing and automatic document behavior remain unverified. See [the recovery record](specs/google-project-setup.md).
 Browser-tab control still reports an unavailable access host. Native inspection works.
+
+
+## Automatic rendering decision
+
+The local adapter is ready, but the reviewed APIs do not establish a route that meets all current product constraints.
+[The feasibility assessment](specs/markdown-feasibility.md) records the trigger limits, billing prerequisite, and native Docs baseline.
+The next implementation depends on an interaction decision under issue #3. No Markdown prototype or host acceptance pass is claimed.

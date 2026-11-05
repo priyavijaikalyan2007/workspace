@@ -62,7 +62,9 @@ Do not transmit document content to public rendering services.
 
 ## Proposed integration boundary
 
-MarkdownRenderer is a browser UI component. It cannot become a live component inside the Google Docs document body.
+MarkdownRenderer is a browser UI component. No public API to host its arbitrary HTML/JavaScript runtime inside a Docs paragraph was identified.
+This does not mean that custom content cannot be embedded in Docs. Images with retained source and third-party smart chips are supported directions.
+See markdown-feasibility.md for the documented MathType, draw.io, smart-chip, and @-menu mechanisms.
 A document adapter must identify regions, preserve source, and update supported Docs text or image elements.
 For inline code, that adapter would apply native text formatting. Complex diagrams and math may require image conversion.
 HTML rendering is not a general HTML-to-Docs conversion API.
@@ -76,6 +78,10 @@ No document content should be sent to third-party rendering services.
 If the current add-on model cannot meet the intended document experience, present the measured limits before proposing a model change.
 
 ## Host constraints and verification
+
+The [feasibility assessment](markdown-feasibility.md) records the reviewed APIs and native Docs observations from 5 November 2026.
+No reviewed route establishes automatic detection under all current constraints. Embedded images, editable metadata, and smart chips remain supported content mechanisms.
+The native inline formatting observation does not establish a custom add-on event or verified source preservation.
 
 Google documents edit triggers for Sheets, not Docs. The selected add-on cannot rely on an onEdit text trigger.
 A required Render/Update action does not meet the confirmed requirement.
@@ -114,7 +120,8 @@ Do not execute source code or permit source-driven script execution or arbitrary
 
 ## Next bounded feasibility check
 
-The first proof must establish the document interaction before integrating complex renderers.
+The first add-on proof must establish the document interaction before integrating complex renderers.
+The user proposed delimiter-triggered checks. The assessment now separates input observation, nearby-source access, and safe formatting writes.
 Use a disposable test document for the host proof. Native browser inspection recovered on 5 November 2026.
 Do not create another Apps Script project before inspecting the earlier creation attempt under issue #11.
 
@@ -164,3 +171,12 @@ No product feature implementation or integrated renderer verification occurred d
 - [Outcrop component documentation](https://static.outcrop.us/docs/)
 - [Outcrop MarkdownRenderer source and README](https://github.com/priyavijaikalyan2007/b2btheme/tree/main/components/markdownrenderer)
 - [First extension readiness](first-extension-readiness.md)
+
+
+## User clarification: embedded content and delimiters
+
+The user proposed checking nearby text when a recognized delimiter is entered and challenged the earlier statement about custom components.
+The statement was too broad. Public vendor documentation confirms embedded diagrams and equations that can reopen for editing.
+Google also documents smart chips, preview cards, and @-menu resource forms.
+The remaining question is how our selected runtime detects arbitrary Docs text input and safely updates that content automatically.
+The user cannot share the prior-employer examples. Continue from public evidence without requesting private implementation material.

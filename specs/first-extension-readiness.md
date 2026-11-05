@@ -24,7 +24,7 @@ Independent local development can continue without Google credentials or browser
 | Milestone | Current state | Remaining work | Tracking |
 | --- | --- | --- | --- |
 | Shared local foundation | Verified | Maintain the selected native tools and existing quality gates. | #4 |
-| First local extension | Local adapter verified against synthetic source; no Markdown features implemented | Prove automatic document interaction, finalize acceptance criteria, and implement product source. | #3, #4 |
+| First local extension | Local adapter verified against synthetic source; no Markdown features implemented | Select an interaction route after the API assessment, prove automatic document behavior, and implement product source. | #3, #4 |
 | Test inside Google Docs | Not ready; native inspection recovered | Verify dev/prod script pairing, link Cloud configuration, and configure an acceptable remote client. Verify authorization and actual host behavior. | #11 |
 | Production release | Not ready | Verify Ubuntu CI, production adapters, billing, permissions, publication state, About, accessibility, contacts, and licensing. | #4, #5, #6, #8, #9, #11 |
 
@@ -34,7 +34,7 @@ The release safeguards remain mandatory before remote release operations.
 
 ## Next bounded implementation
 
-1. Assess automatic-rendering feasibility using the bounded host cases in markdown-extension.md.
+1. Select the next interaction route from markdown-feasibility.md after reviewing the documented constraints and native baseline.
 2. Record supported behavior, exclusions, permission needs, document-preservation rules, and observable acceptance criteria under issue #3.
 3. Use the verified local adapter contract in product-adapter.md when product source enters scope.
 4. Implement the selected first feature through failing tests after the host proof establishes a supported interaction.
@@ -56,7 +56,7 @@ Outcrop's MarkdownRenderer already documents most requested rendering capabiliti
 The user requires automatic rendering, editable source, and both MathML and TeX/LaTeX input.
 The current add-on model must pass an automatic-rendering feasibility check. A persistent sidebar is not accepted.
 Source preservation, block delimiters, first-release scope, and host acceptance criteria still need agreement.
-Local adapter work is complete for the bounded contract. Native browser inspection now works. Automatic document interaction still needs host evidence.
+Local adapter work is complete for the bounded contract. Native browser inspection now works. Automatic add-on interaction still needs host evidence. The API assessment requires an interaction decision before a prototype.
 
 ## Verification: 3 November 2026
 
@@ -84,3 +84,12 @@ The full fixture package passed 218 TypeScript tests, seven shell checks, and 21
 Tooling line coverage was 96.42%. Real synthetic-product checks verify isolated types and independent product coverage.
 [The adapter contract](product-adapter.md) records supported inputs, outputs, and limits.
 No product source, ready Markdown registry state, Google-host result, upload, deployment, or publication was introduced.
+
+
+## Feasibility assessment: 5 November 2026
+
+The reviewed APIs provide no established route that satisfies all current constraints.
+Docs has no text-edit trigger, add-on timers are hourly, and the newer Workspace Events subscription requires billing.
+A disposable Docs baseline showed native inline formatting but did not establish a custom callback or source recovery.
+The next review covers delimiter-triggered detection, supported embedded content, and possible open-window or browser-extension experiments.
+[The assessment](markdown-feasibility.md) records evidence, limits, and the proposed checks. No feature implementation was started.

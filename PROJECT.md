@@ -176,3 +176,12 @@ Native synthetic-product tests verify both runtime boundaries, paths containing 
 The source contract and remaining limits are in [specs/product-adapter.md](specs/product-adapter.md).
 Markdown remains planned. Incremental builds, Google-host behavior, Ubuntu execution, and production integration remain unverified.
 Native Chrome access recovered after the computer restart. The existing script was found, but it still uses the default Cloud project.
+
+
+## Automatic rendering assessment: 5 November 2026
+
+No reviewed route satisfies all selected interaction, runtime, and billing constraints.
+The assessment is recorded in [specs/markdown-feasibility.md](specs/markdown-feasibility.md) under issue #3.
+A private disposable Docs baseline showed native inline code formatting. It did not verify an add-on callback or retained source.
+The next review covers delimiter detection, supported embedded content, and possible open-window or browser-extension experiments.
+The Editor add-on selection and disabled billing remain unchanged. The browser-extension component remains disabled.
