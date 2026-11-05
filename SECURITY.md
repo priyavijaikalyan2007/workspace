@@ -1,58 +1,32 @@
-# Security Policy
+<!--
+SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan <priyavijai.kalyan2007@proton.me>
+SPDX-FileCopyrightText: 2026 Outcrop Inc
+SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan 2007, Outcrop Inc, WA, USA
+SPDX-License-Identifier: MIT
+Repository: workspace
+File GUID: 3d388115-72df-44d7-8254-9e6a65233f9f
+Created: 2026
+-->
 
-## Supported Versions
+<!-- AGENT: Project-owned document template. Complete visible TODOs before publication. -->
 
-| Version | Supported |
-|---------|-----------|
-| 1.0.x   | Yes       |
-| < 1.0   | No        |
+# Security policy for workspace
 
-## Reporting a Vulnerability
+## Supported versions
 
-**Do NOT open a public GitHub issue for security vulnerabilities.**
+[TODO: List supported releases or branches and the limits of security support.]
 
-Please report security concerns through [GitHub Security Advisories](https://github.com/priyavijaikalyan2007/instructions/security/advisories/new). This ensures the report remains private while we investigate and address the issue.
+## Private vulnerability reporting
 
-### What to Include
+[TODO: Configure a private reporting channel and place its verified address or link here.]
+[TODO: If using GitHub private vulnerability reporting, enable it before publishing its link.]
+Do not disclose vulnerabilities, secrets, or private customer content in a public issue.
 
-- **Description** — A clear, concise description of the vulnerability.
-- **Steps to Reproduce** — Detailed steps to trigger the issue, including any sample HTML or JavaScript.
-- **Impact Assessment** — What an attacker could achieve by exploiting this vulnerability.
-- **Affected Component** — Which component(s) are affected (e.g., HelpDrawer, CommentOverlay).
-- **Browser/Environment** — Browser name, version, and OS where the issue was observed.
-- **Suggested Fix** — If you have one, a proposed remediation approach.
+Include affected versions, reproduction steps, impact, and relevant environment details.
 
-### Response Timeline
+## Scope and response
 
-- **Acknowledgment** — We will acknowledge receipt of your report within 48-72 hours.
-- **Initial Assessment** — We will provide an initial severity assessment within one week.
-- **Resolution** — Critical vulnerabilities will be prioritized for the next patch release. We will coordinate with you on disclosure timing.
-
-## Scope
-
-This project is a **client-side UI theme and component library**. There is no server-side code, backend API, authentication system, or database. All components run entirely in the browser.
-
-Because of this architecture, the typical web security attack surface is limited. The primary security concern is:
-
-### Cross-Site Scripting (XSS)
-
-The main attack vector is XSS through improper use of `innerHTML`. This project mitigates that risk by:
-
-- Using `textContent` instead of `innerHTML` for all user-supplied content.
-- Using `createElement` and `setAttr` DOM helpers for building component markup programmatically.
-- Avoiding inline event handlers in generated HTML.
-
-If you find a component that uses `innerHTML` with unsanitized user input, that is a valid security report.
-
-### Out of Scope
-
-The following are generally **not** security vulnerabilities in the context of this project:
-
-- CSS-only styling issues (visual glitches, layout problems).
-- Behavior that requires the consuming application to pass attacker-controlled HTML to a component's API, unless the component's documentation indicates that input will be sanitized.
-- Vulnerabilities in third-party dependencies (report those to the upstream project directly, but do let us know so we can update).
-- Issues that require physical access to the user's machine.
-
-## Acknowledgments
-
-We appreciate the security research community's efforts in responsibly disclosing vulnerabilities. Contributors who report valid security issues will be credited in the release notes (unless they prefer to remain anonymous).
+[TODO: Describe the actual applications, services, extensions, and dependencies covered by this policy.]
+[TODO: State acknowledgment and response targets that the maintainers can meet.]
+[TODO: Explain disclosure coordination and reporter credit.]
+Do not infer security scope or response commitments from the instruction-library template.

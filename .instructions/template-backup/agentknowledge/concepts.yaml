@@ -1,0 +1,88 @@
+# SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan <priyavijai.kalyan2007@proton.me>
+# SPDX-FileCopyrightText: 2026 Outcrop Inc
+# SPDX-License-Identifier: MIT
+# Repository: instructions
+# File GUID: a009d679-962b-4a43-b562-9a175ef4fd87
+# Created: 2026
+
+# AGENT: Instruction configuration concepts and their implementation anchors.
+
+- name: "ProfileInterview"
+  definition: "Explains eight product categories and collects project facts, including extension hosts and optional SaaS relationships."
+  anchor_file: "scripts/profile_interview.py"
+  related: ["ProfileConfiguration"]
+
+- name: "ProfileConfiguration"
+  definition: "Validates Markdown scope, derives root guide links, and installs nested guides while preserving project-owned content."
+  anchor_file: "scripts/configure_instructions.py"
+  related: ["ProfileInterview"]
+
+- name: "ProjectInitialization"
+  definition: "Initializes copied repository identity and policies using known inherited hashes and preserved backups."
+  anchor_file: "scripts/project_initialization.py"
+  related: ["ProfileConfiguration", "LicenseSelection"]
+
+- name: "LicenseSelection"
+  definition: "Collects exact software and content license choices and installs verified bundled legal texts."
+  anchor_file: "scripts/license_selection.py"
+  related: ["ProjectInitialization"]
+
+- name: "WorkspaceProfile"
+  definition: "Explains and validates Workspace hosts, add-on models, runtimes, and distribution choices."
+  anchor_file: "scripts/workspace_profile.py"
+  related: ["ProfileInterview", "ProfileConfiguration"]
+
+- name: "BrowserProfile"
+  definition: "Collects supported browser/OS pairs, extension delivery, language presets, and build/release guidance."
+  anchor_file: "scripts/browser_profile.py"
+  related: ["ProfileInterview", "ProfileConfiguration"]
+
+- name: "SourceFolders"
+  definition: "Preflights explicit enabled source-directory creation and warns about overlapping extension scope."
+  anchor_file: "scripts/source_folders.py"
+  related: ["ProfileConfiguration", "ProjectInitialization"]
+
+- name: "TerminalPresentation"
+  definition: "Styles line-oriented interview roles while retaining plain-text and unattended operation."
+  anchor_file: "scripts/terminal_ui.py"
+  related: ["ProfileInterview", "ProjectInitialization", "LicenseSelection"]
+
+- name: "ProjectLayout"
+  definition: "Migrates project context and public documents to the root while preserving history, permissions, and custom paths."
+  anchor_file: "scripts/project_layout.py"
+  related: ["ProfileConfiguration", "ProjectInitialization"]
+
+- name: "AgentRoles"
+  definition: "Records multiple project roles per host tool and installs neutral, documented entry pointers."
+  anchor_file: "scripts/agent_roles.py"
+  related: ["ProfileConfiguration", "ProfileInterview"]
+
+- name: "ProjectScaffolding"
+  definition: "Creates missing operation placeholders and project completion steps without claiming application readiness."
+  anchor_file: "scripts/project_scaffolding.py"
+  related: ["ProjectInitialization", "ProjectContext"]
+
+- name: "ProjectContext"
+  definition: "Captures optional business facts and corrects invalid input without discarding accepted answers."
+  anchor_file: "scripts/project_context.py"
+  related: ["ProjectInitialization"]
+
+- name: "CursesInterview"
+  definition: "Presents forms, choice lists, scrollable help, review, and cancellation with a plain automation fallback."
+  anchor_file: "scripts/curses_interview.py"
+  related: ["TerminalPresentation", "ProfileInterview"]
+
+- name: "SetupReview"
+  definition: "Summarizes selected scope and file changes while preserving optional exact diff inspection."
+  anchor_file: "scripts/setup_review.py"
+  related: ["CursesInterview", "ProfileConfiguration"]
+
+- name: "InterviewHistory"
+  definition: "Preserves UI question snapshots and drafts while invalidating stale accepted answers after earlier edits."
+  anchor_file: "scripts/interview_history.py"
+  related: ["CursesInterview", "ProfileInterview"]
+
+- name: "ProfileChoices"
+  definition: "Selects supported platforms and contextual source languages while retaining existing unlisted facts explicitly."
+  anchor_file: "scripts/profile_choices.py"
+  related: ["ProfileInterview", "WorkspaceProfile", "BrowserProfile", "CursesInterview"]

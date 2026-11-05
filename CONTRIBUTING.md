@@ -1,45 +1,36 @@
-# Contributing to Enterprise Bootstrap Theme
+<!--
+SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan <priyavijai.kalyan2007@proton.me>
+SPDX-FileCopyrightText: 2026 Outcrop Inc
+SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan 2007, Outcrop Inc, WA, USA
+SPDX-License-Identifier: MIT
+Repository: workspace
+File GUID: 2fc0bb55-353a-49c0-92d3-6750e05c92c6
+Created: 2026
+-->
 
-Thank you for your interest in contributing to the coding agent instructions repository. We appreciate your time and effort in helping improve this project.
+<!-- AGENT: Project-owned document template. Complete visible TODOs before publication. -->
 
-## About This Project's Development Model
+# Contributing to workspace
 
-This project serves a single purpose - A showcase of extensive instructions to guide coding agents in building and maintaining a large-scale, production-grade codebase with consistent architecture, coding style, and documentation.
+## Contribution model
 
-Contributions are welcome and valued in the forms described below.
+[TODO: State whether external contributions are accepted and who reviews them.]
+[TODO: Describe issue triage, design discussion, pull requests, and required checks.]
 
-## How to Contribute
+## Development setup
 
-### Adding New Instructions
+Read [project facts](<PROJECT.md>) for verified commands.
+[TODO: Explain how contributors build and test the relevant project components.]
 
-If you would like to contribute additional instructions to this repository, please send a pull request. Importantly, make sure that your instructions are per-topic and that AGENTS.md references them as appropriate. Use the same model that AGENTS.md currently follows.
+## Reporting bugs
 
-### Reporting Bugs
+Repository: https://github.com/priyavijaikalyan2007/workspace
+[TODO: Confirm that issues are enabled and add the correct reporting link.]
+Include the observed behavior, expected behavior, affected version, and reproduction steps.
+Exclude credentials and private customer content.
+Report vulnerabilities through [the security policy](SECURITY.md).
 
-If you find a bug, please open a [GitHub issue](https://github.com/priyavijaikalyan2007/instructions/issues/new) with the following information:
+## Conduct and licensing
 
-- **Description** — A clear, concise description of the bug.
-- **Screenshots** — If applicable, add screenshots to help illustrate the problem.
-
-Well-written bug reports help us identify and fix issues quickly.
-
-### Suggesting Improvements
-
-For general ideas, design discussions, or questions about the project's direction, please use [GitHub Discussions](https://github.com/priyavijaikalyan2007/instructions/discussions). This is the right place for:
-
-- Suggestions or feedback
-- Questions about instruction and agent behaviors
-- Ideas for new instructions
-- Discussion about coding patterns or best practices
-
-## Code of Conduct
-
-This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you agree to uphold this code. Please report unacceptable behavior as described in the Code of Conduct.
-
-## License
-
-By participating in this project (filing issues, feature requests, or discussions), you agree that any contributions of ideas or suggestions may be used under the project's [MIT License](LICENSE).
-
----
-
-Thank you for helping make this instruction repository better. Every bug report, pull request, and suggestion makes a difference.
+Read [the code of conduct](CODE_OF_CONDUCT.md) and [the project license](<LICENSE>).
+[TODO: State contribution terms and any required contributor agreement.]

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "project": {
+    "name": "workspace",
+    "owner": "Priya Vijai Kalyan 2007, Outcrop Inc, WA, USA",
+    "year": "2026",
+    "repository_url": "https://github.com/priyavijaikalyan2007/workspace",
+    "description": "Useful extensions for Google Workspace.",
+    "business_context": {
+      "users": "Everyone who uses Google Workspace such as GMail, Google Docs, Sheets etc.",
+      "problem": "Extensions to full gaps such as markdown support in Google Workspace.",
+      "value": "Productivity gains.",
+      "scope": "",
+      "success_criteria": "",
+      "constraints": ""
+    },
+    "license": {
+      "software": [
+        "GPL-3.0-or-later"
+      ],
+      "content": null,
+      "content_paths": [],
+      "custom_terms": ""
+    }
+  }
+}

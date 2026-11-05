@@ -1,43 +1,26 @@
-# Code of Conduct
+<!--
+SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan <priyavijai.kalyan2007@proton.me>
+SPDX-FileCopyrightText: 2026 Outcrop Inc
+SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan 2007, Outcrop Inc, WA, USA
+SPDX-License-Identifier: MIT
+Repository: workspace
+File GUID: ee478981-75db-46a9-8b42-fb6418389499
+Created: 2026
+-->
 
-## Our Pledge
+<!-- AGENT: Project-owned document template. Complete visible TODOs before publication. -->
 
-We as members, contributors, and leaders pledge to make participation in our
-community a harassment-free experience for everyone, regardless of age, body
-size, visible or invisible disability, ethnicity, sex characteristics, gender
-identity and expression, level of experience, education, socio-economic status,
-nationality, personal appearance, race, caste, colour, religion, or sexual
-identity and orientation.
+# Code of conduct for workspace
 
-We pledge to act and interact in ways that contribute to an open, welcoming,
-diverse, inclusive, and healthy community.
+## Policy decision
 
-## Our Standards
+[TODO: Select the project's conduct policy and record its version and attribution.]
+[TODO: State the community spaces and activities covered by that policy.]
 
-Examples of behaviour that contributes to a positive environment:
+## Reporting and enforcement
 
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards other community members
+Owner: Priya Vijai Kalyan 2007, Outcrop Inc, WA, USA
+Contact: admin@outcrop.us.
+Security Contact: admin+security@outcrop.us
 
-Examples of unacceptable behaviour:
-
-- Trolling, insulting or derogatory comments, and personal attacks
-- Public or private harassment
-- Publishing others' private information without explicit permission
-- Other conduct which could reasonably be considered inappropriate in a
-  professional setting
-
-## Enforcement
-
-Instances of unacceptable behaviour may be reported by opening an issue or
-contacting the project maintainers. All complaints will be reviewed and
-investigated and will result in a response that is deemed necessary and
-appropriate to the circumstances.
-
-## Attribution
-
-This Code of Conduct is adapted from the
-[Contributor Covenant](https://www.contributor-covenant.org/), version 2.1.
+All security disclosures are handled privately.
