@@ -287,3 +287,15 @@ The assessment separates content insertion from detecting edits and safely writi
 Recorded evidence and the delimiter experiment's separate proof obligations in specs/markdown-feasibility.md under issue #3.
 No product feature, third-party add-on installation, code upload, billing change, deployment, or publication occurred.
 Profile validation passed. This documentation and host-assessment task did not change application code or rerun its full test suite.
+
+
+## Advisor report review: 5 November 2026
+
+The user supplied an advisor report about smart chips, edit triggers, polling, public examples, and publication.
+Verified the main Docs trigger limit and corrected the add-on timer interval, smart-chip authentication/domain rules, and mandatory-service-account claim.
+Recorded that polling latency is unmeasured, current-document scopes are available, and OAuth review timing depends on scope category.
+Confirmed bFormatReport through OpenDevEd's own documentation. The cited Jim-Chiew repository was not retrievable through the web tool.
+The report does not establish that all shipping formatters are manual or justify replacing the user's automatic-rendering requirement.
+Google's current Marketplace OAuth guide also lists enabled billing as a prerequisite. Its applicability needs verification under issue #11.
+Updated the assessment and Google setup records. No code, runtime selection, scope, billing, installation, upload, or release changed.
+Profile and whitespace checks passed. Application tests were not rerun for this documentation-only review.

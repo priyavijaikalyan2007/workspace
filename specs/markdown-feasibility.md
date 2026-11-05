@@ -128,6 +128,41 @@ The full host acceptance cases remain in [markdown-extension.md](markdown-extens
 The [local product adapter](product-adapter.md) is ready for implemented source after an interaction route is selected.
 No pattern required - this task assesses contracts and records observations. It introduces no implementation interface.
 
+## Advisor review: 5 November 2026
+
+The supplied advisor report correctly identifies the absent Docs text-edit trigger and the chip/hover-card model.
+Its implementation and release details need these qualifications:
+
+- Ordinary Apps Script timers can run each minute, but Editor add-on timers run at most hourly.
+- Smart chips are not the only embedded content mechanism. Native text and source-bearing images remain supported directions.
+- Previewed resources can require service authentication. Public readability is not a general smart-chip requirement.
+- Marketplace review requires the developer to be affiliated with the previewed domain. Arbitrary public URLs are not a sufficient integration contract.
+- Backend calls can use an end user's OAuth authorization. A separate service-account editor identity is not mandatory.
+- The proposed one-to-three-second polling delay is an estimate. No end-to-end latency or quota budget was measured.
+- Parsing plain strings is acceptable if the parser retains a correct mapping to Docs elements and offsets.
+- findText matches text blocks independently. Fenced blocks and mixed structures need explicit source/range mapping.
+- Formatting methods can accept documents.currentonly. Do not assume that every formatter needs the broader documents scope.
+- OAuth verification depends on selected scope categories. It is separate from Marketplace review.
+
+Google's OAuth FAQ estimates ten business days for sensitive-scope verification and six weeks for restricted-scope verification.
+These are estimates, not guarantees. The advisor's two-to-six-week range is not a fixed publication promise.
+OpenDevEd's own bFormatReport page confirms document-formatting functions and links its source repositories.
+The cited Jim-Chiew repository could not be retrieved through the available web tool. Its implementation was not verified.
+No formatter was installed, and no vendor code was copied or executed.
+
+The report's claim that every shipping formatter uses explicit invocation was not established.
+The absence of a Docs edit trigger blocks that callback approach. It does not prove that all automatic operation is impossible.
+Automatic rendering remains a requirement. Manual invocation is an optional fallback, not an accepted replacement product.
+
+## Publication prerequisite needing verification
+
+Google's current Marketplace Configure OAuth guide lists enabled Cloud billing among its prerequisites.
+This creates a separate question for the selected public-distribution route, beyond Workspace Events delivery.
+The repository explicitly requires billing to remain disabled. No exception or billing change is authorized by this documentation.
+Verify the requirement's applicability to our Apps Script Editor add-on before publication work under issue #11.
+Do not claim that public publication with billing disabled is established.
+This release question does not prevent local source or host-feasibility work.
+
 ## Sources reviewed
 
 All sources below were reviewed on 5 November 2026.
@@ -147,3 +182,10 @@ All sources below were reviewed on 5 November 2026.
 - [Draw.io insertion and updates in Google Docs](https://www.drawio.com/docs/integrations/google/google-docs-diagrams/)
 - [Chrome content script capabilities and event listeners](https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts)
 - [Native Markdown help](https://support.google.com/docs/answer/12014036?hl=en-GB)
+
+- [Marketplace OAuth setup and billing prerequisite](https://developers.google.com/workspace/marketplace/configure-oauth-consent-screen)
+- [Marketplace review and preview-domain affiliation](https://developers.google.com/workspace/marketplace/about-app-review)
+- [OAuth verification estimates](https://support.google.com/cloud/answer/13463817?hl=en)
+- [Text ranges, matching boundaries, formatting, and current-document scopes](https://developers.google.com/apps-script/reference/document/text)
+- [User and service authentication](https://developers.google.com/workspace/guides/auth-overview)
+- [OpenDevEd bFormatReport](https://www.opendeved.net/our-tools/bformat-docs)

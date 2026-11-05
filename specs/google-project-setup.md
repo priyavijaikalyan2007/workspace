@@ -137,3 +137,11 @@ The local product adapter is implemented in commit b8dc0f2. Incremental builds a
 The user selected the saved GitHub account priyavijaikalyan2007 for workspace tracking.
 Issues #4 and #11 are members of the configured workspace Project and remain In Progress.
 The temporary tracking session restores the previous active GitHub account afterward.
+
+
+## Publication billing prerequisite: 5 November 2026
+
+The current [Marketplace OAuth guide](https://developers.google.com/workspace/marketplace/configure-oauth-consent-screen) lists enabled Cloud billing as a prerequisite.
+Verify whether that prerequisite applies to this Apps Script Editor add-on publication route under issue #11.
+The repository's billing-disabled requirement remains authoritative. No billing account, service, scope, or execution identity was changed.
+Public publication under the unbilled constraint is not established. Local work and host feasibility remain separate from this release gate.
