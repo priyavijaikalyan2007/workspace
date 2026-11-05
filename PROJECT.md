@@ -44,6 +44,7 @@ Track tasks, bugs, technical debt, and follow-up work in [GitHub Issues](https:/
 Use the private [workspace Project](https://github.com/users/priyavijaikalyan2007/projects/1) to organize those issues.
 [Issue #1](https://github.com/priyavijaikalyan2007/workspace/issues/1) tracks the setup interview and links the remaining setup work.
 Keep local status and handoff records linked to these tracking items, as ADDITIONAL.md requires.
+The user selected the saved GitHub account priyavijaikalyan2007 for workspace tracking on 5 November 2026.
 
 ## Selected development tools
 
@@ -174,4 +175,4 @@ The full fixture package passed 218 TypeScript tests, seven shell checks, and 21
 Native synthetic-product tests verify both runtime boundaries, paths containing spaces, and rejection of insufficient product coverage.
 The source contract and remaining limits are in [specs/product-adapter.md](specs/product-adapter.md).
 Markdown remains planned. Incremental builds, Google-host behavior, Ubuntu execution, and production integration remain unverified.
-The user reported a computer restart. Browser access still requires verification before host work resumes.
+Native Chrome access recovered after the computer restart. The existing script was found, but it still uses the default Cloud project.

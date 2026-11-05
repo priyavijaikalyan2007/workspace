@@ -16,7 +16,7 @@ Product-feature implementation still requires supported automatic document inter
 The planned Markdown component has no product implementation. Fixture packaging does not establish a working add-on.
 
 The user deferred the cmux restart and browser setup on 3 November 2026.
-The user reported a computer restart on 5 November 2026. Verify browser access before the host proof resumes.
+Native Chrome access recovered on 5 November 2026. The existing script remains linked to the default Cloud project.
 Independent local development can continue without Google credentials or browser control.
 
 ## Milestones
@@ -25,7 +25,7 @@ Independent local development can continue without Google credentials or browser
 | --- | --- | --- | --- |
 | Shared local foundation | Verified | Maintain the selected native tools and existing quality gates. | #4 |
 | First local extension | Local adapter verified against synthetic source; no Markdown features implemented | Prove automatic document interaction, finalize acceptance criteria, and implement product source. | #3, #4 |
-| Test inside Google Docs | Not ready; browser access needs verification | Inspect the existing creation attempt, record script IDs, link dev Cloud configuration, and configure an acceptable remote client. Verify authorization and actual host behavior. | #11 |
+| Test inside Google Docs | Not ready; native inspection recovered | Verify dev/prod script pairing, link Cloud configuration, and configure an acceptable remote client. Verify authorization and actual host behavior. | #11 |
 | Production release | Not ready | Verify Ubuntu CI, production adapters, billing, permissions, publication state, About, accessibility, contacts, and licensing. | #4, #5, #6, #8, #9, #11 |
 
 The development and production gates remain distinct.
@@ -56,7 +56,7 @@ Outcrop's MarkdownRenderer already documents most requested rendering capabiliti
 The user requires automatic rendering, editable source, and both MathML and TeX/LaTeX input.
 The current add-on model must pass an automatic-rendering feasibility check. A persistent sidebar is not accepted.
 Source preservation, block delimiters, first-release scope, and host acceptance criteria still need agreement.
-Local adapter work is complete for the bounded contract. The host proof still needs verified browser access.
+Local adapter work is complete for the bounded contract. Native browser inspection now works. Automatic document interaction still needs host evidence.
 
 ## Verification: 3 November 2026
 

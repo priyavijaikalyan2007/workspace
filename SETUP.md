@@ -143,4 +143,7 @@ Tooling line coverage was 96.42%. Real native tests passed for synthetic server-
 An untested synthetic source file failed the separate product coverage gate as expected.
 Incremental product build watching, hosted Ubuntu execution, product UI, and release integration remain pending.
 
-The user reported a computer restart on 5 November 2026. Browser access must be checked before the host proof resumes.
+Native Chrome access recovered after the computer restart on 5 November 2026.
+The existing Untitled script was found and its ID verified. Its Cloud association still reads Default.
+Dev/prod pairing and automatic document behavior remain unverified. See [the recovery record](specs/google-project-setup.md).
+Browser-tab control still reports an unavailable access host. Native inspection works.

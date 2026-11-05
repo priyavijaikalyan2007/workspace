@@ -24,7 +24,7 @@ Google tooling is isolated from local validation and requires no application bac
 - google-target.ts: GoogleTarget and loadGoogleTarget(root, extension, environment), validating registered names, IDs, and dev/prod separation.
 - billing.ts: BillingState, requireUnbilled(value, projectId), and checkBilling(target, account), using live Google Cloud CLI output.
 - args.ts, runner.ts, preflight.sh: an explicit read-only billing preflight with required extension and environment selections.
-- workspace.config.json: public Cloud project IDs and numbers. Keep script IDs null until actual script projects exist.
+- workspace.config.json: public Cloud project IDs and numbers. Keep environment script IDs null until each dev/prod association is verified.
 - Billing tests: disabled/unlinked, enabled, closed-but-linked, missing fields, mismatched identity, timeout/permission failures, and separated environments.
 - SETUP.md, PROJECT.md, specs/, CONVERSATION.md, agentknowledge/, CHANGELOG.md: verified state and remaining work.
 
@@ -114,3 +114,26 @@ The user completed permission setup but deferred quitting and restarting cmux fo
 Do not restart cmux or attempt further browser work until the user is ready.
 Continue independent local repository work. Script identities and linking remain unverified.
 When browser control resumes, inspect the existing creation attempt before creating any new project.
+
+
+## Native browser recovery: 5 November 2026
+
+The user reported that the computer restarted. Native Chrome access now reaches the publisher testing profile and Apps Script.
+The browser-tab inventory still reports that its access host is unavailable. Native inspection works despite that separate control failure.
+The active profile is Priyavijai Kalyan (Knobby.IO Testing), and the page confirms the publisher account.
+
+My Projects shows one Untitled project, owned by the publisher and last modified on 2 November 2026.
+The editor contains only the default myFunction template. No new project was created.
+Project Settings confirms script ID `1_s0nZjJ-FrV9QKTsY5YwFqXcmcIeAYZlrZWZYvc7jz0lZBZlSUKPRjOi`.
+The project is available at https://script.google.com/home/projects/1_s0nZjJ-FrV9QKTsY5YwFqXcmcIeAYZlrZWZYvc7jz0lZBZlSUKPRjOi/settings.
+Its Cloud association still reads Default. The existing script has not been verified against either configured standard Cloud target.
+The dev/prod script IDs therefore remain null in workspace.config.json.
+
+No code was changed, uploaded, or executed. No Cloud link, billing setting, authorization grant, deployment, or publication changed.
+Before linking the development target, perform the required fresh billing check and verify the intended script and Cloud identities.
+The automatic document-interaction proof remains unverified under issue #3.
+The local product adapter is implemented in commit b8dc0f2. Incremental builds and remote adapters remain separate work.
+
+The user selected the saved GitHub account priyavijaikalyan2007 for workspace tracking.
+Issues #4 and #11 are members of the configured workspace Project and remain In Progress.
+The temporary tracking session restores the previous active GitHub account afterward.

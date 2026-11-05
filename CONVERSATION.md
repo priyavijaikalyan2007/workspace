@@ -1213,3 +1213,15 @@ Packaged runtime hashes and callable identity matched. Markdown stays planned un
 Existing repository cleanup and licensing changes were preserved outside this task.
 No push, Google upload, deployment, publication, or hosted Ubuntu result occurred.
 The user reported a computer restart. Browser access must be verified before the host proof resumes.
+
+
+## Native browser recovery and tracking: 5 November 2026
+
+The user selected priyavijaikalyan2007 for workspace tracking after reporting a computer restart.
+Native Chrome reached the publisher testing profile and found the single Untitled project from 2 November.
+Verified the script ID and default Cloud association in Project Settings. No duplicate project was created.
+The editor still contains only the default function template. No code was changed, uploaded, or executed.
+Browser-tab control reports an unavailable access host, but native inspection works.
+Updated issues #4 and #11 through the selected account and verified their workspace Project membership and In Progress status.
+Restored the previous active GitHub account. The automatic document-interaction proof and dev/prod Cloud pairing remain incomplete.
+Local adapter commit b8dc0f2 remains unpushed. No Cloud, billing, authorization, deployment, or publication setting changed.

@@ -115,7 +115,7 @@ Do not execute source code or permit source-driven script execution or arbitrary
 ## Next bounded feasibility check
 
 The first proof must establish the document interaction before integrating complex renderers.
-Use a disposable test document when browser work resumes. Keep current browser deferral in force.
+Use a disposable test document for the host proof. Native browser inspection recovered on 5 November 2026.
 Do not create another Apps Script project before inspecting the earlier creation attempt under issue #11.
 
 The documented Editor add-on triggers provide no Docs text-edit event.
@@ -142,14 +142,14 @@ Successful local mocks cannot establish any of these host results.
 
 If no supported approach meets the required interaction, report that finding before implementing diagrams or changing the selected platform.
 The local build/test adapter is implemented under issue #4. Actual source must follow [its contract](product-adapter.md).
-Independent local preparation can continue, but actual host feasibility remains unverified until browser access resumes.
+Native browser inspection now works. Actual host feasibility remains unverified.
 
 ## Implementation and tracking
 
 Product scope and acceptance decisions belong to [issue #3](https://github.com/priyavijaikalyan2007/workspace/issues/3).
 The local product adapter is implemented under [issue #4](https://github.com/priyavijaikalyan2007/workspace/issues/4). Markdown source remains planned.
 Google-host checks remain under [issue #11](https://github.com/priyavijaikalyan2007/workspace/issues/11).
-Browser work was deferred. The user reported a computer restart on 5 November 2026. Verify browser access before host work resumes.
+Native browser inspection recovered after the computer restart on 5 November 2026. The automatic host proof remains unverified.
 No product feature implementation or integrated renderer verification occurred during this requirements pass.
 
 ## References
